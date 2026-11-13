@@ -29,7 +29,7 @@
       background-color: #060911;
       background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
                         linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+      background-size: 36px 36px;
     }
     .section-alt {
       background-color: #0d1322;
@@ -41,22 +41,32 @@
       border: 1px solid #26334d;
       transition: all 0.2s ease;
     }
-    .card-box:hover {
-      border-color: #f97316;
-      transform: translateY(-2px);
+    @media (min-width: 768px) {
+      .card-box:hover {
+        border-color: #f97316;
+        transform: translateY(-2px);
+      }
+    }
+    /* Sakrij scrollbar na horizontalnom swipe-u na mobitelu */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
-<body class="antialiased selection:bg-orange-500 selection:text-white">
+<body class="antialiased selection:bg-orange-500 selection:text-white pb-16 md:pb-0">
 
   <!-- NAVIGACIJA -->
   <header class="fixed top-0 inset-x-0 z-50 bg-[#060911]/95 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-lg bg-orange-500 flex items-center justify-center font-mono font-bold text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 md:h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-orange-500 flex items-center justify-center font-mono font-bold text-white text-sm">
           CF
         </div>
-        <span class="font-extrabold tracking-tight text-white text-lg">CoreFlow <span class="text-orange-500">Lab</span></span>
+        <span class="font-extrabold tracking-tight text-white text-base md:text-lg">CoreFlow <span class="text-orange-500">Lab</span></span>
       </a>
 
       <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-300">
@@ -65,576 +75,571 @@
           <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Primjer: AutoKarton
         </a>
         <a href="#vodic" class="hover:text-white transition">Brzi Vodič</a>
-        <a href="#projekti" class="hover:text-white transition">Dosadašnji radovi</a>
+        <a href="#projekti" class="hover:text-white transition">Radovi</a>
         <a href="#kontakt" class="px-4 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-bold transition">
           Opiši šta ti treba
         </a>
       </nav>
 
-      <a href="#kontakt" class="md:hidden px-3.5 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-bold">
-        Kontakt
-      </a>
+      <!-- Brzi meni na mobitelu -->
+      <div class="flex md:hidden items-center gap-2">
+        <a href="#projekti" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-bold">Radovi</a>
+        <a href="#kontakt" class="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-bold">Upit</a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SEKCIJA -->
-  <section class="pt-32 pb-20 lg:pt-36 lg:pb-24 hero-pattern">
+  <!-- HERO SEKCIJA (Kompaktna na mobitelu) -->
+  <section class="pt-24 pb-12 md:pt-36 md:pb-24 hero-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-xs font-mono text-orange-400 font-bold mb-6">
-        WEB TEMPLATE RJEŠENJA • PORTFOLIO SAJTOVI • ANDROID .APK APLIKACIJE
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-[11px] md:text-xs font-mono text-orange-400 font-bold mb-4 md:mb-6">
+        WEB TEMPLATE • PORTFOLIO • ANDROID .APK
       </div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.12]">
-        Praktični <span class="text-orange-500">web sajtovi</span> i gotove <span class="text-orange-500">.APK aplikacije</span> po mjeri.
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
+        Praktični <span class="text-orange-500">web sajtovi</span> i gotove <span class="text-orange-500">.APK aplikacije</span>.
       </h1>
 
-      <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        Razvijamo gotova funkcionalna rješenja, template sisteme i Android aplikacije. Dobijaš gotov kod ili instalacijski fajl spreman za rad na tvojoj infrastrukturi.
+      <p class="mt-4 md:mt-6 text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Razvijamo gotova funkcionalna rješenja, template sisteme i Android aplikacije spremne za rad na tvojoj infrastrukturi.
       </p>
 
-      <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#kontakt" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-base transition shadow-lg shadow-orange-500/25">
+      <div class="mt-6 md:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#kontakt" class="w-full sm:w-auto px-6 py-3 md:py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm md:text-base transition shadow-lg shadow-orange-500/25">
           Napiši šta te zanima
         </a>
-        <a href="#projekti" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold text-base transition">
-          Pogledaj dosadašnje radove
+        <a href="#projekti" class="w-full sm:w-auto px-6 py-3 md:py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold text-sm md:text-base transition">
+          Pogledaj radove (12)
         </a>
       </div>
 
       <!-- BROJKE / KLJUČNE PREDNOSTI -->
-      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-        <div class="card-box rounded-xl p-4">
-          <div class="text-xl sm:text-2xl font-black text-orange-400 font-mono">Android .APK</div>
-          <div class="text-xs text-slate-400 mt-1 font-medium">Direktna instalacija fajla</div>
+      <div class="mt-8 md:mt-14 grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 max-w-4xl mx-auto">
+        <div class="card-box rounded-xl p-3 md:p-4">
+          <div class="text-base sm:text-2xl font-black text-orange-400 font-mono">Android .APK</div>
+          <div class="text-[11px] md:text-xs text-slate-400 mt-0.5">Direktna instalacija</div>
         </div>
-        <div class="card-box rounded-xl p-4">
-          <div class="text-xl sm:text-2xl font-black text-white font-mono">Gotov Template</div>
-          <div class="text-xs text-slate-400 mt-1 font-medium">Kompletan kod sistema</div>
+        <div class="card-box rounded-xl p-3 md:p-4">
+          <div class="text-base sm:text-2xl font-black text-white font-mono">Gotov Template</div>
+          <div class="text-[11px] md:text-xs text-slate-400 mt-0.5">Kompletan kod</div>
         </div>
-        <div class="card-box rounded-xl p-4">
-          <div class="text-xl sm:text-2xl font-black text-sky-400 font-mono">Tvoja Domena</div>
-          <div class="text-xs text-slate-400 mt-1 font-medium">Samostalno osiguravaš domenu</div>
+        <div class="card-box rounded-xl p-3 md:p-4">
+          <div class="text-base sm:text-2xl font-black text-sky-400 font-mono">Tvoja Domena</div>
+          <div class="text-[11px] md:text-xs text-slate-400 mt-0.5">Samostalna registracija</div>
         </div>
-        <div class="card-box rounded-xl p-4">
-          <div class="text-xl sm:text-2xl font-black text-emerald-400 font-mono">Bez Pretplate</div>
-          <div class="text-xs text-slate-400 mt-1 font-medium">Jednokratna izrada bez ugovora</div>
+        <div class="card-box rounded-xl p-3 md:p-4">
+          <div class="text-base sm:text-2xl font-black text-emerald-400 font-mono">Bez Pretplate</div>
+          <div class="text-[11px] md:text-xs text-slate-400 mt-0.5">Jednokratna izrada</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEKCIJA 1: ŠTA RADIMO I MODEL SARADNJE -->
-  <section id="usluge" class="py-20 section-alt">
+  <!-- SEKCIJA 1: MODEL SARADNJE -->
+  <section id="usluge" class="py-12 md:py-20 section-alt">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-2">
-        <span class="px-2.5 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">01</span>
-        <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Usluge & Model Saradnje</span>
+      <div class="flex items-center gap-2.5 mb-1.5">
+        <span class="px-2 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">01</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Model Saradnje</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Jasna pravila i isporuka</h2>
-      <p class="text-slate-300 mt-2 max-w-2xl">Radimo po principu gotovih rješenja i šablona (template-a) koje prilagođavamo tvojim potrebama.</p>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Jasna pravila i isporuka</h2>
 
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="card-box rounded-2xl p-6 border-t-4 border-t-purple-500">
-          <div class="text-xs font-mono font-bold text-purple-400 uppercase mb-2">Web Sajtovi & Template Sistemi</div>
-          <h3 class="text-xl font-bold text-white">Prezentacije, portfoliji i web alati</h3>
-          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-            Izrađujemo moderne web sajtove, portfolije i web evidencije u vidu gotovog template rješenja spremnog za postavljanje.
+      <div class="mt-6 md:mt-10 grid md:grid-cols-3 gap-4 md:gap-6">
+        <div class="card-box rounded-xl md:rounded-2xl p-4 md:p-6 border-l-4 md:border-l-0 md:border-t-4 border-purple-500">
+          <div class="text-[11px] font-mono font-bold text-purple-400 uppercase mb-1">Web Sajtovi & Template</div>
+          <h3 class="text-base md:text-xl font-bold text-white">Prezentacije i web alati</h3>
+          <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
+            Izrađujemo moderne web sajtove i evidencije u vidu gotovog template rješenja spremnog za postavljanje.
           </p>
         </div>
 
-        <div class="card-box rounded-2xl p-6 border-t-4 border-t-orange-500">
-          <div class="text-xs font-mono font-bold text-orange-400 uppercase mb-2">Mobilne Aplikacije</div>
-          <h3 class="text-xl font-bold text-white">Isporuka isključivo kao Android .APK</h3>
-          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-            Mobilne aplikacije za teren i radionice isporučujemo kao gotov <span class="text-white font-mono font-bold">.apk</span> instalacijski fajl koji direktno instalirate na uređaje.
+        <div class="card-box rounded-xl md:rounded-2xl p-4 md:p-6 border-l-4 md:border-l-0 md:border-t-4 border-orange-500">
+          <div class="text-[11px] font-mono font-bold text-orange-400 uppercase mb-1">Mobilne Aplikacije</div>
+          <h3 class="text-base md:text-xl font-bold text-white">Isporuka kao Android .APK</h3>
+          <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
+            Mobilne aplikacije za teren i radionice isporučujemo kao gotov <span class="text-white font-mono font-bold">.apk</span> fajl koji direktno instalirate na uređaje.
           </p>
         </div>
 
-        <div class="card-box rounded-2xl p-6 border-t-4 border-t-sky-500">
-          <div class="text-xs font-mono font-bold text-sky-400 uppercase mb-2">Infrastruktura</div>
-          <h3 class="text-xl font-bold text-white">Domenu i hosting osiguravate sami</h3>
-          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-            Za sve web projekte, ukoliko vam je potrebna domena i hosting, dužni ste ih sami pronaći i registrovati na svoje ime.
+        <div class="card-box rounded-xl md:rounded-2xl p-4 md:p-6 border-l-4 md:border-l-0 md:border-t-4 border-sky-500">
+          <div class="text-[11px] font-mono font-bold text-sky-400 uppercase mb-1">Infrastruktura</div>
+          <h3 class="text-base md:text-xl font-bold text-white">Domenu osiguravate sami</h3>
+          <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
+            Za sve web projekte, ukoliko vam je potrebna domena i hosting, dužni ste ih sami pronaći i registrovati.
           </p>
         </div>
       </div>
 
-      <!-- PROFESIONALNI SAŽETAK ODGOVORNOSTI -->
-      <div class="mt-8 rounded-2xl bg-[#090e1a] border border-slate-700 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <!-- SAŽETAK ODGOVORNOSTI -->
+      <div class="mt-5 md:mt-8 rounded-xl md:rounded-2xl bg-[#090e1a] border border-slate-700 p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div class="space-y-1">
-          <div class="text-xs font-mono text-orange-400 font-bold uppercase">Jasna pravila saradnje i isporuke</div>
-          <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
-            Mi isporučujemo isključivo gotov kod (template) ili Android <span class="text-white font-mono">.apk</span> fajl. Ukoliko vam je potrebna domena i hosting za web, <span class="text-white font-semibold underline">dužni ste ih sami pronaći i registrovati</span>. Svi podaci i sistemi su kod vas, bez naših trajnih mjesečnih ugovora i obaveza.
+          <div class="text-[11px] font-mono text-orange-400 font-bold uppercase">Važna napomena o isporuci</div>
+          <p class="text-xs md:text-sm text-slate-300 leading-relaxed max-w-3xl">
+            Mi isporučujemo isključivo gotov kod (template) ili Android <span class="text-white font-mono">.apk</span> fajl. Ukoliko vam je potrebna domena i hosting za web, <span class="text-white font-semibold underline">dužni ste ih sami pronaći i registrovati</span>. Nema trajnih mjesečnih ugovora.
           </p>
         </div>
-        <a href="#kontakt" class="shrink-0 px-5 py-3 rounded-xl bg-slate-800 hover:bg-orange-500 text-white font-bold text-xs font-mono uppercase transition">
+        <a href="#kontakt" class="w-full md:w-auto text-center shrink-0 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-orange-500 text-white font-bold text-xs font-mono uppercase transition">
           Pošalji upit →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- SEKCIJA 2: PRIMJER RADA - AUTOKARTON -->
-  <section id="demo" class="py-20 bg-[#060911]">
+  <!-- SEKCIJA 2: DOSADAŠNJI RADOVI (SWIPE NA MOBITELU, GRID NA PC-u) -->
+  <section id="projekti" class="py-12 md:py-20 bg-[#060911]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-5 md:mb-10 gap-3">
         <div>
-          <div class="flex items-center gap-3 mb-2">
-            <span class="px-2.5 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono text-xs font-bold">02</span>
-            <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">Primjer gotovog template-a</span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Kako izgleda AutoKarton u praksi</h2>
-          <p class="text-slate-300 mt-2 max-w-2xl">Interaktivni prikaz jednog od naših gotovih rješenja (evidencija servisa vozila i automatski email podsjetnici) da vidiš kako sistem funkcioniše.</p>
-        </div>
-        <button onclick="resetAutoKartonDemo()" class="self-start lg:self-auto px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white border border-slate-600 transition">
-          ↻ Resetuj prikaz
-        </button>
-      </div>
-
-      <div class="grid lg:grid-cols-12 gap-6 items-start">
-        <!-- LIJEVO: FORMA ZA UNOS -->
-        <div class="lg:col-span-5 bg-[#131c31] rounded-2xl p-6 border-2 border-slate-700">
-          <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-5">
-            <div>
-              <span class="text-xs font-mono text-orange-400 font-bold">PRIMJER INTERFEJSA</span>
-              <h3 class="text-lg font-bold text-white">Unos u karton vozila</h3>
-            </div>
-            <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold border border-emerald-500/30">AKTIVNO</span>
-          </div>
-
-          <div class="space-y-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">1. Odabrano vozilo</label>
-              <select id="demoVehicleSelect" onchange="selectVehicleFromDropdown()" class="w-full bg-[#090e1a] border-2 border-slate-600 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-white focus:outline-none focus:border-orange-500">
-                <option value="0">VW Golf 7 TDI • A42-K-891 (214.500 km)</option>
-                <option value="1">Škoda Octavia • E19-M-402 (168.200 km)</option>
-                <option value="2">Audi A4 B9 • O77-T-115 (192.000 km)</option>
-              </select>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">2. Nova kilometraža</label>
-                <input id="demoMileage" type="number" value="215200" class="w-full bg-[#090e1a] border-2 border-slate-600 rounded-xl px-3.5 py-2 text-sm text-white font-mono font-bold focus:outline-none focus:border-orange-500" />
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">3. Vrsta servisa</label>
-                <select id="demoServiceType" class="w-full bg-[#090e1a] border-2 border-slate-600 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-orange-500">
-                  <option value="Mali servis (Ulje + Filteri)">Mali servis (Ulje + Filteri)</option>
-                  <option value="Zamjena i balansiranje guma">Zamjena i balansiranje guma</option>
-                  <option value="Veliki servis (Zupčasti remen)">Veliki servis (Zupčasti remen)</option>
-                  <option value="Produženje registracije">Produženje registracije</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">4. Automatski Email podsjetnik</label>
-              <div class="grid grid-cols-3 gap-2">
-                <button type="button" onclick="setReminderDays(3)" id="rem-3" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#090e1a] text-slate-300 transition">3 dana prije</button>
-                <button type="button" onclick="setReminderDays(7)" id="rem-7" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-orange-500 bg-orange-500 text-white transition">✓ 7 dana prije</button>
-                <button type="button" onclick="setReminderDays(15)" id="rem-15" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#090e1a] text-slate-300 transition">15 dana prije</button>
-              </div>
-            </div>
-
-            <button type="button" onclick="logAutoKartonService()" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm transition shadow-lg shadow-orange-500/20">
-              + Sačuvaj Servis u Prikaz
-            </button>
-
-            <button type="button" onclick="simulateAutoTrigger()" class="w-full py-2.5 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 border border-sky-400/50 text-sky-300 font-bold text-xs font-mono transition">
-              ⚡ Prikaži primjer automatskog Emaila
-            </button>
-          </div>
-        </div>
-
-        <!-- DESNO: KARTICE VOZILA I LOG -->
-        <div class="lg:col-span-7 space-y-5">
-          <div id="vehicleCardsContainer" class="grid sm:grid-cols-3 gap-3.5"></div>
-
-          <div class="bg-[#0d1322] rounded-2xl p-5 border border-slate-700">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono uppercase text-slate-300 font-bold">Zapisnik promjena u ovom prikazu</span>
-              <span class="text-xs font-mono text-emerald-400 font-bold">PRIMJER BAZE</span>
-            </div>
-            <div id="demoTerminalLog" class="bg-[#060911] rounded-xl p-4 font-mono text-xs space-y-2.5 max-h-56 overflow-y-auto border border-slate-800">
-              <div class="text-slate-400">[Spremno] Odaberi vozilo i klikni "+ Sačuvaj Servis u Prikaz" da vidiš kako sistem bilježi podatke.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEKCIJA 3: BRZI VODIČ ZA DEFINISANJE POTREBA -->
-  <section id="vodic" class="py-20 section-alt">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <div class="inline-flex items-center gap-2 mb-2">
-          <span class="px-2.5 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">03</span>
-          <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Brzi Vodič</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Odaberi format koji ti treba</h2>
-        <p class="text-slate-300 mt-2">Označi okvirno šta te zanima ispod, a mi ćemo ti pripremiti osnovni tekst poruke.</p>
-      </div>
-
-      <div class="bg-[#131c31] rounded-2xl p-6 sm:p-8 border-2 border-slate-700">
-        <!-- KORAK 1 -->
-        <div class="mb-7">
-          <div class="text-xs font-mono text-orange-400 font-bold mb-2.5">1. KAKVO RJEŠENJE TE ZANIMA?</div>
-          <div class="grid sm:grid-cols-3 gap-3">
-            <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-orange-500 bg-orange-500/20 text-left transition">
-              <div class="font-bold text-white text-sm flex items-center justify-between">
-                <span>Web sajt / Portfolio</span>
-                <span class="text-orange-400 font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-300 mt-1">Prezentacijski sajt (postavljaš na svoju domenu)</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left hover:border-slate-500 transition">
-              <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
-                <span>Android .APK Aplikacija</span>
-                <span class="text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-400 mt-1">Mobilni alat za radnike, naloge ili evidenciju</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left hover:border-slate-500 transition">
-              <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
-                <span>Gotov Sistem / Template</span>
-                <span class="text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-400 mt-1">AutoKarton, QR izvještaji ili prikaz uživo</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- KORAK 2 -->
-        <div class="mb-7">
-          <div class="text-xs font-mono text-orange-400 font-bold mb-2.5">2. DOMENA I HOSTING (ZA WEB PROJEKTE)</div>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-orange-500 bg-orange-500 text-xs sm:text-sm font-extrabold text-white transition">✓ Već imam svoju domenu</button>
-            <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition">Nabavit ću domenu samostalno</button>
-          </div>
-        </div>
-
-        <!-- REZULTAT -->
-        <div class="rounded-xl bg-[#090e1a] border-2 border-emerald-500/60 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-mono uppercase text-emerald-400 font-bold">Odabrani format:</span>
-            <h4 id="guideTitle" class="text-lg sm:text-xl font-extrabold text-white mt-0.5">Izrada Web Sajta / Portfolio Stranice (Template)</h4>
-            <p id="guideDesc" class="text-sm text-slate-300 mt-1">Dobijaš kompletan kod sajta spreman za postavljanje na tvoju domenu i hosting.</p>
-          </div>
-          <button type="button" onclick="applyGuideToContact()" class="shrink-0 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-sm transition">
-            Popuni formu ispod →
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEKCIJA 4: DOSADAŠNJI RADOVI -->
-  <section id="projekti" class="py-20 bg-[#060911]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <span class="px-2.5 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">04</span>
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="px-2 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">02</span>
             <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Reference i Template Baza</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Šta smo do sada pravili</h2>
-          <p class="text-slate-400 text-sm mt-1">Svaki od ovih projekata može poslužiti kao osnova (template) ili inspiracija za tvoje rješenje.</p>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Šta smo do sada pravili</h2>
+          <p class="text-slate-400 text-xs md:text-sm mt-1">
+            <span class="md:hidden text-orange-400 font-semibold">← Prevuci prstom lijevo-desno za pregled →</span>
+            <span class="hidden md:inline">Svaki od ovih projekata može poslužiti kao osnova (template) za tvoje rješenje.</span>
+          </p>
         </div>
 
-        <!-- FILTERI -->
-        <div class="flex flex-wrap gap-2">
-          <button onclick="filterProjects('all', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-orange-500 text-white border-2 border-orange-400">✓ Svi radovi (12)</button>
-          <button onclick="filterProjects('web', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Web & Portfolio</button>
-          <button onclick="filterProjects('industrija', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Pogon & .APK Alati</button>
-          <button onclick="filterProjects('auto_live', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Auto & Podaci Uživo</button>
+        <!-- FILTERI (Horizontalni scroll na mobitelu) -->
+        <div class="flex overflow-x-auto no-scrollbar gap-2 pb-1">
+          <button onclick="filterProjects('all', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-orange-500 text-white border border-orange-400">✓ Svi (12)</button>
+          <button onclick="filterProjects('web', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700">Web & Portfolio</button>
+          <button onclick="filterProjects('industrija', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700">Pogon & .APK</button>
+          <button onclick="filterProjects('auto_live', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700">Auto & Uživo</button>
         </div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+      <!-- NA MOBITELU: HORIZONTALNI SWIPE / NA DESKTOPU: GRID -->
+      <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pb-4 md:pb-0 no-scrollbar" id="projectsGrid">
+        
         <!-- 0. WEB SAJTOVI I PORTFOLIJI -->
-        <div data-cat="web" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-purple-500 flex flex-col justify-between">
+        <div data-cat="web" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-purple-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-purple-500/15 text-purple-400 font-bold">WEB TEMPLATE</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-purple-500/15 text-purple-400 font-bold">WEB TEMPLATE</span>
               <span class="text-slate-400">Tvoja Domena</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Poslovni Web Sajtovi i Portfoliji</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Poslovni Web Sajtovi i Portfoliji</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Izrada modernih prezentacijskih web stranica i portfolija koje dobijaš kao gotov paket za postavljanje na svoju domenu.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-purple-400 font-bold">● HTML / Responsive</span>
             <a href="#kontakt" onclick="prefillSubject('Izrada web sajta / portfolija')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 1. PRODUCTION DASHBOARD -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-orange-500/15 text-orange-400 font-bold">PROIZVODNJA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 font-bold">PROIZVODNJA</span>
               <span class="text-slate-400">Template / .APK</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Production Dashboard</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Production Dashboard</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Praćenje proizvodnje i efikasnosti po sektorima i smjenama uz pregled ostvarenih normi.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-orange-400 font-bold">● Praćenje efikasnosti</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Production Dashboard')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 2. EVIDENCIJA ZASTOJA -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-red-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-red-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-red-500/15 text-red-400 font-bold">ANALIZA ZASTOJA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-red-500/15 text-red-400 font-bold">ANALIZA ZASTOJA</span>
               <span class="text-slate-400">.APK / Web</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Evidencija Zastoja</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Evidencija Zastoja</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Bilježenje i analiza neproduktivnog vremena mašina i operatera (kvarovi, čekanje materijala, podešavanje).
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-red-400 font-bold">● Neproduktivno vrijeme</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Evidencija Zastoja')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 3. QR REPORT -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-orange-500/15 text-orange-400 font-bold">DOKUMENTACIJA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 font-bold">DOKUMENTACIJA</span>
               <span class="text-slate-400">QR + PDF</span>
             </div>
-            <h3 class="text-xl font-bold text-white">QR Report</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">QR Report</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Digitalizacija proizvodne dokumentacije — skeniranjem QR koda radnik pristupa podacima i šalje izvještaj direktno sa linije.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-orange-400 font-bold">● Bez papira</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao QR Report')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 4. MATERIAL ORDER TRACKER -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-sky-500/15 text-sky-400 font-bold">MATERIJALI</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-sky-500/15 text-sky-400 font-bold">MATERIJALI</span>
               <span class="text-slate-400">Narudžbe</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Material Order Tracker</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Material Order Tracker</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Praćenje materijala i narudžbi od zahtjeva u proizvodnji do isporuke i prijema u skladište.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-sky-400 font-bold">● Praćenje narudžbi</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Material Order Tracker')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 5. PART IMAGE MATCHER -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-purple-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-purple-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-purple-500/15 text-purple-400 font-bold">PRETRAGA DIJELOVA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-purple-500/15 text-purple-400 font-bold">PRETRAGA DIJELOVA</span>
               <span class="text-slate-400">Image Match</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Part Image Matcher</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Part Image Matcher</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Prepoznavanje sličnih dijelova i pozicija na osnovu slike radi brže identifikacije i manje duplog posla.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-purple-400 font-bold">● Prepoznavanje dijelova</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Part Image Matcher')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 6. GUŽVA UŽIVO -->
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">LIVE PODACI</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">LIVE PODACI</span>
               <span class="text-slate-400">Tvoja Domena</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Gužva Uživo</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Gužva Uživo</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Digitalno izvještavanje i prikaz podataka o trenutnoj opterećenosti i čekanju uživo za lakšu organizaciju korisnika.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-emerald-400 font-bold">● Prikaz podataka uživo</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Gužva Uživo')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 7. AUTOKARTON -->
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">AUTO & FLOTA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">AUTO & FLOTA</span>
               <span class="text-slate-400">Template / .APK</span>
             </div>
-            <h3 class="text-xl font-bold text-white">AutoKarton</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">AutoKarton</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Digitalna evidencija održavanja vozila (ulje, gume, kilometraža, registracija) sa automatskim email podsjetnicima 3, 7 i 15 dana unaprijed.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-emerald-400 font-bold">● Evidencija vozila</span>
-            <a href="#demo" class="text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-3 py-1.5 rounded-lg transition">Vidi primjer iznad ↑</a>
+            <a href="#demo" class="text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-3 py-1.5 rounded-lg transition">Isprobaj demo ↓</a>
           </div>
         </div>
 
         <!-- 8. RADNI NALOG U DŽEPU -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-orange-500/15 text-orange-400 font-bold">RADNI NALOZI</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 font-bold">RADNI NALOZI</span>
               <span class="text-slate-400">Android .APK</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Radni nalog u džepu</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Radni nalog u džepu</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Praćenje radnih naloga preko QR kodova — skeniranjem mobitelom ažurira status u bazi i generiše PDF dokumentaciju.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-orange-400 font-bold">● QR evidencija naloga</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Radni nalog u džepu')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 9. PAMETNA AUTO NALJEPNICA -->
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">QR OBAVIJESTI</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">QR OBAVIJESTI</span>
               <span class="text-slate-400">Tvoja Domena</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Pametna Auto Naljepnica</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Pametna Auto Naljepnica</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               QR naljepnica za vjetrobransko staklo koja omogućava anonimno slanje obavijesti vlasniku vozila putem emaila bez otkrivanja broja telefona.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-emerald-400 font-bold">● QR kontakt sistem</span>
             <a href="#kontakt" onclick="prefillSubject('Pametna Auto Naljepnica')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 10. TASK MANAGER ZA RADIONICE -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-orange-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-orange-500/15 text-orange-400 font-bold">TIM & HALA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 font-bold">TIM & HALA</span>
               <span class="text-slate-400">Android .APK</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Task Manager za Radionice</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Task Manager za Radionice</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Dodjeljivanje zadataka majstorima u pogonu uz bilježenje tačnog vremena početka i završetka jednim klikom na mobitelu.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-orange-400 font-bold">● Upravljanje zadacima</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Task Manager za Radionice')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
           </div>
         </div>
 
         <!-- 11. EVIDENCIJA RADNOG VREMENA -->
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card shrink-0 w-[85vw] sm:w-[60vw] md:w-auto snap-start card-box rounded-2xl p-5 md:p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="px-2.5 py-1 rounded bg-sky-500/15 text-sky-400 font-bold">EVIDENCIJA RADA</span>
+            <div class="flex items-center justify-between text-xs font-mono mb-2.5">
+              <span class="px-2 py-0.5 rounded bg-sky-500/15 text-sky-400 font-bold">EVIDENCIJA RADA</span>
               <span class="text-slate-400">Android .APK</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Evidencija Radnog Vremena</h3>
-            <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+            <h3 class="text-lg md:text-xl font-bold text-white">Evidencija Radnog Vremena</h3>
+            <p class="text-slate-300 text-xs md:text-sm mt-2 leading-relaxed">
               Jednostavna prijava i odjava radnika sa automatskim obračunom sati, uz dnevni logger lansiranja serija.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
+          <div class="mt-5 pt-3.5 border-t border-slate-700/80 flex items-center justify-between">
             <span class="text-xs font-mono text-sky-400 font-bold">● Obračun sati</span>
             <a href="#kontakt" onclick="prefillSubject('Slično kao Evidencija Radnog Vremena')" class="text-xs font-bold text-white bg-slate-800 hover:bg-orange-500 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCIJA 3: PRIMJER RADA - AUTOKARTON -->
+  <section id="demo" class="py-12 md:py-20 section-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-6 md:mb-10 gap-3">
+        <div>
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono text-xs font-bold">03</span>
+            <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">Interaktivni Prikaz</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Kako radi AutoKarton</h2>
+          <p class="text-slate-300 text-xs md:text-sm mt-1.5 max-w-2xl">Testiraj unos servisa i automatske email podsjetnike.</p>
+        </div>
+        <button onclick="resetAutoKartonDemo()" class="self-start lg:self-auto px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white border border-slate-600 transition">
+          ↻ Resetuj prikaz
+        </button>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-5 items-start">
+        <!-- LIJEVO: FORMA ZA UNOS -->
+        <div class="lg:col-span-5 bg-[#131c31] rounded-2xl p-4 md:p-6 border border-slate-700">
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1">1. Odabrano vozilo</label>
+              <select id="demoVehicleSelect" onchange="selectVehicleFromDropdown()" class="w-full bg-[#090e1a] border border-slate-600 rounded-xl px-3 py-2.5 text-xs md:text-sm font-semibold text-white focus:outline-none focus:border-orange-500">
+                <option value="0">VW Golf 7 TDI • A42-K-891 (214.500 km)</option>
+                <option value="1">Škoda Octavia • E19-M-402 (168.200 km)</option>
+                <option value="2">Audi A4 B9 • O77-T-115 (192.000 km)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase mb-1">2. Nova km</label>
+                <input id="demoMileage" type="number" value="215200" class="w-full bg-[#090e1a] border border-slate-600 rounded-xl px-3 py-2 text-xs md:text-sm text-white font-mono font-bold focus:outline-none focus:border-orange-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase mb-1">3. Vrsta servisa</label>
+                <select id="demoServiceType" class="w-full bg-[#090e1a] border border-slate-600 rounded-xl px-3 py-2 text-xs md:text-sm text-white focus:outline-none focus:border-orange-500">
+                  <option value="Mali servis (Ulje + Filteri)">Mali servis</option>
+                  <option value="Zamjena i balansiranje guma">Zamjena guma</option>
+                  <option value="Veliki servis (Zupčasti remen)">Veliki servis</option>
+                  <option value="Produženje registracije">Registracija</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1">4. Email podsjetnik</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="setReminderDays(3)" id="rem-3" class="rem-btn py-2 rounded-lg text-xs font-mono font-bold border border-slate-700 bg-[#090e1a] text-slate-300 transition">3 dana</button>
+                <button type="button" onclick="setReminderDays(7)" id="rem-7" class="rem-btn py-2 rounded-lg text-xs font-mono font-bold border border-orange-500 bg-orange-500 text-white transition">✓ 7 dana</button>
+                <button type="button" onclick="setReminderDays(15)" id="rem-15" class="rem-btn py-2 rounded-lg text-xs font-mono font-bold border border-slate-700 bg-[#090e1a] text-slate-300 transition">15 dana</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+              <button type="button" onclick="logAutoKartonService()" class="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-xs md:text-sm transition">
+                + Sačuvaj Servis
+              </button>
+              <button type="button" onclick="simulateAutoTrigger()" class="w-full py-2.5 rounded-xl bg-sky-600/20 border border-sky-400/50 text-sky-300 font-bold text-xs font-mono transition">
+                ⚡ Primjer Emaila
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESNO: KARTICE VOZILA I LOG -->
+        <div class="lg:col-span-7 space-y-4">
+          <div id="vehicleCardsContainer" class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory sm:grid-cols-3 gap-3 no-scrollbar"></div>
+
+          <div class="bg-[#090e1a] rounded-2xl p-4 border border-slate-700">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-mono uppercase text-slate-300 font-bold">Zapisnik promjena</span>
+              <span class="text-[11px] font-mono text-emerald-400 font-bold">PRIMJER BAZE</span>
+            </div>
+            <div id="demoTerminalLog" class="bg-[#060911] rounded-xl p-3 font-mono text-[11px] md:text-xs space-y-2 max-h-40 overflow-y-auto border border-slate-800">
+              <div class="text-slate-400">[Spremno] Klikni "+ Sačuvaj Servis" da vidiš kako sistem bilježi podatke.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEKCIJA 5: KONTAKT -->
-  <section id="kontakt" class="py-20 section-alt">
+  <!-- SEKCIJA 4: BRZI VODIČ -->
+  <section id="vodic" class="py-12 md:py-20 bg-[#060911]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6 md:mb-10">
+        <div class="flex items-center gap-2.5 mb-1.5">
+          <span class="px-2 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">04</span>
+          <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Brzi Vodič</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Odaberi format koji ti treba</h2>
+      </div>
+
+      <div class="bg-[#131c31] rounded-2xl p-5 md:p-8 border border-slate-700">
+        <!-- KORAK 1 -->
+        <div class="mb-6">
+          <div class="text-xs font-mono text-orange-400 font-bold mb-2">1. KAKVO RJEŠENJE TE ZANIMA?</div>
+          <div class="grid sm:grid-cols-3 gap-2.5">
+            <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-3.5 rounded-xl border-2 border-orange-500 bg-orange-500/20 text-left transition">
+              <div class="font-bold text-white text-sm flex items-center justify-between">
+                <span>Web sajt / Portfolio</span>
+                <span class="text-orange-400 font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-300 mt-1">Postavljaš na svoju domenu</div>
+            </button>
+
+            <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-3.5 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left transition">
+              <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
+                <span>Android .APK</span>
+                <span class="text-transparent font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1">Mobilni alat za radnike ili naloge</div>
+            </button>
+
+            <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-3.5 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left transition">
+              <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
+                <span>Gotov Sistem / Template</span>
+                <span class="text-transparent font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1">AutoKarton, QR izvještaji...</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- KORAK 2 -->
+        <div class="mb-6">
+          <div class="text-xs font-mono text-orange-400 font-bold mb-2">2. DOMENA I HOSTING (ZA WEB)</div>
+          <div class="grid sm:grid-cols-2 gap-2.5">
+            <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-2.5 px-4 rounded-xl border-2 border-orange-500 bg-orange-500 text-xs sm:text-sm font-extrabold text-white transition">✓ Već imam svoju domenu</button>
+            <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-2.5 px-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-xs sm:text-sm font-bold text-slate-300 transition">Nabavit ću domenu samostalno</button>
+          </div>
+        </div>
+
+        <!-- REZULTAT -->
+        <div class="rounded-xl bg-[#090e1a] border border-emerald-500/60 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-mono uppercase text-emerald-400 font-bold">Odabrani format:</span>
+            <h4 id="guideTitle" class="text-base sm:text-lg font-extrabold text-white mt-0.5">Izrada Web Sajta / Portfolio Stranice (Template)</h4>
+            <p id="guideDesc" class="text-xs sm:text-sm text-slate-300 mt-1">Dobijaš kompletan kod sajta spreman za postavljanje na tvoju domenu i hosting.</p>
+          </div>
+          <button type="button" onclick="applyGuideToContact()" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold text-xs sm:text-sm transition">
+            Popuni formu ispod ↓
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCIJA 5: KONTAKT (ISPRAVLJENO ZA GITHUB) -->
+  <section id="kontakt" class="py-12 md:py-20 section-alt">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-[#131c31] rounded-3xl p-8 sm:p-12 border-2 border-slate-700">
-        <div class="grid lg:grid-cols-5 gap-10 items-start">
+      <div class="bg-[#131c31] rounded-2xl md:rounded-3xl p-5 sm:p-10 border border-slate-700">
+        <div class="grid lg:grid-cols-5 gap-8 items-start">
           <div class="lg:col-span-2">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="px-2.5 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">05</span>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500 text-white font-mono text-xs font-bold">05</span>
               <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-bold">Kontakt</span>
             </div>
-            <h2 class="text-3xl font-extrabold text-white">Opiši otprilike šta ti treba</h2>
-            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-              Napiši svojim riječima kakav web sajt (template) ili Android <span class="font-mono text-white">.apk</span> aplikaciju želiš. Javit ćemo ti se putem emaila da se dogovorimo oko detalja.
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Opiši šta ti treba</h2>
+            <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+              Napiši svojim riječima kakav web sajt ili Android <span class="font-mono text-white">.apk</span> želiš. Javit ćemo ti se putem emaila.
             </p>
 
-            <div class="mt-8 space-y-4">
-              <div class="p-4 rounded-xl bg-[#090e1a] border border-slate-700">
-                <div class="text-xs font-mono text-slate-400">EMAIL ZA DOGOVOR</div>
-                <a href="mailto:core.f.lab@gmail.com" class="text-sm sm:text-base font-bold text-orange-400 hover:underline break-all">
+            <div class="mt-5 space-y-3">
+              <div class="p-3.5 rounded-xl bg-[#090e1a] border border-slate-700">
+                <div class="text-[11px] font-mono text-slate-400">EMAIL ZA DOGOVOR</div>
+                <a href="mailto:core.f.lab@gmail.com" class="text-sm font-bold text-orange-400 hover:underline break-all">
                   core.f.lab@gmail.com
                 </a>
               </div>
-              <div class="p-4 rounded-xl bg-[#090e1a] border border-slate-700">
-                <div class="text-xs font-mono text-slate-400">UKRATKO O ISPORUCI</div>
-                <div class="text-xs text-slate-300 mt-1 leading-relaxed">
-                  • Mobilne aplikacije: gotov <span class="text-white font-mono">.apk</span> fajl<br>
-                  • Web sajtovi i sistemi: gotov template / kod<br>
-                  • Domenu i hosting osiguravate samostalno
-                </div>
+              <div class="p-3.5 rounded-xl bg-[#090e1a] border border-slate-700 text-xs text-slate-300 leading-relaxed">
+                • Mobilne aplikacije: gotov <span class="text-white font-mono">.apk</span> fajl<br>
+                • Web sajtovi: gotov template / kod<br>
+                • Domenu i hosting osiguravate samostalno
               </div>
             </div>
           </div>
 
-        <form action="https://formsubmit.co/core.f.lab@gmail.com" method="POST" class="lg:col-span-3 space-y-4">
-            <!-- Sakrivena podešavanja za FormSubmit -->
-            <input type="hidden" name="_subject" id="hiddenSubject" value="Novi upit sa CoreFlow Lab sajta">
+          <form action="https://formsubmit.co/core.f.lab@gmail.com" method="POST" class="lg:col-span-3 space-y-3.5">
+            <input type="hidden" name="_subject" value="Novi upit sa CoreFlow Lab sajta">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
 
-            <div class="grid sm:grid-cols-2 gap-4">
+            <div class="grid sm:grid-cols-2 gap-3.5">
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše Ime ili Firma</label>
-                <input id="contactName" name="Ime_ili_Firma" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+                <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Vaše Ime ili Firma</label>
+                <input id="contactName" name="Ime_ili_Firma" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#090e1a] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-orange-500" />
               </div>
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaša Email Adresa</label>
-                <input id="contactEmail" name="email" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+                <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Vaša Email Adresa</label>
+                <input id="contactEmail" name="email" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#090e1a] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-orange-500" />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Šta vas okvirno zanima?</label>
-              <input id="contactSubject" name="Predmet" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Šta vas okvirno zanima?</label>
+              <input id="contactSubject" name="Predmet" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#090e1a] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-orange-500" />
             </div>
 
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše potrebe i opis onoga što želite</label>
-              <textarea id="contactMessage" name="Opis_potreba" rows="5" required placeholder="Napišite otprilike kakve su vaše potrebe, čime se bavite i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"></textarea>
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Vaše potrebe i opis</label>
+              <textarea id="contactMessage" name="Opis_potreba" rows="4" required placeholder="Napišite otprilike kakve su vaše potrebe i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#090e1a] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-orange-500"></textarea>
             </div>
 
-            <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-base transition shadow-lg shadow-orange-500/25">
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm md:text-base transition shadow-lg shadow-orange-500/25">
               Pošalji upit na core.f.lab@gmail.com
             </button>
           </form>
@@ -644,12 +649,23 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-8 bg-[#060911] border-t border-slate-800 text-center text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="font-bold text-white">CoreFlow <span class="text-orange-500">Lab</span> — Web Template Rješenja & Android .APK Aplikacije</div>
-      <div>Email kontakt: <a href="mailto:core.f.lab@gmail.com" class="text-orange-400 font-semibold hover:underline">core.f.lab@gmail.com</a></div>
+  <footer class="py-6 bg-[#060911] border-t border-slate-800 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="font-bold text-white">CoreFlow <span class="text-orange-500">Lab</span></div>
+      <div>Kontakt: <a href="mailto:core.f.lab@gmail.com" class="text-orange-400 font-semibold hover:underline">core.f.lab@gmail.com</a></div>
     </div>
   </footer>
+
+  <!-- FIKSNA TRAKA NA DNU ZA MOBITEL (BEZ SKROLANJA DO KONTAKTA) -->
+  <div class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-[#090e1a]/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex items-center justify-between gap-3">
+    <div class="text-xs">
+      <div class="font-bold text-white">Imaš ideju ili upit?</div>
+      <div class="text-[11px] text-slate-400">Web template ili .APK</div>
+    </div>
+    <a href="#kontakt" class="px-4 py-2 rounded-lg bg-orange-500 text-white font-extrabold text-xs shrink-0 shadow-lg shadow-orange-500/20">
+      Pošalji upit →
+    </a>
+  </div>
 
   <!-- JAVASCRIPT LOGIKA -->
   <script>
@@ -658,7 +674,7 @@
         name: "VW Golf 7 TDI",
         plate: "A42-K-891",
         km: 214500,
-        lastService: "Mali servis (Ulje + Filteri)",
+        lastService: "Mali servis",
         status: "uskoro",
         reminder: 7
       },
@@ -674,7 +690,7 @@
         name: "Audi A4 B9",
         plate: "O77-T-115",
         km: 192000,
-        lastService: "Kočnice i diskovi",
+        lastService: "Kočnice",
         status: "hitno",
         reminder: 3
       }
@@ -689,26 +705,26 @@
       container.innerHTML = vehicles.map((v, idx) => {
         const isSelected = idx === activeVehicleIndex;
         const borderClass = isSelected
-          ? 'border-2 border-orange-500 bg-[#1a2540] shadow-lg shadow-orange-500/10'
-          : 'border border-slate-700 bg-[#131c31] opacity-80 hover:opacity-100';
+          ? 'border-2 border-orange-500 bg-[#1a2540]'
+          : 'border border-slate-700 bg-[#131c31] opacity-80';
 
-        let badge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-mono font-bold">UREDNO</span>';
-        if (v.status === 'uskoro') badge = '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[11px] font-mono font-bold">USKORO</span>';
-        if (v.status === 'hitno') badge = '<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-300 text-[11px] font-mono font-bold">ISTIČE</span>';
+        let badge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">UREDNO</span>';
+        if (v.status === 'uskoro') badge = '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-bold">USKORO</span>';
+        if (v.status === 'hitno') badge = '<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-300 text-[10px] font-mono font-bold">ISTIČE</span>';
 
         return `
-          <div onclick="pickVehicle(${idx})" class="cursor-pointer rounded-xl p-4 transition ${borderClass}">
-            <div class="flex items-center justify-between mb-2">
+          <div onclick="pickVehicle(${idx})" class="shrink-0 w-[68vw] sm:w-auto snap-start cursor-pointer rounded-xl p-3.5 transition ${borderClass}">
+            <div class="flex items-center justify-between mb-1.5">
               <span class="font-mono text-xs font-extrabold ${isSelected ? 'text-orange-400' : 'text-slate-300'}">
                 ${isSelected ? '▶ ' : ''}${v.plate}
               </span>
               ${badge}
             </div>
             <div class="font-bold text-white text-sm">${v.name}</div>
-            <div class="text-xs font-mono text-slate-300 mt-1">${v.km.toLocaleString()} km</div>
-            <div class="mt-3 pt-2.5 border-t border-slate-700/80 text-[11px] text-slate-300">
-              <div>Zadnje: <span class="text-slate-400">${v.lastService}</span></div>
-              <div class="text-sky-400 font-semibold mt-0.5">Podsjetnik: ${v.reminder}d ranije</div>
+            <div class="text-xs font-mono text-slate-300 mt-0.5">${v.km.toLocaleString()} km</div>
+            <div class="mt-2 pt-2 border-t border-slate-700/80 text-[11px] text-slate-300 flex justify-between">
+              <span>${v.lastService}</span>
+              <span class="text-sky-400 font-semibold">${v.reminder}d prije</span>
             </div>
           </div>
         `;
@@ -732,18 +748,18 @@
       [3, 7, 15].forEach(d => {
         const btn = document.getElementById('rem-' + d);
         if (d === days) {
-          btn.className = 'rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-orange-500 bg-orange-500 text-white transition';
-          btn.textContent = '✓ ' + d + ' dana prije';
+          btn.className = 'rem-btn py-2 rounded-lg text-xs font-mono font-bold border border-orange-500 bg-orange-500 text-white transition';
+          btn.textContent = '✓ ' + d + ' dana';
         } else {
-          btn.className = 'rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#090e1a] text-slate-300 transition';
-          btn.textContent = d + ' dana prije';
+          btn.className = 'rem-btn py-2 rounded-lg text-xs font-mono font-bold border border-slate-700 bg-[#090e1a] text-slate-300 transition';
+          btn.textContent = d + ' dana';
         }
       });
     }
 
     function appendLog(htmlMsg) {
       const log = document.getElementById('demoTerminalLog');
-      const time = new Date().toLocaleTimeString('bs-BA', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const time = new Date().toLocaleTimeString('bs-BA', { hour: '2-digit', minute: '2-digit' });
       const row = document.createElement('div');
       row.innerHTML = `<span class="text-slate-500">[${time}]</span> ${htmlMsg}`;
       log.prepend(row);
@@ -760,12 +776,12 @@
       vehicles[idx].reminder = selectedReminder;
 
       renderVehicleCards();
-      appendLog(`<span class="text-emerald-400 font-bold">SAČUVANO:</span> ${vehicles[idx].name} (${vehicles[idx].plate}) • ${service} na ${newKm.toLocaleString()} km • Podsjetnik: ${selectedReminder} dana prije.`);
+      appendLog(`<span class="text-emerald-400 font-bold">SAČUVANO:</span> ${vehicles[idx].name} • ${service} (${newKm.toLocaleString()} km)`);
     }
 
     function simulateAutoTrigger() {
       const v = vehicles[activeVehicleIndex];
-      appendLog(`<span class="text-sky-400 font-bold">PRIMJER EMAILA:</span> "Poštovani, za vaše vozilo ${v.name} (${v.plate}) približava se termin sljedećeg servisa."`);
+      appendLog(`<span class="text-sky-400 font-bold">EMAIL PODSJETNIK:</span> "Za vozilo ${v.name} (${v.plate}) približava se termin servisa."`);
     }
 
     function resetAutoKartonDemo() {
@@ -773,7 +789,7 @@
       activeVehicleIndex = 0;
       document.getElementById('demoVehicleSelect').value = 0;
       renderVehicleCards();
-      document.getElementById('demoTerminalLog').innerHTML = '<div class="text-slate-400">[Prikaz resetovan] Odaberi vozilo i testiraj unos...</div>';
+      document.getElementById('demoTerminalLog').innerHTML = '<div class="text-slate-400">[Resetovano] Testiraj novi unos...</div>';
     }
 
     const guideState = {
@@ -801,21 +817,21 @@
 
       if (step === 1) {
         document.querySelectorAll('.guide-btn-1').forEach(b => {
-          b.className = 'guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left hover:border-slate-500 transition';
+          b.className = 'guide-btn-1 p-3.5 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-left transition';
           b.querySelector('span:last-child').className = 'text-transparent font-mono';
           b.querySelector('span:first-child').className = 'text-slate-200';
         });
-        btnEl.className = 'guide-btn-1 p-4 rounded-xl border-2 border-orange-500 bg-orange-500/20 text-left transition';
+        btnEl.className = 'guide-btn-1 p-3.5 rounded-xl border-2 border-orange-500 bg-orange-500/20 text-left transition';
         btnEl.querySelector('span:last-child').className = 'text-orange-400 font-mono';
         btnEl.querySelector('span:first-child').className = 'text-white';
       }
 
       if (step === 2) {
         document.querySelectorAll('.guide-btn-2').forEach(b => {
-          b.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition';
+          b.className = 'guide-btn-2 py-2.5 px-4 rounded-xl border-2 border-slate-700 bg-[#090e1a] text-xs sm:text-sm font-bold text-slate-300 transition';
           b.textContent = b.textContent.replace('✓ ', '');
         });
-        btnEl.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-orange-500 bg-orange-500 text-xs sm:text-sm font-extrabold text-white transition';
+        btnEl.className = 'guide-btn-2 py-2.5 px-4 rounded-xl border-2 border-orange-500 bg-orange-500 text-xs sm:text-sm font-extrabold text-white transition';
         btnEl.textContent = '✓ ' + btnEl.textContent;
       }
 
@@ -831,17 +847,16 @@
         `Pozdrav CoreFlow Lab,\n\n` +
         `Zanima me: ${rec.title}\n` +
         `Status domene/hostinga: ${guideState.step2}\n\n` +
-        `Moje potrebe ukratko:\n` +
-        `[Ovdje upišite čime se bavite i šta vam konkretno treba]`;
+        `Moje potrebe ukratko:\n`;
       document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
     }
 
     function filterProjects(cat, btn) {
       document.querySelectorAll('.proj-filter').forEach(b => {
-        b.className = 'proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500';
+        b.className = 'proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700';
         b.textContent = b.textContent.replace('✓ ', '');
       });
-      btn.className = 'proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-orange-500 text-white border-2 border-orange-400';
+      btn.className = 'proj-filter shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-orange-500 text-white border border-orange-400';
       btn.textContent = '✓ ' + btn.textContent;
 
       document.querySelectorAll('.project-card').forEach(card => {
@@ -855,17 +870,6 @@
 
     function prefillSubject(projName) {
       document.getElementById('contactSubject').value = 'Upit: ' + projName;
-    }
-
-    function sendEmailUpit(e) {
-      e.preventDefault();
-      const name = document.getElementById('contactName').value;
-      const email = document.getElementById('contactEmail').value;
-      const subject = document.getElementById('contactSubject').value;
-      const msg = document.getElementById('contactMessage').value;
-
-      const body = `Ime / Firma: ${name}\nEmail za odgovor: ${email}\n\nOpis potreba:\n${msg}`;
-      window.location.href = `mailto:core.f.lab@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
     renderVehicleCards();

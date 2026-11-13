@@ -607,26 +607,31 @@
             </div>
           </div>
 
-          <form onsubmit="sendEmailUpit(event)" class="lg:col-span-3 space-y-4">
+        <form action="https://formsubmit.co/core.f.lab@gmail.com" method="POST" class="lg:col-span-3 space-y-4">
+            <!-- Sakrivena podešavanja za FormSubmit -->
+            <input type="hidden" name="_subject" id="hiddenSubject" value="Novi upit sa CoreFlow Lab sajta">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše Ime ili Firma</label>
-                <input id="contactName" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+                <input id="contactName" name="Ime_ili_Firma" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
               </div>
               <div>
                 <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaša Email Adresa</label>
-                <input id="contactEmail" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+                <input id="contactEmail" name="email" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
               </div>
             </div>
 
             <div>
               <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Šta vas okvirno zanima?</label>
-              <input id="contactSubject" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
+              <input id="contactSubject" name="Predmet" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500" />
             </div>
 
             <div>
               <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše potrebe i opis onoga što želite</label>
-              <textarea id="contactMessage" rows="5" required placeholder="Napišite otprilike kakve su vaše potrebe, čime se bavite i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"></textarea>
+              <textarea id="contactMessage" name="Opis_potreba" rows="5" required placeholder="Napišite otprilike kakve su vaše potrebe, čime se bavite i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#090e1a] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"></textarea>
             </div>
 
             <button type="submit" class="w-full py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-base transition shadow-lg shadow-orange-500/25">

@@ -48,9 +48,74 @@
       box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.12);
       transform: translateY(-2px);
     }
+
+    /* Drop-down najava odozgo */
+    #shopSoonDrawer {
+      transform: translateY(-130%);
+      opacity: 0;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+    }
+    #shopSoonDrawer.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Blago blinkanje boja okolo nakon spuštanja na stranicu */
+    @keyframes colorAuraBlink {
+      0%, 100% {
+        border-color: rgba(34, 211, 238, 0.85);
+        box-shadow:
+          0 0 22px rgba(34, 211, 238, 0.35),
+          0 0 42px rgba(16, 185, 129, 0.18);
+        opacity: 1;
+      }
+      33% {
+        border-color: rgba(52, 211, 153, 0.85);
+        box-shadow:
+          0 0 24px rgba(52, 211, 153, 0.35),
+          0 0 44px rgba(168, 85, 247, 0.22);
+        opacity: 0.92;
+      }
+      66% {
+        border-color: rgba(192, 132, 252, 0.85);
+        box-shadow:
+          0 0 24px rgba(192, 132, 252, 0.35),
+          0 0 44px rgba(251, 191, 36, 0.2);
+        opacity: 0.96;
+      }
+    }
+
+    .shop-soon-blink-box {
+      animation: colorAuraBlink 3.4s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- POP-UP NAJAVA ODOZGO: DIGITAL SHOP USKORO -->
+  <div id="shopSoonDrawer" class="fixed top-3 inset-x-0 z-[60] px-3 sm:px-6 pointer-events-none">
+    <div class="shop-soon-blink-box max-w-3xl mx-auto pointer-events-auto rounded-2xl bg-[#0e192b]/95 backdrop-blur-xl border-2 p-4 sm:p-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="shrink-0 px-2.5 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 font-mono text-xs font-extrabold tracking-wider uppercase animate-pulse">
+            USKORO
+          </div>
+          <div class="font-extrabold text-white text-base sm:text-xl tracking-tight">
+            COREFLOW LAB — <span class="text-cyan-400">DIGITAL SHOP USKORO</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+          <button type="button" onclick="notifyMeShopSoon()" class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs transition shadow-md shadow-cyan-500/20">
+            Javi mi kad krene
+          </button>
+          <button type="button" onclick="closeShopSoonDrawer()" aria-label="Zatvori obavijest" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-mono text-xs font-bold border border-slate-600 transition">
+            ✕
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- NAVIGACIJA -->
   <header class="fixed top-0 inset-x-0 z-50 bg-[#060b14]/95 backdrop-blur-md border-b border-slate-800/90">
@@ -71,14 +136,22 @@
         </a>
         <a href="#vodic" class="hover:text-cyan-300 transition">Brzi Vodič</a>
         <a href="#projekti" class="hover:text-cyan-300 transition">Dosadašnji radovi</a>
+        <button type="button" onclick="openShopSoonDrawer()" class="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 transition font-mono text-xs bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-1 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Digital Shop uskoro
+        </button>
         <a href="#kontakt" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold transition shadow-md shadow-cyan-500/20">
           Opiši šta ti treba
         </a>
       </nav>
 
-      <a href="#kontakt" class="md:hidden px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 text-xs font-extrabold">
-        Kontakt
-      </a>
+      <div class="flex md:hidden items-center gap-2">
+        <button type="button" onclick="openShopSoonDrawer()" class="px-2.5 py-1.5 rounded-lg bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 text-[11px] font-mono font-bold">
+          Shop uskoro
+        </button>
+        <a href="#kontakt" class="px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 text-xs font-extrabold">
+          Kontakt
+        </a>
+      </div>
     </div>
   </header>
 
@@ -671,6 +744,40 @@
 
   <!-- JAVASCRIPT LOGIKA -->
   <script>
+    // Drop-down pop-up odozgo: DIGITAL SHOP USKORO (duže trajanje + blago blinkanje boja okolo)
+    let autoHideTimer = null;
+
+    function openShopSoonDrawer() {
+      const drawer = document.getElementById('shopSoonDrawer');
+      if (!drawer) return;
+      drawer.classList.add('open');
+
+      if (autoHideTimer) clearTimeout(autoHideTimer);
+      autoHideTimer = setTimeout(() => {
+        closeShopSoonDrawer();
+      }, 14000); // ostaje prikazan 14 sekundi ako se ne zatvori ručno
+    }
+
+    function closeShopSoonDrawer() {
+      const drawer = document.getElementById('shopSoonDrawer');
+      if (drawer) drawer.classList.remove('open');
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+        autoHideTimer = null;
+      }
+    }
+
+    function notifyMeShopSoon() {
+      closeShopSoonDrawer();
+      document.getElementById('contactSubject').value = 'Obavijest: Digital Shop uskoro';
+      document.getElementById('contactMessage').value = 'Pozdrav CoreFlow Lab,\n\nZanima me kada kreće Digital Shop. Javite mi čim prvi digitalni alati budu dostupni!';
+      document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(openShopSoonDrawer, 250);
+    });
+
     const initialVehicles = [
       {
         name: "VW Golf 7 TDI",

@@ -82,55 +82,55 @@
 
   <!-- NAVIGACIJA + TABOVI -->
   <header class="bg-[#060b14] border-b border-slate-800/90">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b border-slate-800/60">
-      <button type="button" onclick="switchTab('usluge')" class="flex items-center gap-3 group text-left">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 border-b border-slate-800/60">
+      <button type="button" onclick="switchTab('usluge')" class="flex items-center gap-2 sm:gap-3 group text-left shrink-0">
         <img 
           src="https://i.ibb.co/6RKCBX1q/sl.jpg" 
           alt="CoreFlow Lab Logo" 
-          class="w-10 h-10 rounded-xl object-cover border border-cyan-500/50 shadow-md shadow-cyan-500/15 group-hover:border-cyan-400 transition"
+          class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-cover border border-cyan-500/50 shadow-md shadow-cyan-500/15 group-hover:border-cyan-400 transition"
         />
         <div>
-          <span class="font-extrabold tracking-tight text-white text-lg block leading-none">CoreFlow <span class="text-cyan-400">Lab</span></span>
+          <span class="font-extrabold tracking-tight text-white text-sm sm:text-lg block leading-none">CoreFlow <span class="text-cyan-400">Lab</span></span>
           <span class="text-[11px] font-mono text-slate-400 hidden sm:inline">Web Template & Android .APK</span>
         </div>
       </button>
 
-      <div class="flex items-center gap-2.5">
-        <button type="button" onclick="switchTab('shop')" class="inline-flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 transition font-mono text-xs bg-cyan-500/10 border border-cyan-500/35 px-3 py-1.5 rounded-full">
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Digital Shop uskoro
+      <div class="flex items-center gap-1.5 sm:gap-2.5">
+        <button type="button" onclick="switchTab('shop')" class="inline-flex items-center gap-1 text-cyan-300 hover:text-cyan-200 transition font-mono text-[10px] sm:text-xs bg-cyan-500/10 border border-cyan-500/35 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Shop uskoro
         </button>
-        <button type="button" onclick="switchTab('kontakt')" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs sm:text-sm font-extrabold transition shadow-md shadow-cyan-500/20">
-          Opiši šta ti treba
+        <button type="button" onclick="switchTab('kontakt')" class="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-[11px] sm:text-sm font-extrabold transition shadow-md shadow-cyan-500/20 whitespace-nowrap">
+          Kontakt
         </button>
       </div>
     </div>
 
     <!-- TABOVI -->
     <div class="bg-[#09101d] border-b border-slate-800/80">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-2.5" aria-label="Tabovi">
-          <button type="button" data-tab="usluge" onclick="switchTab('usluge')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition flex items-center gap-2 bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20">
-            <span class="font-mono text-[11px] opacity-75">01</span> Model rada
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <nav class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-2" aria-label="Tabovi">
+          <button type="button" data-tab="usluge" onclick="switchTab('usluge')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-extrabold transition flex items-center gap-1.5 bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20">
+            <span class="font-mono text-[10px] sm:text-[11px] opacity-75">01</span> Model rada
           </button>
 
-          <button type="button" data-tab="demo" onclick="switchTab('demo')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Primjer: AutoKarton
+          <button type="button" data-tab="demo" onclick="switchTab('demo')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> AutoKarton
           </button>
 
-          <button type="button" data-tab="vodic" onclick="switchTab('vodic')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
-            <span class="font-mono text-[11px] opacity-75">02</span> Brzi Vodič
+          <button type="button" data-tab="vodic" onclick="switchTab('vodic')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
+            <span class="font-mono text-[10px] sm:text-[11px] opacity-75">02</span> Brzi Vodič
           </button>
 
-          <button type="button" data-tab="projekti" onclick="switchTab('projekti')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
-            <span class="font-mono text-[11px] opacity-75">03</span> Dosadašnji radovi <span class="px-1.5 py-0.2 rounded bg-slate-900/70 text-[11px] font-mono">13</span>
+          <button type="button" data-tab="projekti" onclick="switchTab('projekti')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
+            <span class="font-mono text-[10px] sm:text-[11px] opacity-75">03</span> Radovi <span class="px-1.5 py-0.5 rounded bg-slate-900/70 text-[10px] sm:text-[11px] font-mono">13</span>
           </button>
 
-          <button type="button" data-tab="shop" onclick="switchTab('shop')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
-            <span class="font-mono text-[11px] opacity-75">04</span> Digital Shop
+          <button type="button" data-tab="shop" onclick="switchTab('shop')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
+            <span class="font-mono text-[10px] sm:text-[11px] opacity-75">04</span> Digital Shop
           </button>
 
-          <button type="button" data-tab="kontakt" onclick="switchTab('kontakt')" class="main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
-            <span class="font-mono text-[11px] opacity-75">05</span> Kontakt
+          <button type="button" data-tab="kontakt" onclick="switchTab('kontakt')" class="main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80">
+            <span class="font-mono text-[10px] sm:text-[11px] opacity-75">05</span> Kontakt
           </button>
         </nav>
       </div>
@@ -141,74 +141,74 @@
   <main class="flex-1">
 
     <!-- TAB 1: MODEL RADA I USLUGE -->
-    <section id="tab-usluge" class="tab-panel active py-8 sm:py-10 hero-pattern">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <section id="tab-usluge" class="tab-panel active py-5 sm:py-10 hero-pattern">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5 sm:mb-8">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300 font-bold mb-3">
-              WEB TEMPLATE RJEŠENJA • PORTFOLIO SAJTOVI • ANDROID .APK APLIKACIJE
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] sm:text-xs font-mono text-cyan-300 font-bold mb-2 sm:mb-3">
+              WEB TEMPLATE • PORTFOLIO • ANDROID .APK
             </div>
-            <h1 class="text-2xl sm:text-4xl font-black text-white">Praktični web sajtovi i gotove .APK aplikacije po mjeri</h1>
-            <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">Radimo po principu gotovih rješenja i šablona (template-a) koje prilagođavamo tvojim potrebama.</p>
+            <h1 class="text-xl sm:text-4xl font-black text-white leading-tight">Praktični web sajtovi i gotove .APK aplikacije po mjeri</h1>
+            <p class="text-slate-300 text-xs sm:text-base mt-1.5 sm:mt-2 max-w-2xl">Radimo po principu gotovih rješenja i šablona (template-a) koje prilagođavamo tvojim potrebama.</p>
           </div>
-          <button type="button" onclick="switchTab('vodic')" class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-mono text-xs font-bold border border-slate-700 transition">
-            Sljedeće: Brzi Vodič →
+          <button type="button" onclick="switchTab('vodic')" class="self-start sm:self-auto px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-mono text-xs font-bold border border-slate-700 transition whitespace-nowrap">
+            Brzi Vodič →
           </button>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-8">
-          <div class="card-box rounded-xl p-4">
-            <div class="text-base sm:text-xl font-black text-cyan-400 font-mono">Android .APK</div>
-            <div class="text-xs text-slate-400 mt-1 font-medium">Direktna instalacija fajla</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 mb-5 sm:mb-8">
+          <div class="card-box rounded-xl p-3 sm:p-4">
+            <div class="text-sm sm:text-xl font-black text-cyan-400 font-mono">Android .APK</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">Direktna instalacija fajla</div>
           </div>
-          <div class="card-box rounded-xl p-4">
-            <div class="text-base sm:text-xl font-black text-white font-mono">Gotov Template</div>
-            <div class="text-xs text-slate-400 mt-1 font-medium">Kompletan kod sistema</div>
+          <div class="card-box rounded-xl p-3 sm:p-4">
+            <div class="text-sm sm:text-xl font-black text-white font-mono">Gotov Template</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">Kompletan kod sistema</div>
           </div>
-          <div class="card-box rounded-xl p-4">
-            <div class="text-base sm:text-xl font-black text-sky-400 font-mono">Tvoja Domena</div>
-            <div class="text-xs text-slate-400 mt-1 font-medium">Samostalno osiguravaš domenu</div>
+          <div class="card-box rounded-xl p-3 sm:p-4">
+            <div class="text-sm sm:text-xl font-black text-sky-400 font-mono">Tvoja Domena</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">Samostalno osiguravaš domenu</div>
           </div>
-          <div class="card-box rounded-xl p-4">
-            <div class="text-base sm:text-xl font-black text-emerald-400 font-mono">Bez Pretplate</div>
-            <div class="text-xs text-slate-400 mt-1 font-medium">Jednokratna izrada bez ugovora</div>
+          <div class="card-box rounded-xl p-3 sm:p-4">
+            <div class="text-sm sm:text-xl font-black text-emerald-400 font-mono">Bez Pretplate</div>
+            <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">Jednokratna izrada bez ugovora</div>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="card-box rounded-2xl p-6 border-t-4 border-t-sky-500">
-            <div class="text-xs font-mono font-bold text-sky-400 uppercase mb-2">Web Sajtovi & Template Sistemi</div>
-            <h3 class="text-xl font-bold text-white">Prezentacije, portfoliji i web alati</h3>
-            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+        <div class="grid md:grid-cols-3 gap-3.5 sm:gap-6">
+          <div class="card-box rounded-2xl p-4 sm:p-6 border-t-4 border-t-sky-500">
+            <div class="text-[11px] sm:text-xs font-mono font-bold text-sky-400 uppercase mb-1 sm:mb-2">Web Sajtovi & Template Sistemi</div>
+            <h3 class="text-base sm:text-xl font-bold text-white">Prezentacije, portfoliji i web alati</h3>
+            <p class="text-slate-300 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
               Izrađujemo moderne web sajtove, portfolije i web evidencije u vidu gotovog template rješenja spremnog za postavljanje.
             </p>
           </div>
 
-          <div class="card-box rounded-2xl p-6 border-t-4 border-t-cyan-400">
-            <div class="text-xs font-mono font-bold text-cyan-400 uppercase mb-2">Mobilne Aplikacije</div>
-            <h3 class="text-xl font-bold text-white">Isporuka isključivo kao Android .APK</h3>
-            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+          <div class="card-box rounded-2xl p-4 sm:p-6 border-t-4 border-t-cyan-400">
+            <div class="text-[11px] sm:text-xs font-mono font-bold text-cyan-400 uppercase mb-1 sm:mb-2">Mobilne Aplikacije</div>
+            <h3 class="text-base sm:text-xl font-bold text-white">Isporuka isključivo kao Android .APK</h3>
+            <p class="text-slate-300 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
               Mobilne aplikacije za teren i radionice isporučujemo kao gotov <span class="text-white font-mono font-bold">.apk</span> instalacijski fajl koji direktno instalirate na uređaje.
             </p>
           </div>
 
-          <div class="card-box rounded-2xl p-6 border-t-4 border-t-emerald-400">
-            <div class="text-xs font-mono font-bold text-emerald-400 uppercase mb-2">Infrastruktura</div>
-            <h3 class="text-xl font-bold text-white">Domenu i hosting osiguravate sami</h3>
-            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+          <div class="card-box rounded-2xl p-4 sm:p-6 border-t-4 border-t-emerald-400">
+            <div class="text-[11px] sm:text-xs font-mono font-bold text-emerald-400 uppercase mb-1 sm:mb-2">Infrastruktura</div>
+            <h3 class="text-base sm:text-xl font-bold text-white">Domenu i hosting osiguravate sami</h3>
+            <p class="text-slate-300 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
               Za sve web projekte, ukoliko vam je potrebna domena i hosting, dužni ste ih sami pronaći i registrovati na svoje ime.
             </p>
           </div>
         </div>
 
-        <div class="mt-8 rounded-2xl bg-[#0b1322] border border-cyan-500/25 p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="mt-5 sm:mt-8 rounded-2xl bg-[#0b1322] border border-cyan-500/25 p-4 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div class="space-y-1">
-            <div class="text-xs font-mono text-cyan-400 font-bold uppercase">Jasna pravila saradnje i isporuke</div>
-            <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+            <div class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold uppercase">Jasna pravila saradnje i isporuke</div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
               Mi isporučujemo isključivo gotov kod (template) ili Android <span class="text-white font-mono">.apk</span> fajl. Ukoliko vam je potrebna domena i hosting za web, <span class="text-white font-semibold underline decoration-cyan-400">dužni ste ih sami pronaći i registrovati</span>. Svi podaci i sistemi su kod vas, bez naših trajnih mjesečnih ugovora i obaveza.
             </p>
           </div>
-          <button type="button" onclick="switchTab('kontakt')" class="shrink-0 px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs font-mono uppercase transition">
+          <button type="button" onclick="switchTab('kontakt')" class="w-full md:w-auto shrink-0 px-5 py-2.5 sm:py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs font-mono uppercase transition">
             Pošalji upit →
           </button>
         </div>
@@ -216,55 +216,55 @@
     </section>
 
     <!-- TAB 2: PRIMJER RADA - AUTOKARTON -->
-    <section id="tab-demo" class="tab-panel py-8 sm:py-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+    <section id="tab-demo" class="tab-panel py-5 sm:py-10">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-5 sm:mb-8 gap-3">
           <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="px-2.5 py-0.5 rounded bg-emerald-400 text-slate-950 font-mono text-xs font-extrabold">02</span>
-              <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">Primjer gotovog template-a</span>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-400 text-slate-950 font-mono text-[11px] sm:text-xs font-extrabold">02</span>
+              <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">Primjer gotovog template-a</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Kako izgleda AutoKarton u praksi</h2>
-            <p class="text-slate-300 mt-2 max-w-2xl">Interaktivni prikaz jednog od naših gotovih rješenja (evidencija servisa vozila i automatski email podsjetnici) da vidiš kako sistem funkcioniše.</p>
+            <h2 class="text-xl sm:text-4xl font-extrabold text-white">Kako izgleda AutoKarton u praksi</h2>
+            <p class="text-slate-300 text-xs sm:text-base mt-1 sm:mt-2 max-w-2xl">Interaktivni prikaz evidencije servisa vozila i automatskih email podsjetnika.</p>
           </div>
-          <div class="flex items-center gap-2.5">
-            <button type="button" onclick="resetAutoKartonDemo()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white border border-slate-600 transition">
-              ↻ Resetuj prikaz
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="resetAutoKartonDemo()" class="px-3 sm:px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white border border-slate-600 transition">
+              ↻ Resetuj
             </button>
-            <button type="button" onclick="prefillSubject('Slično kao AutoKarton'); switchTab('kontakt');" class="px-4 py-2 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-xs font-extrabold text-slate-950 transition">
+            <button type="button" onclick="prefillSubject('Slično kao AutoKarton'); switchTab('kontakt');" class="px-3 sm:px-4 py-2 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-xs font-extrabold text-slate-950 transition">
               Traži ovakav sistem →
             </button>
           </div>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-6 items-start">
-          <div class="lg:col-span-5 bg-[#101b2e] rounded-2xl p-6 border-2 border-slate-700/90">
-            <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-5">
+        <div class="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start">
+          <div class="lg:col-span-5 bg-[#101b2e] rounded-2xl p-4 sm:p-6 border-2 border-slate-700/90">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
               <div>
-                <span class="text-xs font-mono text-cyan-400 font-bold">PRIMJER INTERFEJSA</span>
-                <h3 class="text-lg font-bold text-white">Unos u karton vozila</h3>
+                <span class="text-[11px] font-mono text-cyan-400 font-bold">PRIMJER INTERFEJSA</span>
+                <h3 class="text-base sm:text-lg font-bold text-white">Unos u karton vozila</h3>
               </div>
-              <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold border border-emerald-500/30">AKTIVNO</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-mono font-bold border border-emerald-500/30">AKTIVNO</span>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-3 sm:space-y-4">
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">1. Odabrano vozilo</label>
-                <select id="demoVehicleSelect" onchange="selectVehicleFromDropdown()" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-white focus:outline-none focus:border-cyan-400">
+                <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">1. Odabrano vozilo</label>
+                <select id="demoVehicleSelect" onchange="selectVehicleFromDropdown()" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-white focus:outline-none focus:border-cyan-400">
                   <option value="0">VW Golf 7 TDI • A42-K-891 (214.500 km)</option>
                   <option value="1">Škoda Octavia • E19-M-402 (168.200 km)</option>
                   <option value="2">Audi A4 B9 • O77-T-115 (192.000 km)</option>
                 </select>
               </div>
 
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">2. Nova kilometraža</label>
-                  <input id="demoMileage" type="number" value="215200" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3.5 py-2 text-sm text-white font-mono font-bold focus:outline-none focus:border-cyan-400" />
+                  <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">2. Nova kilometraža</label>
+                  <input id="demoMileage" type="number" value="215200" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-mono font-bold focus:outline-none focus:border-cyan-400" />
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">3. Vrsta servisa</label>
-                  <select id="demoServiceType" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-cyan-400">
+                  <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">3. Vrsta servisa</label>
+                  <select id="demoServiceType" class="w-full bg-[#070d18] border-2 border-slate-600 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400">
                     <option value="Mali servis (Ulje + Filteri)">Mali servis (Ulje + Filteri)</option>
                     <option value="Zamjena i balansiranje guma">Zamjena i balansiranje guma</option>
                     <option value="Veliki servis (Zupčasti remen)">Veliki servis (Zupčasti remen)</option>
@@ -274,34 +274,34 @@
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">4. Automatski Email podsjetnik</label>
+                <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">4. Automatski Email podsjetnik</label>
                 <div class="grid grid-cols-3 gap-2">
-                  <button type="button" onclick="setReminderDays(3)" id="rem-3" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition">3 dana prije</button>
-                  <button type="button" onclick="setReminderDays(7)" id="rem-7" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-cyan-400 bg-cyan-500 text-slate-950 transition">✓ 7 dana prije</button>
-                  <button type="button" onclick="setReminderDays(15)" id="rem-15" class="rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition">15 dana prije</button>
+                  <button type="button" onclick="setReminderDays(3)" id="rem-3" class="rem-btn py-2 rounded-lg text-[11px] sm:text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition">3d prije</button>
+                  <button type="button" onclick="setReminderDays(7)" id="rem-7" class="rem-btn py-2 rounded-lg text-[11px] sm:text-xs font-mono font-bold border-2 border-cyan-400 bg-cyan-500 text-slate-950 transition">✓ 7d prije</button>
+                  <button type="button" onclick="setReminderDays(15)" id="rem-15" class="rem-btn py-2 rounded-lg text-[11px] sm:text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition">15d prije</button>
                 </div>
               </div>
 
-              <button type="button" onclick="logAutoKartonService()" class="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm transition shadow-lg shadow-cyan-500/20">
+              <button type="button" onclick="logAutoKartonService()" class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs sm:text-sm transition shadow-lg shadow-cyan-500/20">
                 + Sačuvaj Servis u Prikaz
               </button>
 
-              <button type="button" onclick="simulateAutoTrigger()" class="w-full py-2.5 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/40 text-sky-300 font-bold text-xs font-mono transition">
+              <button type="button" onclick="simulateAutoTrigger()" class="w-full py-2 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/40 text-sky-300 font-bold text-[11px] sm:text-xs font-mono transition">
                 ⚡ Prikaži primjer automatskog Emaila
               </button>
             </div>
           </div>
 
-          <div class="lg:col-span-7 space-y-5">
-            <div id="vehicleCardsContainer" class="grid sm:grid-cols-3 gap-3.5"></div>
+          <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+            <div id="vehicleCardsContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
 
-            <div class="bg-[#0b1322] rounded-2xl p-5 border border-slate-700">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-mono uppercase text-slate-300 font-bold">Zapisnik promjena u ovom prikazu</span>
-                <span class="text-xs font-mono text-emerald-400 font-bold">PRIMJER BAZE</span>
+            <div class="bg-[#0b1322] rounded-2xl p-4 sm:p-5 border border-slate-700">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-[11px] sm:text-xs font-mono uppercase text-slate-300 font-bold">Zapisnik promjena</span>
+                <span class="text-[11px] sm:text-xs font-mono text-emerald-400 font-bold">PRIMJER BAZE</span>
               </div>
-              <div id="demoTerminalLog" class="bg-[#060b14] rounded-xl p-4 font-mono text-xs space-y-2.5 max-h-56 overflow-y-auto border border-slate-800">
-                <div class="text-slate-400">[Spremno] Odaberi vozilo i klikni "+ Sačuvaj Servis u Prikaz" da vidiš kako sistem bilježi podatke.</div>
+              <div id="demoTerminalLog" class="bg-[#060b14] rounded-xl p-3 sm:p-4 font-mono text-[11px] sm:text-xs space-y-2 max-h-40 sm:max-h-56 overflow-y-auto border border-slate-800">
+                <div class="text-slate-400">[Spremno] Odaberi vozilo i klikni "+ Sačuvaj Servis u Prikaz"...</div>
               </div>
             </div>
           </div>
@@ -310,63 +310,63 @@
     </section>
 
     <!-- TAB 3: BRZI VODIČ -->
-    <section id="tab-vodic" class="tab-panel py-8 sm:py-10">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 mb-2">
-            <span class="px-2.5 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-xs font-extrabold">02</span>
-            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Brzi Vodič</span>
+    <section id="tab-vodic" class="tab-panel py-5 sm:py-10">
+      <div class="max-w-4xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="text-center mb-5 sm:mb-8">
+          <div class="inline-flex items-center gap-2 mb-1.5">
+            <span class="px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-[11px] sm:text-xs font-extrabold">02</span>
+            <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Brzi Vodič</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Odaberi format koji ti treba</h2>
-          <p class="text-slate-300 mt-2">Označi okvirno šta te zanima ispod, a mi ćemo ti pripremiti tekst poruke u tabu Kontakt.</p>
+          <h2 class="text-xl sm:text-4xl font-extrabold text-white">Odaberi format koji ti treba</h2>
+          <p class="text-slate-300 text-xs sm:text-base mt-1.5">Označi šta te zanima ispod i pripremi poruku za Kontakt.</p>
         </div>
 
-        <div class="bg-[#101b2e] rounded-2xl p-6 sm:p-8 border-2 border-slate-700/90">
-          <div class="mb-7">
-            <div class="text-xs font-mono text-cyan-400 font-bold mb-2.5">1. KAKVO RJEŠENJE TE ZANIMA?</div>
-            <div class="grid sm:grid-cols-3 gap-3">
-              <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-cyan-400 bg-cyan-500/15 text-left transition">
-                <div class="font-bold text-white text-sm flex items-center justify-between">
+        <div class="bg-[#101b2e] rounded-2xl p-4 sm:p-8 border-2 border-slate-700/90">
+          <div class="mb-5 sm:mb-7">
+            <div class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold mb-2">1. KAKVO RJEŠENJE TE ZANIMA?</div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-3.5 sm:p-4 rounded-xl border-2 border-cyan-400 bg-cyan-500/15 text-left transition">
+                <div class="font-bold text-white text-xs sm:text-sm flex items-center justify-between">
                   <span>Web sajt / Portfolio</span>
                   <span class="text-cyan-400 font-mono">✓</span>
                 </div>
-                <div class="text-xs text-slate-300 mt-1">Prezentacijski sajt (postavljaš na svoju domenu)</div>
+                <div class="text-[11px] sm:text-xs text-slate-300 mt-0.5 sm:mt-1">Prezentacijski sajt na tvojoj domeni</div>
               </button>
 
-              <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition">
-                <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
+              <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-3.5 sm:p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition">
+                <div class="font-bold text-slate-200 text-xs sm:text-sm flex items-center justify-between">
                   <span>Android .APK Aplikacija</span>
                   <span class="text-transparent font-mono">✓</span>
                 </div>
-                <div class="text-xs text-slate-400 mt-1">Mobilni alat za radnike, naloge ili evidenciju</div>
+                <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">Mobilni alat za radnike ili evidenciju</div>
               </button>
 
-              <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition">
-                <div class="font-bold text-slate-200 text-sm flex items-center justify-between">
+              <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-3.5 sm:p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition">
+                <div class="font-bold text-slate-200 text-xs sm:text-sm flex items-center justify-between">
                   <span>Gotov Sistem / Template</span>
                   <span class="text-transparent font-mono">✓</span>
                 </div>
-                <div class="text-xs text-slate-400 mt-1">Paint Manager, AutoKarton, QR izvještaji</div>
+                <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">Paint Manager, AutoKarton, QR alati</div>
               </button>
             </div>
           </div>
 
-          <div class="mb-7">
-            <div class="text-xs font-mono text-cyan-400 font-bold mb-2.5">2. DOMENA I HOSTING (ZA WEB PROJEKTE)</div>
-            <div class="grid sm:grid-cols-2 gap-3">
-              <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-400 bg-cyan-500 text-xs sm:text-sm font-extrabold text-slate-950 transition">✓ Već imam svoju domenu</button>
-              <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition">Nabavit ću domenu samostalno</button>
+          <div class="mb-5 sm:mb-7">
+            <div class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold mb-2">2. DOMENA I HOSTING (ZA WEB PROJEKTE)</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+              <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-2.5 sm:py-3 px-3.5 sm:px-4 rounded-xl border-2 border-cyan-400 bg-cyan-500 text-xs sm:text-sm font-extrabold text-slate-950 transition">✓ Već imam svoju domenu</button>
+              <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-2.5 sm:py-3 px-3.5 sm:px-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition">Nabavit ću domenu samostalno</button>
             </div>
           </div>
 
-          <div class="rounded-xl bg-[#070d18] border-2 border-emerald-400/60 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="rounded-xl bg-[#070d18] border-2 border-emerald-400/60 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5">
             <div>
-              <span class="text-xs font-mono uppercase text-emerald-400 font-bold">Odabrani format:</span>
-              <h4 id="guideTitle" class="text-lg sm:text-xl font-extrabold text-white mt-0.5">Izrada Web Sajta / Portfolio Stranice (Template)</h4>
-              <p id="guideDesc" class="text-sm text-slate-300 mt-1">Dobijaš kompletan kod sajta spreman za postavljanje na tvoju domenu i hosting.</p>
+              <span class="text-[11px] font-mono uppercase text-emerald-400 font-bold">Odabrani format:</span>
+              <h4 id="guideTitle" class="text-base sm:text-xl font-extrabold text-white mt-0.5">Izrada Web Sajta / Portfolio Stranice (Template)</h4>
+              <p id="guideDesc" class="text-xs sm:text-sm text-slate-300 mt-1">Dobijaš kompletan kod sajta spreman za postavljanje na tvoju domenu i hosting.</p>
             </div>
-            <button type="button" onclick="applyGuideToContact()" class="shrink-0 px-5 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-sm transition">
-              Otvori Kontakt sa ovim →
+            <button type="button" onclick="applyGuideToContact()" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs sm:text-sm transition">
+              Otvori Kontakt →
             </button>
           </div>
         </div>
@@ -374,244 +374,244 @@
     </section>
 
     <!-- TAB 4: DOSADAŠNJI RADOVI -->
-    <section id="tab-projekti" class="tab-panel py-8 sm:py-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+    <section id="tab-projekti" class="tab-panel py-5 sm:py-10">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-8 gap-3">
           <div>
-            <div class="flex items-center gap-3 mb-2">
-              <span class="px-2.5 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-xs font-extrabold">03</span>
-              <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Reference i Template Baza</span>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-[11px] sm:text-xs font-extrabold">03</span>
+              <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Reference i Template Baza</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Šta smo do sada pravili</h2>
-            <p class="text-slate-400 text-sm mt-1">Svaki od ovih projekata može poslužiti kao osnova (template) ili inspiracija za tvoje rješenje.</p>
+            <h2 class="text-xl sm:text-4xl font-extrabold text-white">Šta smo do sada pravili</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">Svaki projekat može poslužiti kao osnova (template) ili inspiracija.</p>
           </div>
 
-          <div class="flex flex-wrap gap-2">
-            <button type="button" onclick="filterProjects('all', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-extrabold bg-cyan-500 text-slate-950 border-2 border-cyan-400">✓ Svi radovi (13)</button>
-            <button type="button" onclick="filterProjects('web', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Web & Portfolio</button>
-            <button type="button" onclick="filterProjects('industrija', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Pogon & .APK Alati</button>
-            <button type="button" onclick="filterProjects('auto_live', this)" class="proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Auto & Podaci Uživo</button>
+          <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1">
+            <button type="button" onclick="filterProjects('all', this)" class="proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-extrabold bg-cyan-500 text-slate-950 border-2 border-cyan-400">✓ Svi (13)</button>
+            <button type="button" onclick="filterProjects('web', this)" class="proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Web</button>
+            <button type="button" onclick="filterProjects('industrija', this)" class="proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Pogon & .APK</button>
+            <button type="button" onclick="filterProjects('auto_live', this)" class="proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500">Auto & Live</button>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-cyan-400 flex flex-col justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="projectsGrid">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-cyan-400 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-300 font-bold">ZALIHE & BOJE</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-cyan-500/15 text-cyan-300 font-bold">ZALIHE & BOJE</span>
                 <span class="text-slate-400">Template / .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Paint Manager</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Paint Manager</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Evidencija zaliha i potrošnje boja (kg), mobilni QR skener, uspravni dijagram stanja i minimuma, QR kartice, PDF/CSV izvještaji i Google Sheet sinhronizacija.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-cyan-400 font-bold">● QR Skener + Google Sheet</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold">● QR + Sheet</span>
               <button type="button" onclick="askAboutProject('Slično kao Paint Manager')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="web" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-sky-400 flex flex-col justify-between">
+          <div data-cat="web" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-sky-400 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-sky-500/15 text-sky-300 font-bold">WEB TEMPLATE</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-sky-500/15 text-sky-300 font-bold">WEB TEMPLATE</span>
                 <span class="text-slate-400">Tvoja Domena</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Poslovni Web Sajtovi i Portfoliji</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Poslovni Web Sajtovi i Portfoliji</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Izrada modernih prezentacijskih web stranica i portfolija koje dobijaš kao gotov paket za postavljanje na svoju domenu.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-sky-400 font-bold">● HTML / Responsive</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">● Responsive</span>
               <button type="button" onclick="askAboutProject('Izrada web sajta / portfolija')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-cyan-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-400 font-bold">PROIZVODNJA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-cyan-500/15 text-cyan-400 font-bold">PROIZVODNJA</span>
                 <span class="text-slate-400">Template / .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Production Dashboard</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Production Dashboard</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Praćenje proizvodnje i efikasnosti po sektorima i smjenama uz pregled ostvarenih normi.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-cyan-400 font-bold">● Praćenje efikasnosti</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold">● Efikasnost</span>
               <button type="button" onclick="askAboutProject('Slično kao Production Dashboard')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-rose-500 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-rose-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-rose-500/15 text-rose-400 font-bold">ANALIZA ZASTOJA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-rose-500/15 text-rose-400 font-bold">ANALIZA ZASTOJA</span>
                 <span class="text-slate-400">.APK / Web</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Evidencija Zastoja</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Evidencija Zastoja</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Bilježenje i analiza neproduktivnog vremena mašina i operatera (kvarovi, čekanje materijala, podešavanje).
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-rose-400 font-bold">● Neproduktivno vrijeme</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-rose-400 font-bold">● Zastoji</span>
               <button type="button" onclick="askAboutProject('Slično kao Evidencija Zastoja')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-teal-400 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-teal-400 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-teal-500/15 text-teal-300 font-bold">DOKUMENTACIJA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-teal-500/15 text-teal-300 font-bold">DOKUMENTACIJA</span>
                 <span class="text-slate-400">QR + PDF</span>
               </div>
-              <h3 class="text-xl font-bold text-white">QR Report</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">QR Report</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Digitalizacija proizvodne dokumentacije — skeniranjem QR koda radnik pristupa podacima i šalje izvještaj direktno sa linije.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-teal-400 font-bold">● Bez papira</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-teal-400 font-bold">● Bez papira</span>
               <button type="button" onclick="askAboutProject('Slično kao QR Report')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-sky-500/15 text-sky-400 font-bold">MATERIJALI</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-sky-500/15 text-sky-400 font-bold">MATERIJALI</span>
                 <span class="text-slate-400">Narudžbe</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Material Order Tracker</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Material Order Tracker</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Praćenje materijala i narudžbi od zahtjeva u proizvodnji do isporuke i prijema u skladište.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-sky-400 font-bold">● Praćenje narudžbi</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">● Narudžbe</span>
               <button type="button" onclick="askAboutProject('Slično kao Material Order Tracker')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-indigo-400 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-indigo-400 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-indigo-500/15 text-indigo-300 font-bold">PRETRAGA DIJELOVA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-indigo-500/15 text-indigo-300 font-bold">PRETRAGA DIJELOVA</span>
                 <span class="text-slate-400">Image Match</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Part Image Matcher</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Part Image Matcher</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Prepoznavanje sličnih dijelova i pozicija na osnovu slike radi brže identifikacije i manje duplog posla.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-indigo-400 font-bold">● Prepoznavanje dijelova</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-indigo-400 font-bold">● Image Match</span>
               <button type="button" onclick="askAboutProject('Slično kao Part Image Matcher')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">LIVE PODACI</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">LIVE PODACI</span>
                 <span class="text-slate-400">Tvoja Domena</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Gužva Uživo</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Gužva Uživo</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Digitalno izvještavanje i prikaz podataka o trenutnoj opterećenosti i čekanju uživo za lakšu organizaciju korisnika.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-emerald-400 font-bold">● Prikaz podataka uživo</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-emerald-400 font-bold">● Uživo</span>
               <button type="button" onclick="askAboutProject('Slično kao Gužva Uživo')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">AUTO & FLOTA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">AUTO & FLOTA</span>
                 <span class="text-slate-400">Template / .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">AutoKarton</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">AutoKarton</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Digitalna evidencija održavanja vozila (ulje, gume, kilometraža, registracija) sa automatskim email podsjetnicima 3, 7 i 15 dana unaprijed.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-emerald-400 font-bold">● Evidencija vozila</span>
-              <button type="button" onclick="switchTab('demo')" class="text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-3 py-1.5 rounded-lg transition">Otvori Demo Tab →</button>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-emerald-400 font-bold">● Vozila</span>
+              <button type="button" onclick="switchTab('demo')" class="text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-3 py-1.5 rounded-lg transition">Demo Tab →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-cyan-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-400 font-bold">RADNI NALOZI</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-cyan-500/15 text-cyan-400 font-bold">RADNI NALOZI</span>
                 <span class="text-slate-400">Android .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Radni nalog u džepu</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Radni nalog u džepu</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Praćenje radnih naloga preko QR kodova — skeniranjem mobitelom ažurira status u bazi i generiše PDF dokumentaciju.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-cyan-400 font-bold">● QR evidencija naloga</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-cyan-400 font-bold">● QR Nalozi</span>
               <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+          <div data-cat="auto_live" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-emerald-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">QR OBAVIJESTI</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-emerald-500/15 text-emerald-400 font-bold">QR OBAVIJESTI</span>
                 <span class="text-slate-400">Tvoja Domena</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Pametna Auto Naljepnica</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Pametna Auto Naljepnica</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 QR naljepnica za vjetrobransko staklo koja omogućava anonimno slanje obavijesti vlasniku vozila putem emaila.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-emerald-400 font-bold">● QR kontakt sistem</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-emerald-400 font-bold">● QR Kontakt</span>
               <button type="button" onclick="askAboutProject('Pametna Auto Naljepnica')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-teal-400 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-teal-400 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-teal-500/15 text-teal-300 font-bold">TIM & HALA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-teal-500/15 text-teal-300 font-bold">TIM & HALA</span>
                 <span class="text-slate-400">Android .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Task Manager za Radionice</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Task Manager za Radionice</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Dodjeljivanje zadataka majstorima u pogonu uz bilježenje tačnog vremena početka i završetka jednim klikom na mobitelu.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-teal-400 font-bold">● Upravljanje zadacima</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-teal-400 font-bold">● Zadaci</span>
               <button type="button" onclick="askAboutProject('Slično kao Task Manager za Radionice')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
 
-          <div data-cat="industrija" class="project-card card-box rounded-2xl p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
+          <div data-cat="industrija" class="project-card card-box rounded-2xl p-4 sm:p-6 border-l-4 border-l-sky-500 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-mono mb-3">
-                <span class="px-2.5 py-1 rounded bg-sky-500/15 text-sky-400 font-bold">EVIDENCIJA RADA</span>
+              <div class="flex items-center justify-between text-[11px] sm:text-xs font-mono mb-2 sm:mb-3">
+                <span class="px-2 py-0.5 sm:py-1 rounded bg-sky-500/15 text-sky-400 font-bold">EVIDENCIJA RADA</span>
                 <span class="text-slate-400">Android .APK</span>
               </div>
-              <h3 class="text-xl font-bold text-white">Evidencija Radnog Vremena</h3>
-              <p class="text-slate-300 text-sm mt-2.5 leading-relaxed">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Evidencija Radnog Vremena</h3>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
                 Jednostavna prijava i odjava radnika sa automatskim obračunom sati, uz dnevni logger lansiranja serija.
               </p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between">
-              <span class="text-xs font-mono text-sky-400 font-bold">● Obračun sati</span>
+            <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-700/80 flex items-center justify-between gap-2">
+              <span class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">● Sati rada</span>
               <button type="button" onclick="askAboutProject('Slično kao Evidencija Radnog Vremena')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
             </div>
           </div>
@@ -620,26 +620,26 @@
     </section>
 
     <!-- TAB 5: DIGITAL SHOP -->
-    <section id="tab-shop" class="tab-panel py-10 sm:py-14">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="shop-soon-blink-box rounded-3xl bg-[#101b2e] border-2 p-8 sm:p-10 text-center">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 font-mono text-xs font-extrabold tracking-wider uppercase mb-4">
+    <section id="tab-shop" class="tab-panel py-8 sm:py-14">
+      <div class="max-w-3xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="shop-soon-blink-box rounded-2xl sm:rounded-3xl bg-[#101b2e] border-2 p-6 sm:p-10 text-center">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 font-mono text-[11px] sm:text-xs font-extrabold tracking-wider uppercase mb-3 sm:mb-4">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> USKORO DOSTUPNO
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
             COREFLOW LAB — <span class="text-cyan-400">DIGITAL SHOP</span>
           </h2>
 
-          <p class="text-slate-300 text-sm sm:text-base mt-4 max-w-xl mx-auto leading-relaxed">
-            Uskoro otvaramo digitalnu prodavnicu sa gotovim web template-ima, QR alatima i Android <span class="font-mono text-white">.apk</span> paketima spremnim za trenutno preuzimanje bez čekanja.
+          <p class="text-slate-300 text-xs sm:text-base mt-3 sm:mt-4 max-w-xl mx-auto leading-relaxed">
+            Uskoro otvaramo digitalnu prodavnicu sa gotovim web template-ima, QR alatima i Android <span class="font-mono text-white">.apk</span> paketima spremnim za trenutno preuzimanje.
           </p>
 
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-            <button type="button" onclick="notifyMeShopSoon()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm transition shadow-lg shadow-cyan-500/25">
+          <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button type="button" onclick="notifyMeShopSoon()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-xs sm:text-sm transition shadow-lg shadow-cyan-500/25">
               Javi mi kad krene
             </button>
-            <button type="button" onclick="switchTab('projekti')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold text-sm transition">
+            <button type="button" onclick="switchTab('projekti')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold text-xs sm:text-sm transition">
               Pogledaj postojeće radove
             </button>
           </div>
@@ -648,30 +648,30 @@
     </section>
 
     <!-- TAB 6: KONTAKT -->
-    <section id="tab-kontakt" class="tab-panel py-8 sm:py-10">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-[#101b2e] rounded-3xl p-6 sm:p-10 border-2 border-slate-700/90">
-          <div class="grid lg:grid-cols-5 gap-8 sm:gap-10 items-start">
+    <section id="tab-kontakt" class="tab-panel py-5 sm:py-10">
+      <div class="max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div class="bg-[#101b2e] rounded-2xl sm:rounded-3xl p-4 sm:p-10 border-2 border-slate-700/90">
+          <div class="grid lg:grid-cols-5 gap-6 sm:gap-10 items-start">
             <div class="lg:col-span-2">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="px-2.5 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-xs font-extrabold">05</span>
-                <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Kontakt</span>
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="px-2 py-0.5 rounded bg-cyan-500 text-slate-950 font-mono text-[11px] sm:text-xs font-extrabold">05</span>
+                <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">Kontakt</span>
               </div>
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Opiši otprilike šta ti treba</h2>
-              <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-                Napiši svojim riječima kakav web sajt (template) ili Android <span class="font-mono text-white">.apk</span> aplikaciju želiš. Javit ćemo ti se putem emaila da se dogovorimo oko detalja.
+              <h2 class="text-xl sm:text-3xl font-extrabold text-white">Opiši otprilike šta ti treba</h2>
+              <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                Napiši svojim riječima kakav web sajt (template) ili Android <span class="font-mono text-white">.apk</span> aplikaciju želiš.
               </p>
 
-              <div class="mt-6 space-y-3.5">
-                <div class="p-4 rounded-xl bg-[#070d18] border border-slate-700">
-                  <div class="text-xs font-mono text-slate-400">EMAIL ZA DOGOVOR</div>
-                  <a href="mailto:core.f.lab@gmail.com" class="text-sm sm:text-base font-bold text-cyan-400 hover:underline break-all">
+              <div class="mt-4 sm:mt-6 space-y-2.5 sm:space-y-3.5">
+                <div class="p-3 sm:p-4 rounded-xl bg-[#070d18] border border-slate-700">
+                  <div class="text-[11px] font-mono text-slate-400">EMAIL ZA DOGOVOR</div>
+                  <a href="mailto:core.f.lab@gmail.com" class="text-xs sm:text-base font-bold text-cyan-400 hover:underline break-all">
                     core.f.lab@gmail.com
                   </a>
                 </div>
-                <div class="p-4 rounded-xl bg-[#070d18] border border-slate-700">
-                  <div class="text-xs font-mono text-slate-400">UKRATKO O ISPORUCI</div>
-                  <div class="text-xs text-slate-300 mt-1 leading-relaxed">
+                <div class="p-3 sm:p-4 rounded-xl bg-[#070d18] border border-slate-700">
+                  <div class="text-[11px] font-mono text-slate-400">UKRATKO O ISPORUCI</div>
+                  <div class="text-[11px] sm:text-xs text-slate-300 mt-1 leading-relaxed">
                     • Mobilne aplikacije: gotov <span class="text-white font-mono">.apk</span> fajl<br>
                     • Web sajtovi i sistemi: gotov template / kod<br>
                     • Domenu i hosting osiguravate samostalno
@@ -680,29 +680,29 @@
               </div>
             </div>
 
-            <form onsubmit="sendEmailUpit(event)" class="lg:col-span-3 space-y-4">
-              <div class="grid sm:grid-cols-2 gap-4">
+            <form onsubmit="sendEmailUpit(event)" class="lg:col-span-3 space-y-3 sm:space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše Ime ili Firma</label>
-                  <input id="contactName" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+                  <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">Vaše Ime ili Firma</label>
+                  <input id="contactName" type="text" required placeholder="npr. Marko / Firma d.o.o." class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400" />
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaša Email Adresa</label>
-                  <input id="contactEmail" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+                  <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">Vaša Email Adresa</label>
+                  <input id="contactEmail" type="email" required placeholder="vasa.adresa@email.com" class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400" />
                 </div>
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Šta vas okvirno zanima?</label>
-                <input id="contactSubject" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+                <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">Šta vas okvirno zanima?</label>
+                <input id="contactSubject" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400" />
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Vaše potrebe i opis onoga što želite</label>
-                <textarea id="contactMessage" rows="5" required placeholder="Napišite otprilike kakve su vaše potrebe, čime se bavite i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
+                <label class="block text-[11px] sm:text-xs font-bold text-slate-300 uppercase mb-1">Vaše potrebe i opis onoga što želite</label>
+                <textarea id="contactMessage" rows="4" required placeholder="Napišite otprilike kakve su vaše potrebe, čime se bavite i da li vam treba web sajt ili Android .apk aplikacija..." class="w-full bg-[#070d18] border-2 border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
               </div>
 
-              <button type="submit" class="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-base transition shadow-lg shadow-cyan-500/25">
+              <button type="submit" class="w-full py-3 sm:py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm sm:text-base transition shadow-lg shadow-cyan-500/25">
                 Pošalji upit na core.f.lab@gmail.com
               </button>
             </form>
@@ -714,10 +714,10 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="py-5 bg-[#060b14] border-t border-slate-800 text-center text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="font-bold text-white">CoreFlow <span class="text-cyan-400">Lab</span> — Web Template Rješenja & Android .APK Aplikacije</div>
-      <div>Email kontakt: <a href="mailto:core.f.lab@gmail.com" class="text-cyan-400 font-semibold hover:underline">core.f.lab@gmail.com</a></div>
+  <footer class="py-4 bg-[#060b14] border-t border-slate-800 text-center text-[11px] sm:text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-3.5 flex flex-col sm:flex-row items-center justify-between gap-1.5">
+      <div class="font-bold text-white">CoreFlow <span class="text-cyan-400">Lab</span> — Web Template & Android .APK</div>
+      <div>Email: <a href="mailto:core.f.lab@gmail.com" class="text-cyan-400 font-semibold hover:underline">core.f.lab@gmail.com</a></div>
     </div>
   </footer>
 
@@ -736,9 +736,10 @@
       document.querySelectorAll('.main-tab-btn').forEach(btn => {
         const isCurrent = btn.dataset.tab === tabId;
         if (isCurrent) {
-          btn.className = 'main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition flex items-center gap-2 bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20';
+          btn.className = 'main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-extrabold transition flex items-center gap-1.5 bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20';
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
-          btn.className = 'main-tab-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80';
+          btn.className = 'main-tab-btn shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 bg-slate-800/70 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/80';
         }
       });
     }
@@ -788,23 +789,23 @@
           ? 'border-2 border-cyan-400 bg-[#15243d] shadow-lg shadow-cyan-500/10'
           : 'border border-slate-700 bg-[#101b2e] opacity-80 hover:opacity-100';
 
-        let badge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-mono font-bold">UREDNO</span>';
-        if (v.status === 'uskoro') badge = '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[11px] font-mono font-bold">USKORO</span>';
-        if (v.status === 'hitno') badge = '<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[11px] font-mono font-bold">ISTIČE</span>';
+        let badge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] sm:text-[11px] font-mono font-bold">UREDNO</span>';
+        if (v.status === 'uskoro') badge = '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] sm:text-[11px] font-mono font-bold">USKORO</span>';
+        if (v.status === 'hitno') badge = '<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] sm:text-[11px] font-mono font-bold">ISTIČE</span>';
 
         return `
-          <div onclick="pickVehicle(${idx})" class="cursor-pointer rounded-xl p-4 transition ${borderClass}">
-            <div class="flex items-center justify-between mb-2">
+          <div onclick="pickVehicle(${idx})" class="cursor-pointer rounded-xl p-3 sm:p-4 transition ${borderClass}">
+            <div class="flex items-center justify-between mb-1.5">
               <span class="font-mono text-xs font-extrabold ${isSelected ? 'text-cyan-400' : 'text-slate-300'}">
                 ${isSelected ? '▶ ' : ''}${v.plate}
               </span>
               ${badge}
             </div>
-            <div class="font-bold text-white text-sm">${v.name}</div>
-            <div class="text-xs font-mono text-slate-300 mt-1">${v.km.toLocaleString()} km</div>
-            <div class="mt-3 pt-2.5 border-t border-slate-700/80 text-[11px] text-slate-300">
-              <div>Zadnje: <span class="text-slate-400">${v.lastService}</span></div>
-              <div class="text-sky-400 font-semibold mt-0.5">Podsjetnik: ${v.reminder}d ranije</div>
+            <div class="font-bold text-white text-xs sm:text-sm">${v.name}</div>
+            <div class="text-xs font-mono text-slate-300 mt-0.5">${v.km.toLocaleString()} km</div>
+            <div class="mt-2 pt-2 border-t border-slate-700/80 text-[11px] text-slate-300 flex items-center justify-between gap-2 sm:block">
+              <div class="truncate">Zadnje: <span class="text-slate-400">${v.lastService}</span></div>
+              <div class="text-sky-400 font-semibold shrink-0 sm:mt-0.5">${v.reminder}d ranije</div>
             </div>
           </div>
         `;
@@ -828,11 +829,11 @@
       [3, 7, 15].forEach(d => {
         const btn = document.getElementById('rem-' + d);
         if (d === days) {
-          btn.className = 'rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-cyan-400 bg-cyan-500 text-slate-950 transition';
-          btn.textContent = '✓ ' + d + ' dana prije';
+          btn.className = 'rem-btn py-2 rounded-lg text-[11px] sm:text-xs font-mono font-bold border-2 border-cyan-400 bg-cyan-500 text-slate-950 transition';
+          btn.textContent = '✓ ' + d + 'd prije';
         } else {
-          btn.className = 'rem-btn py-2.5 rounded-lg text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition';
-          btn.textContent = d + ' dana prije';
+          btn.className = 'rem-btn py-2 rounded-lg text-[11px] sm:text-xs font-mono font-bold border-2 border-slate-700 bg-[#070d18] text-slate-300 transition';
+          btn.textContent = d + 'd prije';
         }
       });
     }
@@ -897,21 +898,21 @@
 
       if (step === 1) {
         document.querySelectorAll('.guide-btn-1').forEach(b => {
-          b.className = 'guide-btn-1 p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition';
+          b.className = 'guide-btn-1 p-3.5 sm:p-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-left hover:border-slate-500 transition';
           b.querySelector('span:last-child').className = 'text-transparent font-mono';
           b.querySelector('span:first-child').className = 'text-slate-200';
         });
-        btnEl.className = 'guide-btn-1 p-4 rounded-xl border-2 border-cyan-400 bg-cyan-500/15 text-left transition';
+        btnEl.className = 'guide-btn-1 p-3.5 sm:p-4 rounded-xl border-2 border-cyan-400 bg-cyan-500/15 text-left transition';
         btnEl.querySelector('span:last-child').className = 'text-cyan-400 font-mono';
         btnEl.querySelector('span:first-child').className = 'text-white';
       }
 
       if (step === 2) {
         document.querySelectorAll('.guide-btn-2').forEach(b => {
-          b.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition';
+          b.className = 'guide-btn-2 py-2.5 sm:py-3 px-3.5 sm:px-4 rounded-xl border-2 border-slate-700 bg-[#070d18] text-xs sm:text-sm font-bold text-slate-300 hover:border-slate-500 transition';
           b.textContent = b.textContent.replace('✓ ', '');
         });
-        btnEl.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-400 bg-cyan-500 text-xs sm:text-sm font-extrabold text-slate-950 transition';
+        btnEl.className = 'guide-btn-2 py-2.5 sm:py-3 px-3.5 sm:px-4 rounded-xl border-2 border-cyan-400 bg-cyan-500 text-xs sm:text-sm font-extrabold text-slate-950 transition';
         btnEl.textContent = '✓ ' + btnEl.textContent;
       }
 
@@ -934,10 +935,10 @@
 
     function filterProjects(cat, btn) {
       document.querySelectorAll('.proj-filter').forEach(b => {
-        b.className = 'proj-filter px-4 py-2 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500';
+        b.className = 'proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold bg-slate-800 text-slate-300 border-2 border-slate-700 hover:border-slate-500';
         b.textContent = b.textContent.replace('✓ ', '');
       });
-      btn.className = 'proj-filter px-4 py-2 rounded-lg text-xs font-extrabold bg-cyan-500 text-slate-950 border-2 border-cyan-400';
+      btn.className = 'proj-filter shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-extrabold bg-cyan-500 text-slate-950 border-2 border-cyan-400';
       btn.textContent = '✓ ' + btn.textContent;
 
       document.querySelectorAll('.project-card').forEach(card => {

@@ -69,22 +69,27 @@
 <body class="antialiased selection:bg-cyan-500 selection:text-slate-950 min-h-screen flex flex-col lg:flex-row">
 
   <!-- MOBILNI HEADER -->
-  <header class="lg:hidden sticky top-0 z-40 bg-[#080e1a]/95 backdrop-blur-md border-b border-slate-800 px-4 h-16 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <button type="button" onclick="toggleMobileSidebar(true)" aria-label="Otvori meni" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-cyan-400 transition">
+  <header class="lg:hidden sticky top-0 z-40 bg-[#080e1a]/95 backdrop-blur-md border-b border-slate-800 px-4 h-16 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3 min-w-0">
+      <button type="button" onclick="toggleMobileSidebar(true)" aria-label="Otvori meni" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-cyan-400 transition shrink-0">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10" />
         </svg>
       </button>
-      <div>
-        <span class="font-extrabold text-white text-base block leading-none">CoreFlow <span class="text-cyan-400">Lab</span></span>
-        <span id="mobileCurrentSectionLabel" class="text-[11px] font-mono text-cyan-300 mt-0.5 block">01 • Model rada</span>
+      <div class="min-w-0">
+        <span class="font-extrabold text-white text-base block leading-none truncate">CoreFlow <span class="text-cyan-400">Lab</span></span>
+        <span id="mobileCurrentSectionLabel" class="text-[11px] font-mono text-cyan-300 mt-0.5 block truncate">01 • Model rada</span>
       </div>
     </div>
 
-    <button type="button" onclick="switchTab('kontakt')" class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold transition">
-      Pošalji upit
-    </button>
+    <div class="flex items-center gap-2 shrink-0">
+      <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-pink-400 text-xs font-bold transition">
+        TikTok
+      </a>
+      <button type="button" onclick="switchTab('kontakt')" class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold transition">
+        Upit
+      </button>
+    </div>
   </header>
 
   <!-- POZADINSKI OVERLAY ZA MOBILNI SIDEBAR -->
@@ -179,13 +184,20 @@
       </div>
     </div>
 
-    <!-- DONJI DIO SIDEBARA -->
-    <div class="p-4 border-t border-slate-800/80 bg-[#060b14]/60">
-      <div class="text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Direktni Email</div>
-      <a href="mailto:core.f.lab@gmail.com" class="text-xs font-mono font-bold text-cyan-400 hover:underline block truncate">
-        core.f.lab@gmail.com
+    <!-- DONJI DIO SIDEBARA: TIKTOK + EMAIL -->
+    <div class="p-4 border-t border-slate-800/80 bg-[#060b14]/60 space-y-3">
+      <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-pink-500/35 text-pink-300 text-xs font-bold flex items-center justify-between transition">
+        <span>TikTok @core.flow.lab</span>
+        <span class="font-mono text-[11px]">▶ Video</span>
       </a>
-      <div class="text-[11px] text-slate-500 mt-1">Jednokratna izrada • Bez pretplate</div>
+
+      <div>
+        <div class="text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Direktni Email</div>
+        <a href="mailto:core.f.lab@gmail.com" class="text-xs font-mono font-bold text-cyan-400 hover:underline block truncate">
+          core.f.lab@gmail.com
+        </a>
+        <div class="text-[11px] text-slate-500 mt-1">Jednokratna izrada • Bez pretplate</div>
+      </div>
     </div>
   </aside>
 
@@ -260,6 +272,9 @@
         <button type="button" onclick="switchTab('projekti')" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition">
           Pogledaj radove (13)
         </button>
+        <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-pink-300 font-bold text-sm border border-pink-500/35 transition">
+          ▶ Pogledaj na TikToku
+        </a>
       </div>
     </section>
 
@@ -336,7 +351,9 @@
             03 • DOSADAŠNJI RADOVI (13)
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Šta smo do sada pravili</h2>
-          <p class="text-slate-300 text-sm mt-1">Filtriraj po kategoriji i odaberi rješenje koje ti najviše odgovara.</p>
+          <p class="text-slate-300 text-sm mt-1">
+            Filtriraj po kategoriji, pogledaj prikaze na <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-pink-400 font-bold hover:underline">@core.flow.lab</a> ili pošalji upit.
+          </p>
         </div>
 
         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
@@ -348,7 +365,8 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="projectsGrid">
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
+        <!-- PAINT MANAGER -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-cyan-300 font-bold">ZALIHE & BOJE</span>
@@ -359,13 +377,14 @@
               Evidencija zaliha i potrošnje boja (kg), mobilni QR skener, dijagram stanja i minimuma, PDF/CSV izvještaji i Google Sheet sinhronizacija.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-cyan-400">● QR Skener + Sheet</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Paint Manager')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="web" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-400 flex flex-col justify-between">
+        <!-- POSLOVNI WEB SAJTOVI -->
+        <div data-cat="web" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-sky-300 font-bold">WEB TEMPLATE</span>
@@ -376,13 +395,14 @@
               Izrada modernih prezentacijskih web stranica i portfolija koje dobijaš kao gotov paket za postavljanje na svoju domenu.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-sky-400">● HTML / Responsive</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Izrada web sajta / portfolija')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+        <!-- PRODUCTION DASHBOARD -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-cyan-400 font-bold">PROIZVODNJA</span>
@@ -393,13 +413,14 @@
               Praćenje proizvodnje i efikasnosti po sektorima i smjenama uz pregled ostvarenih normi.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-cyan-400">● Praćenje efikasnosti</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Production Dashboard')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-rose-500 flex flex-col justify-between">
+        <!-- EVIDENCIJA ZASTOJA -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-rose-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-rose-400 font-bold">ANALIZA ZASTOJA</span>
@@ -410,13 +431,14 @@
               Bilježenje i analiza neproduktivnog vremena mašina i operatera (kvarovi, čekanje materijala, podešavanje).
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-rose-400">● Neproduktivno vrijeme</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Evidencija Zastoja')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
+        <!-- QR REPORT -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-teal-300 font-bold">DOKUMENTACIJA</span>
@@ -427,13 +449,14 @@
               Digitalizacija proizvodne dokumentacije — skeniranjem QR koda radnik pristupa podacima i šalje izvještaj direktno sa linije.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-teal-400">● Bez papira</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao QR Report')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <!-- MATERIAL ORDER TRACKER -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-sky-400 font-bold">MATERIJALI</span>
@@ -444,13 +467,14 @@
               Praćenje materijala i narudžbi od zahtjeva u proizvodnji do isporuke i prijema u skladište.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-sky-400">● Praćenje narudžbi</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Material Order Tracker')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-indigo-400 flex flex-col justify-between">
+        <!-- PART IMAGE MATCHER -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-indigo-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-indigo-300 font-bold">PRETRAGA DIJELOVA</span>
@@ -461,13 +485,14 @@
               Prepoznavanje sličnih dijelova i pozicija na osnovu slike radi brže identifikacije i manje duplog posla.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-indigo-400">● Prepoznavanje dijelova</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Part Image Matcher')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <!-- GUŽVA UŽIVO -->
+        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-emerald-400 font-bold">LIVE PODACI</span>
@@ -478,13 +503,14 @@
               Digitalno izvještavanje i prikaz podataka o trenutnoj opterećenosti i čekanju uživo za lakšu organizaciju korisnika.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-emerald-400">● Podaci uživo</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Gužva Uživo')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <!-- AUTOKARTON -->
+        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-emerald-400 font-bold">AUTO & FLOTA</span>
@@ -495,13 +521,14 @@
               Digitalna evidencija održavanja vozila (ulje, gume, kilometraža, registracija) sa automatskim email podsjetnicima 3, 7 i 15 dana unaprijed.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-emerald-400">● Evidencija vozila</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="switchTab('demo')" class="text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-3 py-1.5 rounded-lg transition">Otvori Demo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+        <!-- RADNI NALOG U DŽEPU -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-cyan-400 font-bold">RADNI NALOZI</span>
@@ -512,13 +539,14 @@
               Praćenje radnih naloga preko QR kodova — skeniranjem mobitelom ažurira status u bazi i generiše PDF dokumentaciju.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-cyan-400">● QR evidencija naloga</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <!-- PAMETNA AUTO NALJEPNICA -->
+        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-emerald-400 font-bold">QR OBAVIJESTI</span>
@@ -529,13 +557,14 @@
               QR naljepnica za vjetrobransko staklo koja omogućava anonimno slanje obavijesti vlasniku vozila putem emaila.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-emerald-400">● QR kontakt sistem</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Pametna Auto Naljepnica')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
+        <!-- TASK MANAGER ZA RADIONICE -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-teal-300 font-bold">TIM & HALA</span>
@@ -546,13 +575,14 @@
               Dodjeljivanje zadataka majstorima u pogonu uz bilježenje tačnog vremena početka i završetka jednim klikom na mobitelu.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-teal-400">● Upravljanje zadacima</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Task Manager za Radionice')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
 
-        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <!-- EVIDENCIJA RADNOG VREMENA -->
+        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-2">
               <span class="text-sky-400 font-bold">EVIDENCIJA RADA</span>
@@ -563,8 +593,8 @@
               Jednostavna prijava i odjava radnika sa automatskim obračunom sati, uz dnevni logger lansiranja serija.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="text-xs font-mono text-sky-400">● Obračun sati</span>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+            <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-pink-300 bg-slate-900 hover:bg-pink-500/20 border border-pink-500/30 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
             <button type="button" onclick="askAboutProject('Slično kao Evidencija Radnog Vremena')" class="text-xs font-bold text-white bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 px-3 py-1.5 rounded-lg transition">Pitaj za ovo →</button>
           </div>
         </div>
@@ -592,9 +622,9 @@
           <button type="button" onclick="notifyMeShopSoon()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold text-sm transition">
             Javi mi kad krene
           </button>
-          <button type="button" onclick="switchTab('projekti')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-sm transition">
-            Pogledaj postojeće radove
-          </button>
+          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-pink-500/35 text-pink-300 font-bold text-sm transition">
+            ▶ Prati objave na TikToku
+          </a>
         </div>
       </div>
     </section>
@@ -608,7 +638,9 @@
           05 • KONTAKT I UPIT
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Opiši otprilike šta ti treba</h2>
-        <p class="text-slate-300 text-sm mt-1">Javit ćemo ti se putem emaila <a href="mailto:core.f.lab@gmail.com" class="text-cyan-400 font-bold hover:underline">core.f.lab@gmail.com</a> da se dogovorimo oko detalja.</p>
+        <p class="text-slate-300 text-sm mt-1">
+          Javit ćemo ti se putem emaila <a href="mailto:core.f.lab@gmail.com" class="text-cyan-400 font-bold hover:underline">core.f.lab@gmail.com</a> ili pogledaj klipove na <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-pink-400 font-bold hover:underline">TikToku</a>.
+        </p>
       </div>
 
       <div class="card-box rounded-2xl p-5 sm:p-8">
@@ -624,9 +656,15 @@
             </div>
           </div>
 
-          <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Šta vas okvirno zanima?</label>
-            <input id="contactSubject" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#060b14] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Šta vas okvirno zanima?</label>
+              <input id="contactSubject" type="text" required value="Upit: Web template / Android .APK aplikacija" class="w-full bg-[#060b14] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase mb-1.5">Naziv ili opis videa sa TikToka (opcionalno)</label>
+              <input id="contactTiktokRef" type="text" placeholder="npr. video sa QR skenerom / AutoKarton" class="w-full bg-[#060b14] border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400" />
+            </div>
           </div>
 
           <div>
@@ -656,7 +694,10 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
+          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-bold text-pink-300 border border-pink-500/35 transition">
+            ▶ TikTok prikaz
+          </a>
           <button type="button" onclick="resetAutoKartonDemo()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-white border border-slate-700 transition">
             ↻ Resetuj
           </button>
@@ -731,6 +772,9 @@
 
   <!-- JAVASCRIPT -->
   <script>
+    const TIKTOK_PROFILE_URL = "https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf";
+    const VALID_TABS = ["usluge", "vodic", "projekti", "shop", "kontakt", "demo"];
+
     function toggleMobileSidebar(open) {
       const sidebar = document.getElementById('appSidebar');
       const backdrop = document.getElementById('sidebarBackdrop');
@@ -751,7 +795,6 @@
         const subSpan = btn.querySelector('.sidebar-sub');
 
         if (isCurrent) {
-          // Osvijetljen aktivan tab
           btn.className = 'sidebar-btn w-full text-left px-3.5 py-3 rounded-xl transition flex items-start gap-3 bg-cyan-500/20 border border-cyan-400 text-white shadow-md shadow-cyan-500/15 opacity-100';
           if (numSpan) numSpan.className = 'sidebar-num font-mono text-xs font-extrabold text-cyan-300 mt-0.5';
           if (subSpan) subSpan.className = 'sidebar-sub text-[11px] text-cyan-100/80 mt-0.5';
@@ -761,7 +804,6 @@
             mobileLabel.textContent = btn.dataset.label;
           }
         } else {
-          // Potamnjeni neaktivni tabovi
           btn.className = 'sidebar-btn w-full text-left px-3.5 py-3 rounded-xl transition flex items-start gap-3 bg-[#060b14]/50 border border-slate-800/70 text-slate-500 opacity-55 hover:opacity-85 hover:text-slate-300';
           if (numSpan) numSpan.className = 'sidebar-num font-mono text-xs font-extrabold text-slate-600 mt-0.5';
           if (subSpan) subSpan.className = 'sidebar-sub text-[11px] text-slate-600 mt-0.5';
@@ -769,7 +811,9 @@
       });
     }
 
-    function switchTab(tabId) {
+    function switchTab(tabId, updateHash = true) {
+      if (!VALID_TABS.includes(tabId)) tabId = 'usluge';
+
       document.querySelectorAll('.tab-panel').forEach(panel => {
         panel.classList.remove('active');
       });
@@ -777,6 +821,10 @@
       const targetPanel = document.getElementById('tab-' + tabId);
       if (targetPanel) {
         targetPanel.classList.add('active');
+      }
+
+      if (updateHash && window.location.hash !== '#' + tabId) {
+        history.replaceState(null, '', '#' + tabId);
       }
 
       updateSidebarTabStyles(tabId);
@@ -1003,13 +1051,23 @@
       const name = document.getElementById('contactName').value;
       const email = document.getElementById('contactEmail').value;
       const subject = document.getElementById('contactSubject').value;
+      const tiktokRef = document.getElementById('contactTiktokRef').value.trim();
       const msg = document.getElementById('contactMessage').value;
 
-      const body = `Ime / Firma: ${name}\nEmail za odgovor: ${email}\n\nOpis potreba:\n${msg}`;
+      const tiktokLine = tiktokRef ? `TikTok referenca: ${tiktokRef}\n` : '';
+      const body = `Ime / Firma: ${name}\nEmail za odgovor: ${email}\n${tiktokLine}\nOpis potreba:\n${msg}`;
       window.location.href = `mailto:core.f.lab@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
 
-    updateSidebarTabStyles('usluge');
+    window.addEventListener('hashchange', () => {
+      const hashTab = window.location.hash.replace('#', '');
+      if (VALID_TABS.includes(hashTab)) {
+        switchTab(hashTab, false);
+      }
+    });
+
+    const initialHash = window.location.hash.replace('#', '');
+    switchTab(VALID_TABS.includes(initialHash) ? initialHash : 'usluge', false);
     renderVehicleCards();
   </script>
 </body>

@@ -75,6 +75,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes topBannerDrop {
+      from { opacity: 0; transform: translateY(-100%); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .top-sticker-drop {
+      animation: topBannerDrop 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     @keyframes colorAuraBlink {
       0%, 100% {
         border-color: rgba(8, 145, 178, 0.7);
@@ -192,14 +200,6 @@
       to { opacity: 0; visibility: hidden; pointer-events: none; }
     }
 
-    @keyframes stickerSlideIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .sticker-side-toast {
-      animation: stickerSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
     @media (max-width: 480px) {
       .cfl-logo-stage { width: 82vw; }
       #cflIntro::before { width: 85vw; height: 85vw; }
@@ -211,39 +211,28 @@
 </head>
 <body class="antialiased selection:bg-cyan-600 selection:text-white min-h-screen flex flex-col pb-16 md:pb-0">
 
-  <!-- BOČNI POP-UP: BESPLATNA PAMETNA AUTO NALJEPNICA -->
-  <aside id="promoStickerModal" class="hidden fixed bottom-16 left-3 right-3 sm:left-auto sm:right-4 sm:bottom-4 z-50 sm:w-full sm:max-w-sm rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 text-left sticker-side-toast" role="complementary" aria-label="Besplatna Pametna Auto Naljepnica">
-    <button type="button" onclick="closeStickerPopup(false)" aria-label="Zatvori obavijest" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 flex items-center justify-center text-xs font-bold transition">
-      ✕
-    </button>
-
-    <div class="flex items-center gap-3 pr-6">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 block w-16 h-20 rounded-xl overflow-hidden border border-emerald-200 bg-slate-100 shadow-xs">
-        <img src="https://i.ibb.co/6RKCBX1q/sl.jpg" alt="Pametna Auto Naljepnica" class="w-full h-full object-cover" />
-      </a>
-
-      <div class="min-w-0 flex-1">
-        <span class="inline-block px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono text-[10px] font-extrabold uppercase">
-          Besplatno • Bez broja
+  <!-- BRZI PADAFUČI BANNER ODOZGO: BESPLATNA PAMETNA AUTO NALJEPNICA -->
+  <div id="topStickerBanner" class="hidden fixed top-0 inset-x-0 z-50 bg-emerald-50/98 backdrop-blur-md border-b border-emerald-300 shadow-md top-sticker-drop" role="region" aria-label="Besplatna Pametna Auto Naljepnica">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2.5">
+      <div class="min-w-0 flex-1 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5">
+        <span class="inline-flex w-fit px-2 py-0.5 rounded-full bg-emerald-600 text-white font-mono text-[10px] font-extrabold uppercase shrink-0">
+          Besplatno
         </span>
-        <h3 class="text-sm font-extrabold text-slate-900 leading-snug mt-1">
-          Pametna Auto Naljepnica
-        </h3>
-        <p class="text-xs text-slate-600 mt-0.5 leading-snug">
-          QR naljepnica za staklo — dobiješ email kad neko skenira na parkingu.
+        <p class="text-xs sm:text-sm font-bold text-slate-900 truncate">
+          Pametna Auto Naljepnica — QR oznaka za staklo, email obavijest kad neko skenira.
         </p>
       </div>
-    </div>
 
-    <div class="mt-2.5 flex items-center gap-2">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" onclick="closeStickerPopup(false)" class="flex-1 text-center py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition">
-        Preuzmi besplatno →
-      </a>
-      <button type="button" onclick="closeStickerPopup(true)" class="py-2 px-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 text-[11px] font-semibold border border-slate-300 transition">
-        Ne prikazuj
-      </button>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" onclick="hideTopStickerBanner()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold transition">
+          Preuzmi besplatno →
+        </a>
+        <button type="button" onclick="hideTopStickerBanner()" aria-label="Zatvori traku" class="px-2 py-1.5 rounded-lg bg-white hover:bg-emerald-100 text-slate-600 hover:text-slate-900 border border-emerald-200 text-xs font-bold transition">
+          ✕
+        </button>
+      </div>
     </div>
-  </aside>
+  </div>
 
   <!-- STICKY TOP MENI (VERTIKALNI MENI NA MOBITELU) -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
@@ -264,8 +253,8 @@
         </div>
 
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <button type="button" onclick="openStickerPopup()" class="hidden sm:inline-flex px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition">
-            Naljepnica
+          <button type="button" onclick="showTopStickerBanner()" class="px-2.5 sm:px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition">
+            Auto Naljepnica
           </button>
           <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition">
             ▶ TikTok
@@ -293,20 +282,13 @@
           01 Model rada
         </button>
         <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
-          02 Radovi (14)
-        </button>
-        <button type="button" onclick="switchTab('vodic')" data-nav="vodic" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
-          03 Brzi Vodič
-        </button>
-        <button type="button" onclick="switchTab('demo')" data-nav="demo" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          04 Radni Nalog Demo
-        </button>
-        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
-          05 Shop <span class="text-[10px] font-mono text-cyan-700">USKORO</span>
+          02 Šta smo radili (14)
         </button>
         <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
-          06 Kontakt
+          03 Pošalji upit
+        </button>
+        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          04 Digital Shop <span class="text-[10px] font-mono text-cyan-700">USKORO</span>
         </button>
       </nav>
 
@@ -317,29 +299,21 @@
           <span class="text-xs font-mono">→</span>
         </button>
         <button type="button" onclick="selectMobileTab('projekti')" data-mnav="projekti" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span>02 • Radovi (14)</span>
-          <span class="text-xs font-mono">→</span>
-        </button>
-        <button type="button" onclick="selectMobileTab('vodic')" data-mnav="vodic" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span>03 • Brzi Vodič</span>
-          <span class="text-xs font-mono">→</span>
-        </button>
-        <button type="button" onclick="selectMobileTab('demo')" data-mnav="demo" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>04 • Radni Nalog Demo</span>
-          <span class="text-xs font-mono">→</span>
-        </button>
-        <button type="button" onclick="selectMobileTab('shop')" data-mnav="shop" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span>05 • Digital Shop <span class="text-[11px] font-mono text-cyan-700 ml-1">USKORO</span></span>
+          <span>02 • Šta smo radili (14)</span>
           <span class="text-xs font-mono">→</span>
         </button>
         <button type="button" onclick="selectMobileTab('kontakt')" data-mnav="kontakt" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span>06 • Kontakt</span>
+          <span>03 • Pošalji upit</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('shop')" data-mnav="shop" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span>04 • Digital Shop <span class="text-[11px] font-mono text-cyan-700 ml-1">USKORO</span></span>
           <span class="text-xs font-mono">→</span>
         </button>
 
         <div class="pt-1.5 grid grid-cols-2 gap-2">
-          <button type="button" onclick="closeMobileVerticalMenu(); openStickerPopup();" class="py-2.5 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-extrabold text-center">
-            Naljepnica
+          <button type="button" onclick="closeMobileVerticalMenu(); showTopStickerBanner();" class="py-2.5 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-extrabold text-center">
+            Besplatna Naljepnica
           </button>
           <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 text-xs font-extrabold text-center">
             ▶ TikTok
@@ -351,7 +325,7 @@
 
   <main id="swipeContainer" class="flex-1 min-w-0">
 
-    <!-- TAB 01: MODEL RADA -->
+    <!-- STRANICA 01: MODEL RADA (SAMO KRATAK OPIS + 01 WEB TEMPLATE, 02 MOBILNI ALATI, 03 DOMENA I HOSTING) -->
     <section id="tab-usluge" class="tab-panel active p-4 sm:p-8 lg:p-10 max-w-5xl mx-auto space-y-6">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2.5">
@@ -361,146 +335,55 @@
           Web sajtovi, template-i i Android .APK rješenja
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
-          Dobijaš gotov kod ili <span class="font-mono font-bold text-slate-900">.apk</span> aplikaciju — jednokratno, bez mjesečnih pretplata i zaključavanja podataka.
+          CoreFlow Lab izrađuje web sajtove i portfolije kao template rješenja, mobilne alate u <span class="font-mono font-bold text-slate-900">.apk</span> formatu i sisteme bez mjesečnih pretplata.
         </p>
       </div>
 
-      <!-- 4 KLJUČNE STAVKE -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-        <div class="card-box rounded-xl p-3.5">
-          <div class="text-sm font-black text-cyan-700 font-mono">Android .APK</div>
-          <div class="text-xs text-slate-500 mt-0.5">Instalacija na telefon</div>
-        </div>
-        <div class="card-box rounded-xl p-3.5">
-          <div class="text-sm font-black text-slate-900 font-mono">Gotov Kod</div>
-          <div class="text-xs text-slate-500 mt-0.5">Web & template paket</div>
-        </div>
-        <div class="card-box rounded-xl p-3.5">
-          <div class="text-sm font-black text-sky-700 font-mono">Tvoja Domena</div>
-          <div class="text-xs text-slate-500 mt-0.5">Samostalan hosting</div>
-        </div>
-        <div class="card-box rounded-xl p-3.5">
-          <div class="text-sm font-black text-emerald-700 font-mono">Bez Pretplate</div>
-          <div class="text-xs text-slate-500 mt-0.5">Jednokratna kupovina</div>
-        </div>
-      </div>
-
-      <!-- 1. PRIJEDLOG: KOJI ALAT TEBI TREBA? (BRZI BIRAČ PO OBLASTI) -->
-      <div class="card-box rounded-2xl p-4 sm:p-6">
-        <div class="mb-3">
-          <span class="text-[11px] font-mono font-extrabold uppercase text-cyan-700">Brzi izbor • Klikni svoju oblast</span>
-          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Koji alat tebi treba?</h2>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-          <button type="button" onclick="selectNeedArea('pogon', this)" class="need-btn p-3 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition">
-            <div class="text-xs font-extrabold text-slate-900">Radionica & Pogon</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">Nalozi, zastoji, .APK</div>
-          </button>
-          <button type="button" onclick="selectNeedArea('zalihe', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
-            <div class="text-xs font-extrabold text-slate-800">Zalihe & Skladište</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">QR ulaz/izlaz, stanje</div>
-          </button>
-          <button type="button" onclick="selectNeedArea('auto', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
-            <div class="text-xs font-extrabold text-slate-800">Auto & Vozači</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">Servisi, podsjetnici</div>
-          </button>
-          <button type="button" onclick="selectNeedArea('web', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
-            <div class="text-xs font-extrabold text-slate-800">Web / Portfolio</div>
-            <div class="text-[11px] text-slate-500 mt-0.5">Sajt na tvojoj domeni</div>
-          </button>
-        </div>
-
-        <div id="needAreaBox" class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"></div>
-      </div>
-
-      <!-- INTERAKTIVNI PREGLED: PRIJE vs POSLIJE -->
-      <div class="card-box rounded-2xl p-4 sm:p-6 border-2 border-cyan-200/80 bg-gradient-to-br from-white to-cyan-50/40">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-          <div>
-            <span class="text-[11px] font-mono font-extrabold uppercase text-cyan-700">Interaktivni pregled • Klikni i testiraj</span>
-            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Pogledaj razliku: Papir / Excel vs. CoreFlow sistem</h2>
-          </div>
-          <div class="flex flex-col sm:inline-flex sm:flex-row rounded-xl bg-slate-100 p-1 gap-1 w-full sm:w-auto">
-            <button type="button" onclick="switchShowcase('nalog', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition text-left sm:text-center">Radni nalog</button>
-            <button type="button" onclick="switchShowcase('auto', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center">AutoKarton</button>
-            <button type="button" onclick="switchShowcase('zalihe', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center">Zalihe & QR</button>
-          </div>
-        </div>
-
-        <div id="showcaseBody" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
-      </div>
-
-      <!-- 2. PRIJEDLOG: MINI QR TEST KARTICA DIREKTNO NA STRANICI -->
-      <div class="card-box rounded-2xl p-4 sm:p-6">
-        <div class="mb-3">
-          <span class="text-[11px] font-mono font-extrabold uppercase text-emerald-700">Isprobaj odmah • Mini QR oznaka</span>
-          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Test kartica za naljepnicu ili radni nalog</h2>
-          <p class="text-xs text-slate-600 mt-0.5">Upiši šifru naloga, naziv dijela ili kratku oznaku i vidi kako izgleda kartica.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-          <div class="space-y-3">
-            <div>
-              <label for="qrPreviewText" class="block text-[11px] font-bold uppercase text-slate-500 mb-1">Tekst / Šifra na naljepnici</label>
-              <input id="qrPreviewText" type="text" maxlength="42" value="RN-204 • NOSAČ S235 4MM" oninput="updateMiniQrCard()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
-            </div>
-            <div class="flex flex-wrap gap-1.5">
-              <button type="button" onclick="setSampleQr('RN-204 • NOSAČ S235 4MM')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Nalog</button>
-              <button type="button" onclick="setSampleQr('BOJA RAL 9005 • LOT 18')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Boja</button>
-              <button type="button" onclick="setSampleQr('AUTO QR • PARKING INFO')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Auto</button>
-            </div>
-          </div>
-
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 flex items-center justify-between gap-4">
-            <div class="min-w-0 flex-1">
-              <span class="inline-block px-2 py-0.5 rounded bg-cyan-100 text-cyan-800 font-mono text-[10px] font-extrabold uppercase">COREFLOW QR OZNAKA</span>
-              <div id="qrCardTitle" class="text-sm font-black font-mono text-slate-900 mt-1.5 break-words">RN-204 • NOSAČ S235 4MM</div>
-              <div id="qrCardCode" class="text-[11px] font-mono text-slate-500 mt-1">HASH: #CFL-204-S235</div>
-              <button type="button" onclick="sendQrCardToInquiry()" class="mt-3 px-3.5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
-                Pošalji ovakav QR u upit →
-              </button>
-            </div>
-
-            <div id="qrPatternMatrix" aria-hidden="true" class="shrink-0 w-24 h-24 p-2 rounded-xl bg-white border border-slate-300 grid grid-cols-5 grid-rows-5 gap-1"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 PRAVILA SARADNJE -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-sky-500">
-          <div class="text-[11px] font-mono font-bold text-sky-700 uppercase">01 • Web & Template</div>
-          <h3 class="text-base font-bold text-slate-900 mt-1">Sajtovi i portfoliji</h3>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-            Dobijaš gotov web template prilagođen tvom poslu, spreman za postavljanje na tvoju domenu.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="card-box rounded-2xl p-5 border-l-4 border-l-sky-500">
+          <div class="text-xs font-mono font-bold text-sky-700 uppercase">01 • Web & Template</div>
+          <h2 class="text-lg font-bold text-slate-900 mt-1">Web sajtovi i portfoliji</h2>
+          <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+            Gotovi web template-i i prezentacije prilagođeni tvom poslu, spremni za postavljanje na tvoju domenu.
           </p>
         </div>
 
-        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-cyan-500">
-          <div class="text-[11px] font-mono font-bold text-cyan-700 uppercase">02 • Mobilni alati</div>
-          <h3 class="text-base font-bold text-slate-900 mt-1">Isporuka kao Android .APK</h3>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-            Za mobilne aplikacije isporučujem direktan <span class="font-mono font-bold text-slate-900">.apk</span> fajl za radionice, skladišta i evidencije.
+        <div class="card-box rounded-2xl p-5 border-l-4 border-l-cyan-500">
+          <div class="text-xs font-mono font-bold text-cyan-700 uppercase">02 • Mobilni alati</div>
+          <h2 class="text-lg font-bold text-slate-900 mt-1">Android .APK aplikacije</h2>
+          <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+            Mobilne aplikacije isporučujem direktno kao <span class="font-mono font-bold text-slate-900">.apk</span> fajl za radionice, evidencije i svakodnevni rad.
           </p>
         </div>
 
-        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-emerald-500">
-          <div class="text-[11px] font-mono font-bold text-emerald-700 uppercase">03 • Domena i Hosting</div>
-          <h3 class="text-base font-bold text-slate-900 mt-1">Registruješ samostalno</h3>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-            Domenu i hosting kupuješ na svoje ime. Ja isporučujem gotovo rješenje, a vlasništvo ostaje 100% tvoje.
+        <div class="card-box rounded-2xl p-5 border-l-4 border-l-emerald-500">
+          <div class="text-xs font-mono font-bold text-emerald-700 uppercase">03 • Domena i Hosting</div>
+          <h2 class="text-lg font-bold text-slate-900 mt-1">Samostalna domena i hosting</h2>
+          <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+            Domenu i hosting nabavljaš samostalno na svoje ime, a dobijaš gotovo rješenje uz jednokratnu kupovinu.
           </p>
         </div>
+      </div>
+
+      <div class="card-box rounded-2xl p-4 sm:p-5 bg-emerald-50/50 border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <span class="text-[11px] font-mono font-extrabold uppercase text-emerald-700">Besplatno za preuzimanje</span>
+          <div class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
+            Pametna Auto Naljepnica — QR oznaka za staklo uz email obavijest kad neko skenira.
+          </div>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold text-center transition">
+          Preuzmi besplatno →
+        </a>
       </div>
     </section>
 
-    <!-- TAB 02: DOSADAŠNJI RADOVI -->
+    <!-- STRANICA 02: ŠTA SMO RADILI -->
     <section id="tab-projekti" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-            02 • RADOVI (14)
+            02 • ŠTA SMO RADILI (14)
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Šta smo radili</h2>
           <p class="text-slate-600 text-sm mt-1">
@@ -700,7 +583,7 @@
           </div>
           <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
             <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 px-3 py-1.5 rounded-lg transition">▶ TikTok</a>
-            <button type="button" onclick="switchTab('demo')" class="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 rounded-lg transition">Demo →</button>
+            <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu')" class="text-xs font-bold text-slate-900 bg-slate-100 hover:bg-cyan-600 hover:text-white px-3 py-1.5 rounded-lg transition">Upit →</button>
           </div>
         </div>
 
@@ -716,7 +599,7 @@
             </p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
-            <button type="button" onclick="openStickerPopup()" class="text-xs font-bold text-emerald-700 bg-slate-100 hover:bg-emerald-500/20 border border-emerald-400/30 px-3 py-1.5 rounded-lg transition">Pop-up</button>
+            <button type="button" onclick="showTopStickerBanner()" class="text-xs font-bold text-emerald-700 bg-slate-100 hover:bg-emerald-100 border border-emerald-300 px-3 py-1.5 rounded-lg transition">Traka gore</button>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 rounded-lg transition">Preuzmi →</a>
           </div>
         </div>
@@ -757,155 +640,11 @@
       </div>
     </section>
 
-    <!-- TAB 03: BRZI VODIČ -->
-    <section id="tab-vodic" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
-      <div class="mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-          03 • BRZI VODIČ
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Odaberi format</h2>
-        <p class="text-slate-600 text-sm mt-1">Dva klika i pripremamo upit.</p>
-      </div>
-
-      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-6">
-        <div>
-          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">1. Tip rješenja</div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition">
-              <div class="font-bold text-slate-900 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-900">Web / Portfolio</span>
-                <span class="guide-check text-cyan-700 font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-600 mt-1">Sajt na tvojoj domeni</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
-              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-800">Android .APK</span>
-                <span class="guide-check text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Mobilni alat za rad</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
-              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-800">Gotov Sistem</span>
-                <span class="guide-check text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Template i QR alati</div>
-            </button>
-          </div>
-        </div>
-
-        <div>
-          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">2. Domena i hosting</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-600 bg-cyan-600 text-sm font-extrabold text-white transition">✓ Već imam domenu</button>
-            <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:border-slate-400 transition">Nabavit ću samostalno</button>
-          </div>
-        </div>
-
-        <div class="rounded-xl bg-slate-50 border border-emerald-400/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-mono uppercase text-emerald-700 font-bold">Izbor:</span>
-            <h4 id="guideTitle" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Web Sajt / Portfolio (Template)</h4>
-            <p id="guideDesc" class="text-xs sm:text-sm text-slate-600 mt-1">Kompletan kod spreman za tvoju domenu i hosting.</p>
-          </div>
-          <button type="button" onclick="applyGuideToContact()" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
-            Popuni Upit →
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 04: RADNI NALOG DEMO (SA BROJAČEM I KOPIRANJEM SAŽETKA) -->
-    <section id="tab-demo" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
-      <div class="mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-bold mb-2">
-          04 • LIVE DEMO
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Radni nalog u džepu — interaktivni demo</h2>
-        <p class="text-slate-600 text-sm mt-1">
-          Dodaj novi nalog, mijenjaj status, prati napredak i kopiraj sažetak jednim klikom.
-        </p>
-      </div>
-
-      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-5">
-        <!-- Brojač završenih naloga + dugme za kopiranje sažetka -->
-        <div class="rounded-xl bg-cyan-50/70 border border-cyan-200 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-          <div class="flex items-center gap-3">
-            <span id="woProgressText" class="font-mono text-xs sm:text-sm font-extrabold text-slate-900">Završeno: 1 / 3 naloga</span>
-            <span id="woProgressPct" class="px-2 py-0.5 rounded-full bg-white border border-cyan-200 font-mono text-[11px] font-bold text-cyan-700">33%</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span id="woCopyFeedback" class="text-xs font-bold text-emerald-700 hidden">✓ Kopirano</span>
-            <button type="button" onclick="copyWorkOrdersSummary()" class="px-3.5 py-2 rounded-lg text-xs font-extrabold bg-slate-900 hover:bg-slate-800 text-white transition">
-              📋 Kopiraj sažetak
-            </button>
-          </div>
-        </div>
-
-        <form onsubmit="addDemoWorkOrder(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <input id="woCodeInput" type="text" required placeholder="Šifra naloga (npr. RN-104)" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
-          <input id="woTitleInput" type="text" required placeholder="Opis posla / pozicija" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-cyan-600" />
-          <button type="submit" class="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition">
-            + Dodaj nalog
-          </button>
-        </form>
-
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="setWoFilter('all', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white">Svi</button>
-            <button type="button" onclick="setWoFilter('open', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">U izradi</button>
-            <button type="button" onclick="setWoFilter('done', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">Završeno</button>
-          </div>
-          <button type="button" onclick="resetDemoWorkOrders()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition">
-            ↻ Reset demo
-          </button>
-        </div>
-
-        <div id="woList" class="space-y-2.5"></div>
-
-        <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          <span class="text-xs font-mono text-slate-500">Primjer radnog toka: Radni nalog u džepu</span>
-          <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu (demo)')" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
-            Zatraži ovakvo rješenje →
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 05: DIGITAL SHOP -->
-    <section id="tab-shop" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-3xl mx-auto">
-      <div class="shop-soon-blink-box rounded-2xl bg-white border-2 p-6 sm:p-10 text-center mt-2">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 border border-cyan-300 text-cyan-700 font-mono text-xs font-extrabold tracking-wider uppercase mb-4">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> 05 • USKORO
-        </div>
-
-        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-          COREFLOW LAB — <span class="text-cyan-700">DIGITAL SHOP</span>
-        </h2>
-
-        <p class="text-slate-600 text-sm sm:text-base mt-3 max-w-md mx-auto">
-          Gotovi web template-i, QR alati i <span class="font-mono text-slate-900">.apk</span> paketi uskoro stižu.
-        </p>
-
-        <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <button type="button" onclick="notifyMeShopSoon()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition">
-            Javi mi kad krene
-          </button>
-          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 font-bold text-sm transition">
-            ▶ TikTok
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 06: KONTAKT -->
+    <!-- STRANICA 03: POŠALJI UPIT -->
     <section id="tab-kontakt" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-          06 • KONTAKT
+          03 • POŠALJI UPIT
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Pošalji upit</h2>
         <p class="text-slate-600 text-sm mt-1">
@@ -949,6 +688,32 @@
       </div>
     </section>
 
+    <!-- STRANICA 04: DIGITAL SHOP -->
+    <section id="tab-shop" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-3xl mx-auto">
+      <div class="shop-soon-blink-box rounded-2xl bg-white border-2 p-6 sm:p-10 text-center mt-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 border border-cyan-300 text-cyan-700 font-mono text-xs font-extrabold tracking-wider uppercase mb-4">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> 04 • USKORO
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          COREFLOW LAB — <span class="text-cyan-700">DIGITAL SHOP</span>
+        </h2>
+
+        <p class="text-slate-600 text-sm sm:text-base mt-3 max-w-md mx-auto">
+          Gotovi web template-i, QR alati i <span class="font-mono text-slate-900">.apk</span> paketi uskoro stižu.
+        </p>
+
+        <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button type="button" onclick="notifyMeShopSoon()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition">
+            Javi mi kad krene
+          </button>
+          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 font-bold text-sm transition">
+            ▶ TikTok
+          </a>
+        </div>
+      </div>
+    </section>
+
     <footer class="mt-10 px-4 sm:px-8 lg:px-10 pb-8 max-w-6xl mx-auto">
       <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
         <div>
@@ -973,11 +738,9 @@
     <div class="flex flex-col items-center">
       <div class="flex items-center gap-1.5" id="swipeDots">
         <button type="button" onclick="switchTab('usluge')" data-dot="usluge" aria-label="01 Model rada" class="swipe-dot w-5 h-2 rounded-full bg-cyan-600 transition-all"></button>
-        <button type="button" onclick="switchTab('projekti')" data-dot="projekti" aria-label="02 Radovi" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
-        <button type="button" onclick="switchTab('vodic')" data-dot="vodic" aria-label="03 Brzi Vodič" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
-        <button type="button" onclick="switchTab('demo')" data-dot="demo" aria-label="04 Demo" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
-        <button type="button" onclick="switchTab('shop')" data-dot="shop" aria-label="05 Shop" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
-        <button type="button" onclick="switchTab('kontakt')" data-dot="kontakt" aria-label="06 Kontakt" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('projekti')" data-dot="projekti" aria-label="02 Šta smo radili" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('kontakt')" data-dot="kontakt" aria-label="03 Pošalji upit" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('shop')" data-dot="shop" aria-label="04 Digital Shop" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
       </div>
       <span class="text-[10px] font-mono text-slate-400 mt-0.5">Prevuci prstom ← →</span>
     </div>
@@ -1016,26 +779,26 @@
       }, 2100);
     })();
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
-
-    const VALID_TABS = ["usluge", "projekti", "vodic", "demo", "shop", "kontakt"];
+    const VALID_TABS = ["usluge", "projekti", "kontakt", "shop"];
     const TAB_LABELS = {
       usluge: "01 • Model rada",
-      projekti: "02 • Radovi (14)",
-      vodic: "03 • Brzi Vodič",
-      demo: "04 • Radni Nalog Demo",
-      shop: "05 • Digital Shop",
-      kontakt: "06 • Kontakt"
+      projekti: "02 • Šta smo radili (14)",
+      kontakt: "03 • Pošalji upit",
+      shop: "04 • Digital Shop"
     };
-    const STICKER_DISMISSED_KEY = "cfl_sticker_popup_dismissed";
     let currentTabId = "usluge";
+
+    function showTopStickerBanner() {
+      const banner = document.getElementById('topStickerBanner');
+      if (!banner) return;
+      banner.classList.remove('hidden');
+    }
+
+    function hideTopStickerBanner() {
+      const banner = document.getElementById('topStickerBanner');
+      if (!banner) return;
+      banner.classList.add('hidden');
+    }
 
     function openMobileVerticalMenu() {
       const menu = document.getElementById('mobileVerticalMenu');
@@ -1129,215 +892,6 @@
       }, { passive: true });
     })();
 
-    const NEED_AREAS = {
-      pogon: {
-        title: "Preporuka za pogon: Radni nalog u džepu / Evidencija zastoja",
-        note: "Isporuka kao Android .APK ili template sistem — praćenje naloga, statusa i zastoja bez papira.",
-        inquiry: "Upit: Radni nalog / Evidencija za pogon (.APK)"
-      },
-      zalihe: {
-        title: "Preporuka za zalihe: Paint Manager / QR evidencija zaliha",
-        note: "Praćenje ulaza i izlaza, minimalne zalihe, QR oznake i izvještaji u PDF/CSV.",
-        inquiry: "Upit: Evidencija zaliha i QR sistem"
-      },
-      auto: {
-        title: "Preporuka za vozila: AutoKarton",
-        note: "Evidencija servisa i održavanja za vozače uz email podsjetnike (15, 7 i 3 dana ranije).",
-        inquiry: "Upit: AutoKarton evidencija vozila"
-      },
-      web: {
-        title: "Preporuka za web: Web sajt / Portfolio template",
-        note: "Gotov web kod koji postavljaš na svoju domenu i hosting, bez mjesečne pretplate.",
-        inquiry: "Upit: Web sajt / Portfolio template"
-      }
-    };
-
-    function selectNeedArea(areaKey, btnEl) {
-      const info = NEED_AREAS[areaKey] || NEED_AREAS.pogon;
-      const box = document.getElementById('needAreaBox');
-      if (!box) return;
-
-      document.querySelectorAll('.need-btn').forEach(b => {
-        b.className = 'need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition';
-        const t = b.querySelector('div:first-child');
-        if (t) t.className = 'text-xs font-extrabold text-slate-800';
-      });
-      if (btnEl) {
-        btnEl.className = 'need-btn p-3 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition';
-        const t = btnEl.querySelector('div:first-child');
-        if (t) t.className = 'text-xs font-extrabold text-slate-900';
-      }
-
-      box.innerHTML = `
-        <div>
-          <div class="text-sm font-extrabold text-slate-900">${escapeHtml(info.title)}</div>
-          <div class="text-xs text-slate-600 mt-1">${escapeHtml(info.note)}</div>
-        </div>
-        <button type="button" onclick="askAboutProject('${escapeHtml(info.inquiry)}')" class="shrink-0 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
-          Zatraži ovaj alat →
-        </button>
-      `;
-    }
-
-    function computeSimpleHash(text) {
-      let h = 2166136261;
-      for (let i = 0; i < text.length; i++) {
-        h ^= text.charCodeAt(i);
-        h = Math.imul(h, 16777619);
-      }
-      return (h >>> 0).toString(16).toUpperCase().padStart(8, '0');
-    }
-
-    function updateMiniQrCard() {
-      const input = document.getElementById('qrPreviewText');
-      const titleEl = document.getElementById('qrCardTitle');
-      const codeEl = document.getElementById('qrCardCode');
-      const matrixEl = document.getElementById('qrPatternMatrix');
-      if (!input || !titleEl || !codeEl || !matrixEl) return;
-
-      const raw = input.value.trim() || 'COREFLOW OZNAKA';
-      const hex = computeSimpleHash(raw);
-      titleEl.textContent = raw.toUpperCase();
-      codeEl.textContent = `OZNAKA: #${hex.slice(0, 6)}`;
-
-      let cellsHtml = '';
-      for (let i = 0; i < 25; i++) {
-        const bitIndex = i % 32;
-        const codeVal = raw.charCodeAt(i % raw.length) || 65;
-        const filled = (((parseInt(hex, 16) >> bitIndex) + codeVal + i) % 2) === 0;
-        cellsHtml += `<span class="rounded-[2px] ${filled ? 'bg-slate-900' : 'bg-slate-100'}"></span>`;
-      }
-      matrixEl.innerHTML = cellsHtml;
-    }
-
-    function setSampleQr(val) {
-      const input = document.getElementById('qrPreviewText');
-      if (!input) return;
-      input.value = val;
-      updateMiniQrCard();
-    }
-
-    function sendQrCardToInquiry() {
-      const input = document.getElementById('qrPreviewText');
-      const raw = (input ? input.value.trim() : '') || 'COREFLOW OZNAKA';
-      const hex = computeSimpleHash(raw).slice(0, 6);
-      document.getElementById('contactSubject').value = 'Upit: QR naljepnica / oznaka';
-      document.getElementById('contactMessage').value =
-        `Zanima me QR sistem / naljepnica slična test kartici:\nTekst: ${raw}\nOznaka: #${hex}\n\nDetalji: `;
-      switchTab('kontakt');
-    }
-
-    const SHOWCASE_DATA = {
-      nalog: {
-        beforeTitle: "Prije: Papir i izgubljeni nalozi",
-        beforeItems: [
-          "Papirni nalozi se prljaju ili gube u hali",
-          "Ne zna se ko je započeo i kad je završio",
-          "Ručno prepisivanje stanja na kraju smjene"
-        ],
-        afterTitle: "Sa CoreFlow (.APK / Web)",
-        afterItems: [
-          "Skeniranje QR koda telefonom za 2 sekunde",
-          "Automatski zapis početka, kraja i statusa",
-          "Trenutni PDF izvještaj bez prepisivanja"
-        ],
-        ctaLabel: "Isprobaj Radni nalog uživo →",
-        ctaAction: "switchTab('demo')"
-      },
-      auto: {
-        beforeTitle: "Prije: Zaboravljeni servisi i registracija",
-        beforeItems: [
-          "Papirići u pretincu auta ili traženje po računima",
-          "Ne zna se tačna kilometraža zadnjeg malog servisa",
-          "Kasno sjećanje na istek registracije"
-        ],
-        afterTitle: "Sa AutoKarton aplikacijom",
-        afterItems: [
-          "Svi servisi, dijelovi i datumi na jednom mjestu",
-          "Automatski email podsjetnik 15, 7 i 3 dana ranije",
-          "Radi na telefonu kao .APK ili na tvojoj domeni"
-        ],
-        ctaLabel: "Zatraži AutoKarton rješenje →",
-        ctaAction: "askAboutProject('Slično kao AutoKarton')"
-      },
-      zalihe: {
-        beforeTitle: "Prije: Ručno brojanje zaliha",
-        beforeItems: [
-          "Tek kad nestane boje ili materijala vidi se manjak",
-          "Nema pregleda potrošnje po mjesecima",
-          "Sporo traženje šifri i lotova"
-        ],
-        afterTitle: "Sa Paint Manager / QR zalihama",
-        afterItems: [
-          "Upozorenje čim zaliha padne ispod minimuma",
-          "Skeniranje QR naljepnice pri ulazu i izlazu",
-          "Grafikoni potrošnje i brzi izvoz u PDF/CSV"
-        ],
-        ctaLabel: "Pogledaj sve radove (14) →",
-        ctaAction: "switchTab('projekti')"
-      }
-    };
-
-    function switchShowcase(key, btnEl) {
-      const data = SHOWCASE_DATA[key] || SHOWCASE_DATA.nalog;
-      const body = document.getElementById('showcaseBody');
-      if (!body) return;
-
-      document.querySelectorAll('.showcase-pill').forEach(p => {
-        p.className = 'showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center';
-      });
-      if (btnEl) {
-        btnEl.className = 'showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition text-left sm:text-center';
-      }
-
-      body.innerHTML = `
-        <div class="rounded-xl bg-white border border-rose-200 p-4">
-          <div class="text-xs font-mono font-bold text-rose-700 uppercase">${escapeHtml(data.beforeTitle)}</div>
-          <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-slate-600">
-            ${data.beforeItems.map(i => `<li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✕</span><span>${escapeHtml(i)}</span></li>`).join('')}
-          </ul>
-        </div>
-        <div class="rounded-xl bg-white border border-emerald-300 p-4 flex flex-col justify-between">
-          <div>
-            <div class="text-xs font-mono font-bold text-emerald-700 uppercase">${escapeHtml(data.afterTitle)}</div>
-            <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-slate-800 font-medium">
-              ${data.afterItems.map(i => `<li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>${escapeHtml(i)}</span></li>`).join('')}
-            </ul>
-          </div>
-          <button type="button" onclick="${data.ctaAction}" class="mt-3.5 w-full py-2.5 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
-            ${escapeHtml(data.ctaLabel)}
-          </button>
-        </div>
-      `;
-    }
-
-    function openStickerPopup() {
-      const modal = document.getElementById('promoStickerModal');
-      if (modal) modal.classList.remove('hidden');
-    }
-
-    function closeStickerPopup(rememberChoice = false) {
-      const modal = document.getElementById('promoStickerModal');
-      if (modal) modal.classList.add('hidden');
-      if (rememberChoice) {
-        try {
-          sessionStorage.setItem(STICKER_DISMISSED_KEY, '1');
-        } catch (e) {}
-      }
-    }
-
-    function initStickerPopupOnLoad() {
-      let dismissed = false;
-      try {
-        dismissed = sessionStorage.getItem(STICKER_DISMISSED_KEY) === '1';
-      } catch (e) {}
-      if (!dismissed) {
-        setTimeout(() => openStickerPopup(), 2350);
-      } else {
-        closeStickerPopup(false);
-      }
-    }
-
     function setActiveNavPill(activeId) {
       const badge = document.getElementById('currentSectionBadge');
       if (badge && TAB_LABELS[activeId]) {
@@ -1407,179 +961,6 @@
       switchTab('kontakt');
     }
 
-    const DEFAULT_WO = [
-      { id: 'RN-101', title: 'Laser rezanje S235 4mm — nosač A', status: 'done' },
-      { id: 'RN-102', title: 'Savijanje i priprema — serija 25 kom', status: 'open' },
-      { id: 'RN-103', title: 'Kontrola i pakovanje — nalog kupca', status: 'open' }
-    ];
-    let demoWorkOrders = DEFAULT_WO.map(x => ({ ...x }));
-    let currentWoFilter = 'all';
-
-    function updateWorkOrdersProgress() {
-      const total = demoWorkOrders.length;
-      const done = demoWorkOrders.filter(w => w.status === 'done').length;
-      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-      const progEl = document.getElementById('woProgressText');
-      const pctEl = document.getElementById('woProgressPct');
-      if (progEl) progEl.textContent = `Završeno: ${done} / ${total} naloga`;
-      if (pctEl) pctEl.textContent = `${pct}%`;
-    }
-
-    function renderDemoWorkOrders() {
-      const container = document.getElementById('woList');
-      updateWorkOrdersProgress();
-      if (!container) return;
-      const filtered = demoWorkOrders.filter(w => currentWoFilter === 'all' || w.status === currentWoFilter);
-
-      if (!filtered.length) {
-        container.innerHTML = '<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-500 text-center">Nema naloga za odabrani filter.</div>';
-        return;
-      }
-
-      container.innerHTML = filtered.map(w => {
-        const safeId = escapeHtml(w.id);
-        const safeTitle = escapeHtml(w.title);
-        const isDone = w.status === 'done';
-        const badge = isDone
-          ? '<span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800">ZAVRŠENO</span>'
-          : '<span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-100 text-amber-800">U IZRADI</span>';
-        const btnText = isDone ? 'Vrati u izradu' : 'Označi završeno';
-        return `
-          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs font-extrabold text-cyan-700">${safeId}</span>
-                ${badge}
-              </div>
-              <div class="text-sm font-bold text-slate-900 mt-1">${safeTitle}</div>
-            </div>
-            <button type="button" onclick="toggleWoStatus('${safeId}')" class="shrink-0 px-3.5 py-2 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 transition">
-              ${btnText}
-            </button>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function copyWorkOrdersSummary() {
-      const lines = demoWorkOrders.map(w =>
-        `${w.status === 'done' ? '[ZAVRŠENO]' : '[U IZRADI]'} ${w.id} — ${w.title}`
-      );
-      const summary = `CoreFlow Lab • Pregled naloga (${demoWorkOrders.filter(w => w.status === 'done').length}/${demoWorkOrders.length} završeno):\n` + lines.join('\n');
-
-      const showCopied = () => {
-        const fb = document.getElementById('woCopyFeedback');
-        if (!fb) return;
-        fb.classList.remove('hidden');
-        setTimeout(() => fb.classList.add('hidden'), 1800);
-      };
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(summary).then(showCopied).catch(() => {});
-      }
-    }
-
-    function addDemoWorkOrder(e) {
-      e.preventDefault();
-      const codeEl = document.getElementById('woCodeInput');
-      const titleEl = document.getElementById('woTitleInput');
-      const id = codeEl.value.trim().toUpperCase();
-      const title = titleEl.value.trim();
-      if (!id || !title) return;
-
-      demoWorkOrders.unshift({ id, title, status: 'open' });
-      codeEl.value = '';
-      titleEl.value = '';
-      renderDemoWorkOrders();
-    }
-
-    function toggleWoStatus(id) {
-      demoWorkOrders = demoWorkOrders.map(w =>
-        w.id === id ? { ...w, status: w.status === 'done' ? 'open' : 'done' } : w
-      );
-      renderDemoWorkOrders();
-    }
-
-    function setWoFilter(filter, btn) {
-      currentWoFilter = filter;
-      document.querySelectorAll('.wo-filter').forEach(b => {
-        b.className = 'wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300';
-      });
-      btn.className = 'wo-filter px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white';
-      renderDemoWorkOrders();
-    }
-
-    function resetDemoWorkOrders() {
-      demoWorkOrders = DEFAULT_WO.map(x => ({ ...x }));
-      currentWoFilter = 'all';
-      document.querySelectorAll('.wo-filter').forEach((b, idx) => {
-        b.className = idx === 0
-          ? 'wo-filter px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white'
-          : 'wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300';
-      });
-      renderDemoWorkOrders();
-    }
-
-    const guideState = {
-      step1: 'websajt',
-      step2: 'Već imam svoju domenu i hosting'
-    };
-
-    const recommendations = {
-      websajt: {
-        title: 'Web Sajt / Portfolio (Template)',
-        desc: 'Kompletan kod spreman za tvoju domenu i hosting.'
-      },
-      apk: {
-        title: 'Android .APK Aplikacija',
-        desc: 'Gotov .apk fajl za instalaciju na Android uređaje.'
-      },
-      template: {
-        title: 'Gotov Sistem / Template',
-        desc: 'Šablona sistema za tvoju domenu ili uređaje.'
-      }
-    };
-
-    function selectGuideOption(step, val, btnEl) {
-      guideState['step' + step] = val;
-
-      if (step === 1) {
-        document.querySelectorAll('.guide-btn-1').forEach(b => {
-          b.className = 'guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition';
-          const lbl = b.querySelector('.guide-label');
-          const chk = b.querySelector('.guide-check');
-          if (lbl) lbl.className = 'guide-label font-bold text-sm text-slate-800';
-          if (chk) chk.className = 'guide-check text-transparent font-mono';
-        });
-        btnEl.className = 'guide-btn-1 p-4 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition';
-        const activeLbl = btnEl.querySelector('.guide-label');
-        const activeChk = btnEl.querySelector('.guide-check');
-        if (activeLbl) activeLbl.className = 'guide-label font-bold text-sm text-slate-900';
-        if (activeChk) activeChk.className = 'guide-check text-cyan-700 font-mono';
-      }
-
-      if (step === 2) {
-        document.querySelectorAll('.guide-btn-2').forEach(b => {
-          b.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:border-slate-400 transition';
-          b.textContent = b.textContent.replace(/^✓\s*/, '');
-        });
-        btnEl.className = 'guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-600 bg-cyan-600 text-sm font-extrabold text-white transition';
-        btnEl.textContent = '✓ ' + btnEl.textContent;
-      }
-
-      const rec = recommendations[guideState.step1];
-      document.getElementById('guideTitle').textContent = rec.title;
-      document.getElementById('guideDesc').textContent = rec.desc;
-    }
-
-    function applyGuideToContact() {
-      const rec = recommendations[guideState.step1];
-      document.getElementById('contactSubject').value = 'Upit: ' + rec.title;
-      document.getElementById('contactMessage').value =
-        `Zanima me: ${rec.title}\nDomena/hosting: ${guideState.step2}\n\nDetalji: `;
-      switchTab('kontakt');
-    }
-
     function filterProjects(cat, btn) {
       document.querySelectorAll('.proj-filter').forEach(b => {
         b.className = 'proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400';
@@ -1624,11 +1005,7 @@
 
     const initialHash = window.location.hash.replace('#', '');
     switchTab(VALID_TABS.includes(initialHash) ? initialHash : 'usluge', false);
-    selectNeedArea('pogon');
-    updateMiniQrCard();
-    switchShowcase('nalog');
-    renderDemoWorkOrders();
-    initStickerPopupOnLoad();
+    setTimeout(() => showTopStickerBanner(), 2200);
   </script>
 </body>
 </html>

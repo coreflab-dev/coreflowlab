@@ -183,8 +183,8 @@
     }
 
     @keyframes stickerSlideIn {
-      from { opacity: 0; transform: translateX(28px); }
-      to { opacity: 1; transform: translateX(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .sticker-side-toast {
       animation: stickerSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -201,14 +201,14 @@
 </head>
 <body class="antialiased selection:bg-cyan-600 selection:text-white min-h-screen flex flex-col">
 
-  <!-- BOČNI POP-UP (DONJI DESNI UGAO): BESPLATNA PAMETNA AUTO NALJEPNICA -->
-  <aside id="promoStickerModal" class="hidden fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl shadow-slate-900/15 p-4 text-left sticker-side-toast" role="complementary" aria-label="Besplatna Pametna Auto Naljepnica">
-    <button type="button" onclick="closeStickerPopup(false)" aria-label="Zatvori obavijest" class="absolute top-3 right-3 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 flex items-center justify-center text-xs font-bold transition">
+  <!-- BOČNI POP-UP: BESPLATNA PAMETNA AUTO NALJEPNICA -->
+  <aside id="promoStickerModal" class="hidden fixed bottom-3 left-3 right-3 sm:left-auto sm:right-4 sm:bottom-4 z-50 sm:w-full sm:max-w-sm rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 text-left sticker-side-toast" role="complementary" aria-label="Besplatna Pametna Auto Naljepnica">
+    <button type="button" onclick="closeStickerPopup(false)" aria-label="Zatvori obavijest" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 flex items-center justify-center text-xs font-bold transition">
       ✕
     </button>
 
-    <div class="flex items-start gap-3.5 pr-6">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 block w-20 h-28 rounded-xl overflow-hidden border border-emerald-200 bg-slate-100 shadow-md">
+    <div class="flex items-center gap-3 pr-6">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 block w-16 h-20 rounded-xl overflow-hidden border border-emerald-200 bg-slate-100 shadow-xs">
         <img src="https://i.ibb.co/6RKCBX1q/sl.jpg" alt="Pametna Auto Naljepnica" class="w-full h-full object-cover" />
       </a>
 
@@ -219,13 +219,13 @@
         <h3 class="text-sm font-extrabold text-slate-900 leading-snug mt-1">
           Pametna Auto Naljepnica
         </h3>
-        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-          Zalijepi na staklo i dobijaj email obavijest kad neko skenira QR kod na parkingu.
+        <p class="text-xs text-slate-600 mt-0.5 leading-snug">
+          QR naljepnica za staklo — dobiješ email kad neko skenira na parkingu.
         </p>
       </div>
     </div>
 
-    <div class="mt-3 flex items-center gap-2">
+    <div class="mt-2.5 flex items-center gap-2">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" onclick="closeStickerPopup(false)" class="flex-1 text-center py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition">
         Preuzmi besplatno →
       </a>
@@ -260,30 +260,31 @@
           <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition">
             ▶ TikTok
           </a>
-          <button type="button" onclick="switchTab('kontakt')" class="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition shadow-xs">
+          <button type="button" onclick="switchTab('kontakt')" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition shadow-xs">
             Pošalji Upit
           </button>
         </div>
       </div>
 
-      <nav aria-label="Brza navigacija" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 pt-0.5 border-t border-slate-100">
-        <button type="button" onclick="switchTab('usluge')" data-nav="usluge" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-extrabold bg-cyan-600 text-white transition">
+      <!-- MOBILNI I DESKTOP TAB MENI -->
+      <nav aria-label="Brza navigacija" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 pt-1 border-t border-slate-100">
+        <button type="button" onclick="switchTab('usluge')" data-nav="usluge" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-extrabold bg-cyan-600 text-white transition">
           01 Model rada
         </button>
-        <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           02 Radovi (14)
         </button>
-        <button type="button" onclick="switchTab('vodic')" data-nav="vodic" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('vodic')" data-nav="vodic" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           03 Brzi Vodič
         </button>
-        <button type="button" onclick="switchTab('demo')" data-nav="demo" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
+        <button type="button" onclick="switchTab('demo')" data-nav="demo" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           04 Radni Nalog Demo
         </button>
-        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           05 Shop <span class="text-[10px] font-mono text-cyan-700">USKORO</span>
         </button>
-        <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           06 Kontakt
         </button>
       </nav>
@@ -292,9 +293,9 @@
 
   <main class="flex-1 min-w-0">
 
-    <!-- TAB 01: MODEL RADA -->
-    <section id="tab-usluge" class="tab-panel active p-4 sm:p-8 lg:p-10 max-w-5xl mx-auto">
-      <div class="mb-5">
+    <!-- TAB 01: MODEL RADA (ČIST UVOD + INTERAKTIVNI SADRŽAJ ZA ZADRŽAVANJE POSJETILACA) -->
+    <section id="tab-usluge" class="tab-panel active p-4 sm:p-8 lg:p-10 max-w-5xl mx-auto space-y-6">
+      <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2.5">
           01 • MODEL RADA
         </div>
@@ -302,87 +303,73 @@
           Web sajtovi, template-i i Android .APK rješenja
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
-          Gotov kod ili .APK fajl — jednokratna isporuka bez pretplate.
+          Dobijaš gotov kod ili <span class="font-mono font-bold text-slate-900">.apk</span> aplikaciju — jednokratno, bez mjesečnih pretplata i zaključavanja podataka.
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-2.5 mb-5">
-        <button type="button" onclick="switchTab('projekti')" class="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition shadow-xs">
-          Pogledaj Radove (14) →
-        </button>
-        <button type="button" onclick="switchTab('vodic')" class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm border border-slate-300 transition">
-          Brzi Vodič
-        </button>
-        <button type="button" onclick="switchTab('demo')" class="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-sm border border-emerald-200 transition">
-          Radni Nalog Demo
-        </button>
-        <button type="button" onclick="openStickerPopup()" class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-bold text-sm border border-slate-300 transition">
-          Besplatna Naljepnica
-        </button>
+      <!-- 4 KLJUČNE STAVKE (ODMAH VIDLJIVE NA MOBITELU 2x2) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+        <div class="card-box rounded-xl p-3.5">
+          <div class="text-sm font-black text-cyan-700 font-mono">Android .APK</div>
+          <div class="text-xs text-slate-500 mt-0.5">Instalacija na telefon</div>
+        </div>
+        <div class="card-box rounded-xl p-3.5">
+          <div class="text-sm font-black text-slate-900 font-mono">Gotov Kod</div>
+          <div class="text-xs text-slate-500 mt-0.5">Web & template paket</div>
+        </div>
+        <div class="card-box rounded-xl p-3.5">
+          <div class="text-sm font-black text-sky-700 font-mono">Tvoja Domena</div>
+          <div class="text-xs text-slate-500 mt-0.5">Samostalan hosting</div>
+        </div>
+        <div class="card-box rounded-xl p-3.5">
+          <div class="text-sm font-black text-emerald-700 font-mono">Bez Pretplate</div>
+          <div class="text-xs text-slate-500 mt-0.5">Jednokratna kupovina</div>
+        </div>
       </div>
 
-      <div class="card-box rounded-2xl overflow-hidden">
-        <button
-          type="button"
-          id="toggleModelDetailsBtn"
-          onclick="toggleModelDetails()"
-          aria-expanded="false"
-          class="w-full px-5 py-4 flex items-center justify-between gap-3 text-left bg-white hover:bg-slate-50 transition"
-        >
+      <!-- INTERAKTIVNI PREGLED: ISPROBAJ KAKO RADI PRIJE UPITA (ZADRŽAVA POSJETIOCA) -->
+      <div class="card-box rounded-2xl p-4 sm:p-6 border-2 border-cyan-200/80 bg-gradient-to-br from-white to-cyan-50/40">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
-            <span class="text-sm font-extrabold text-slate-900 block">Kako funkcioniše saradnja? (Detalji)</span>
-            <span class="text-xs text-slate-500">Klikni da otvoriš pravila za .APK, web template-e, domenu i hosting</span>
+            <span class="text-[11px] font-mono font-extrabold uppercase text-cyan-700">Interaktivni pregled • Klikni i testiraj</span>
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Pogledaj razliku: Papir / Excel vs. CoreFlow sistem</h2>
           </div>
-          <span id="toggleModelDetailsIcon" class="shrink-0 px-3 py-1.5 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700 font-mono text-xs font-extrabold">
-            + Otvori
-          </span>
-        </button>
-
-        <div id="modelDetailsContent" class="hidden border-t border-slate-200 p-4 sm:p-6 bg-slate-50/60 space-y-4">
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="card-box rounded-xl p-3.5">
-              <div class="text-sm font-black text-cyan-700 font-mono">Android .APK</div>
-              <div class="text-xs text-slate-500 mt-0.5">Direktna instalacija</div>
-            </div>
-            <div class="card-box rounded-xl p-3.5">
-              <div class="text-sm font-black text-slate-900 font-mono">Gotov Kod</div>
-              <div class="text-xs text-slate-500 mt-0.5">Template sistem</div>
-            </div>
-            <div class="card-box rounded-xl p-3.5">
-              <div class="text-sm font-black text-sky-700 font-mono">Tvoja Domena</div>
-              <div class="text-xs text-slate-500 mt-0.5">Vlastiti hosting</div>
-            </div>
-            <div class="card-box rounded-xl p-3.5">
-              <div class="text-sm font-black text-emerald-700 font-mono">Bez Pretplate</div>
-              <div class="text-xs text-slate-500 mt-0.5">Jednokratno</div>
-            </div>
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 self-start">
+            <button type="button" onclick="switchShowcase('nalog', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition">Radni nalog</button>
+            <button type="button" onclick="switchShowcase('auto', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition">AutoKarton</button>
+            <button type="button" onclick="switchShowcase('zalihe', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition">Zalihe & QR</button>
           </div>
+        </div>
 
-          <div class="space-y-3">
-            <div class="card-box rounded-xl p-4 border-l-4 border-l-sky-500">
-              <div class="text-[11px] font-mono font-bold text-sky-700 uppercase">Web & Template</div>
-              <h3 class="text-base font-bold text-slate-900 mt-0.5">Sajtovi, portfoliji i web evidencije</h3>
-              <p class="text-slate-600 text-xs sm:text-sm mt-1">
-                Dobijaš gotov paket spreman za postavljanje na tvoju domenu.
-              </p>
-            </div>
+        <div id="showcaseBody" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Dinamički popunjeno preko JS-a -->
+        </div>
+      </div>
 
-            <div class="card-box rounded-xl p-4 border-l-4 border-l-cyan-500">
-              <div class="text-[11px] font-mono font-bold text-cyan-700 uppercase">Mobilne Aplikacije</div>
-              <h3 class="text-base font-bold text-slate-900 mt-0.5">Isporuka kao Android .APK</h3>
-              <p class="text-slate-600 text-xs sm:text-sm mt-1">
-                Instalacijski <span class="text-slate-900 font-mono font-bold">.apk</span> fajl za radionice, skladišta i teren.
-              </p>
-            </div>
+      <!-- 3 PRAVILA SARADNJE (OTVORENO, ČITKO NA MOBITELU) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-sky-500">
+          <div class="text-[11px] font-mono font-bold text-sky-700 uppercase">01 • Web & Template</div>
+          <h3 class="text-base font-bold text-slate-900 mt-1">Sajtovi i portfoliji</h3>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+            Dobijaš gotov web template prilagođen tvom poslu, spreman za postavljanje na tvoju domenu.
+          </p>
+        </div>
 
-            <div class="card-box rounded-xl p-4 border-l-4 border-l-emerald-500">
-              <div class="text-[11px] font-mono font-bold text-emerald-700 uppercase">Domena i Hosting</div>
-              <h3 class="text-base font-bold text-slate-900 mt-0.5">Registruješ samostalno</h3>
-              <p class="text-slate-600 text-xs sm:text-sm mt-1">
-                Domenu i hosting osiguravaš na svoje ime; podaci ostaju kod tebe.
-              </p>
-            </div>
-          </div>
+        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-cyan-500">
+          <div class="text-[11px] font-mono font-bold text-cyan-700 uppercase">02 • Mobilni alati</div>
+          <h3 class="text-base font-bold text-slate-900 mt-1">Isporuka kao Android .APK</h3>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+            Za mobilne aplikacije isporučujem direktan <span class="font-mono font-bold text-slate-900">.apk</span> fajl za radionice, skladišta i evidencije.
+          </p>
+        </div>
+
+        <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-emerald-500">
+          <div class="text-[11px] font-mono font-bold text-emerald-700 uppercase">03 • Domena i Hosting</div>
+          <h3 class="text-base font-bold text-slate-900 mt-1">Registruješ samostalno</h3>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+            Domenu i hosting kupuješ na svoje ime. Ja isporučujem gotovo rješenje, a vlasništvo ostaje 100% tvoje.
+          </p>
         </div>
       </div>
     </section>
@@ -391,7 +378,7 @@
     <section id="tab-vodic" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-          02 • BRZI VODIČ
+          03 • BRZI VODIČ
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Odaberi format</h2>
         <p class="text-slate-600 text-sm mt-1">Dva klika i pripremamo upit.</p>
@@ -453,11 +440,11 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-            03 • RADOVI (14)
+            02 • RADOVI (14)
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Šta smo radili</h2>
           <p class="text-slate-600 text-sm mt-1">
-            Prikazi na <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-slate-800 font-bold hover:underline">@core.flow.lab</a>.
+            Video prikazi na <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="text-slate-800 font-bold hover:underline">@core.flow.lab</a>.
           </p>
         </div>
 
@@ -470,7 +457,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="projectsGrid">
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-cyan-700 font-bold">EVIDENCIJA OSNOVNIH SREDSTAVA</span>
@@ -487,7 +474,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-cyan-700 font-bold">ZALIHE & BOJE</span>
@@ -504,7 +491,7 @@
           </div>
         </div>
 
-        <div data-cat="web" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-400 flex flex-col justify-between">
+        <div data-cat="web" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-sky-700 font-bold">WEB TEMPLATE</span>
@@ -521,7 +508,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-cyan-700 font-bold">PROIZVODNJA</span>
@@ -538,7 +525,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-rose-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-rose-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-rose-700 font-bold">ZASTOJI</span>
@@ -555,7 +542,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-teal-700 font-bold">DOKUMENTACIJA</span>
@@ -572,7 +559,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-sky-700 font-bold">MATERIJALI</span>
@@ -589,7 +576,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-indigo-400 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-indigo-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-indigo-700 font-bold">DIJELOVI</span>
@@ -606,7 +593,7 @@
           </div>
         </div>
 
-        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-emerald-700 font-bold">LIVE PODACI</span>
@@ -623,15 +610,15 @@
           </div>
         </div>
 
-        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
-              <span class="text-emerald-700 font-bold">AUTO & FLOTA</span>
+              <span class="text-emerald-700 font-bold">AUTO & VOZAČI</span>
               <span class="text-slate-500">Template / .APK</span>
             </div>
             <h3 class="text-lg font-bold text-slate-900">AutoKarton</h3>
             <p class="text-slate-600 text-sm mt-1.5">
-              Servisi vozila, kilometraža i email podsjetnici (3, 7, 15 dana).
+              Evidencija održavanja vozila za vozače uz email podsjetnike (3, 7 i 15 dana prije isteka).
             </p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
@@ -640,7 +627,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-cyan-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-cyan-700 font-bold">RADNI NALOZI</span>
@@ -657,7 +644,7 @@
           </div>
         </div>
 
-        <div data-cat="auto_live" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-emerald-700 font-bold">QR OBAVIJESTI • BESPLATNO</span>
@@ -674,7 +661,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-teal-700 font-bold">TIM & HALA</span>
@@ -691,7 +678,7 @@
           </div>
         </div>
 
-        <div data-cat="industrija" data-tiktok="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
+        <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-sky-500 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
               <span class="text-sky-700 font-bold">RADNO VRIJEME</span>
@@ -714,7 +701,7 @@
     <section id="tab-shop" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-3xl mx-auto">
       <div class="shop-soon-blink-box rounded-2xl bg-white border-2 p-6 sm:p-10 text-center mt-2">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 border border-cyan-300 text-cyan-700 font-mono text-xs font-extrabold tracking-wider uppercase mb-4">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> 04 • USKORO
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> 05 • USKORO
         </div>
 
         <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -740,7 +727,7 @@
     <section id="tab-kontakt" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-          05 • KONTAKT
+          06 • KONTAKT
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Pošalji upit</h2>
         <p class="text-slate-600 text-sm mt-1">
@@ -788,7 +775,7 @@
     <section id="tab-demo" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-bold mb-2">
-          LIVE DEMO • RADNI NALOG U DŽEPU
+          04 • LIVE DEMO
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Radni nalog u džepu — interaktivni demo</h2>
         <p class="text-slate-600 text-sm mt-1">
@@ -883,18 +870,98 @@
     const VALID_TABS = ["usluge", "vodic", "projekti", "demo", "shop", "kontakt"];
     const STICKER_DISMISSED_KEY = "cfl_sticker_popup_dismissed";
 
+    const SHOWCASE_DATA = {
+      nalog: {
+        beforeTitle: "Prije: Papir i izgubljeni nalozi",
+        beforeItems: [
+          "Papirni nalozi se prljaju ili gube u hali",
+          "Ne zna se ko je započeo i kad je završio",
+          "Ručno prepisivanje stanja na kraju smjene"
+        ],
+        afterTitle: "Sa CoreFlow (.APK / Web)",
+        afterItems: [
+          "Skeniranje QR koda telefonom za 2 sekunde",
+          "Automatski zapis početka, kraja i statusa",
+          "Trenutni PDF izvještaj bez prepisivanja"
+        ],
+        ctaLabel: "Isprobaj Radni nalog uživo →",
+        ctaAction: "switchTab('demo')"
+      },
+      auto: {
+        beforeTitle: "Prije: Zaboravljeni servisi i registracija",
+        beforeItems: [
+          "Papirići u pretincu auta ili traženje po računima",
+          "Ne zna se tačna kilometraža zadnjeg malog servisa",
+          "Kasno sjećanje na istek registracije"
+        ],
+        afterTitle: "Sa AutoKarton aplikacijom",
+        afterItems: [
+          "Svi servisi, dijelovi i datumi na jednom mjestu",
+          "Automatski email podsjetnik 15, 7 i 3 dana ranije",
+          "Radi na telefonu kao .APK ili na tvojoj domeni"
+        ],
+        ctaLabel: "Zatraži AutoKarton rješenje →",
+        ctaAction: "askAboutProject('Slično kao AutoKarton')"
+      },
+      zalihe: {
+        beforeTitle: "Prije: Ručno brojanje zaliha",
+        beforeItems: [
+          "Tek kad nestane boje ili materijala vidi se manjak",
+          "Nema pregleda potrošnje po mjesecima",
+          "Sporo traženje šifri i lotova"
+        ],
+        afterTitle: "Sa Paint Manager / QR zalihama",
+        afterItems: [
+          "Upozorenje čim zaliha padne ispod minimuma",
+          "Skeniranje QR naljepnice pri ulazu i izlazu",
+          "Grafikoni potrošnje i brzi izvoz u PDF/CSV"
+        ],
+        ctaLabel: "Pogledaj sve radove (14) →",
+        ctaAction: "switchTab('projekti')"
+      }
+    };
+
+    function switchShowcase(key, btnEl) {
+      const data = SHOWCASE_DATA[key] || SHOWCASE_DATA.nalog;
+      const body = document.getElementById('showcaseBody');
+      if (!body) return;
+
+      document.querySelectorAll('.showcase-pill').forEach(p => {
+        p.className = 'showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition';
+      });
+      if (btnEl) {
+        btnEl.className = 'showcase-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition';
+      }
+
+      body.innerHTML = `
+        <div class="rounded-xl bg-white border border-rose-200 p-4">
+          <div class="text-xs font-mono font-bold text-rose-700 uppercase">${escapeHtml(data.beforeTitle)}</div>
+          <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-slate-600">
+            ${data.beforeItems.map(i => `<li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✕</span><span>${escapeHtml(i)}</span></li>`).join('')}
+          </ul>
+        </div>
+        <div class="rounded-xl bg-white border border-emerald-300 p-4 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono font-bold text-emerald-700 uppercase">${escapeHtml(data.afterTitle)}</div>
+            <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-slate-800 font-medium">
+              ${data.afterItems.map(i => `<li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>${escapeHtml(i)}</span></li>`).join('')}
+            </ul>
+          </div>
+          <button type="button" onclick="${data.ctaAction}" class="mt-3.5 w-full py-2 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
+            ${escapeHtml(data.ctaLabel)}
+          </button>
+        </div>
+      `;
+    }
+
     function openStickerPopup() {
       const modal = document.getElementById('promoStickerModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-      }
+      if (modal) modal.classList.remove('hidden');
     }
 
     function closeStickerPopup(rememberChoice = false) {
       const modal = document.getElementById('promoStickerModal');
-      if (modal) {
-        modal.classList.add('hidden');
-      }
+      if (modal) modal.classList.add('hidden');
       if (rememberChoice) {
         try {
           sessionStorage.setItem(STICKER_DISMISSED_KEY, '1');
@@ -908,28 +975,9 @@
         dismissed = sessionStorage.getItem(STICKER_DISMISSED_KEY) === '1';
       } catch (e) {}
       if (!dismissed) {
-        setTimeout(() => {
-          openStickerPopup();
-        }, 2350);
+        setTimeout(() => openStickerPopup(), 2350);
       } else {
         closeStickerPopup(false);
-      }
-    }
-
-    function toggleModelDetails() {
-      const content = document.getElementById('modelDetailsContent');
-      const btn = document.getElementById('toggleModelDetailsBtn');
-      const icon = document.getElementById('toggleModelDetailsIcon');
-      if (!content || !btn || !icon) return;
-      const isHidden = content.classList.contains('hidden');
-      if (isHidden) {
-        content.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        icon.textContent = '− Sakrij';
-      } else {
-        content.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-        icon.textContent = '+ Otvori';
       }
     }
 
@@ -955,9 +1003,7 @@
       });
 
       const target = document.getElementById('tab-' + tabId);
-      if (target) {
-        target.classList.add('active');
-      }
+      if (target) target.classList.add('active');
 
       setActiveNavPill(tabId);
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -1134,12 +1180,8 @@
       });
     }
 
-    function prefillSubject(projName) {
-      document.getElementById('contactSubject').value = 'Upit: ' + projName;
-    }
-
     function askAboutProject(projName) {
-      prefillSubject(projName);
+      document.getElementById('contactSubject').value = 'Upit: ' + projName;
       switchTab('kontakt');
     }
 
@@ -1165,6 +1207,7 @@
 
     const initialHash = window.location.hash.replace('#', '');
     switchTab(VALID_TABS.includes(initialHash) ? initialHash : 'usluge', false);
+    switchShowcase('nalog');
     renderDemoWorkOrders();
     initStickerPopupOnLoad();
   </script>

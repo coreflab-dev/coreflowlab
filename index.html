@@ -57,14 +57,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
     @keyframes colorAuraBlink {
       0%, 100% {
         border-color: rgba(8, 145, 178, 0.7);
@@ -235,7 +227,7 @@
     </div>
   </aside>
 
-  <!-- STICKY TOP MENI -->
+  <!-- STICKY TOP MENI (VERTIKALNI MENI NA MOBITELU) -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
     <div class="max-w-6xl mx-auto px-3 sm:px-6">
       <div class="h-14 sm:h-16 flex items-center justify-between gap-2">
@@ -249,51 +241,99 @@
           </a>
           <button type="button" onclick="switchTab('usluge')" class="min-w-0 text-left">
             <span class="font-extrabold tracking-tight text-slate-900 text-base block leading-none truncate">CoreFlow <span class="text-cyan-700">Lab</span></span>
-            <span class="text-[11px] font-mono text-slate-500 mt-0.5 block truncate">Web & .APK Rješenja</span>
+            <span id="currentSectionBadge" class="text-[11px] font-mono text-cyan-700 font-bold mt-0.5 block truncate">01 • Model rada</span>
           </button>
         </div>
 
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <button type="button" onclick="openStickerPopup()" class="px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition">
+          <button type="button" onclick="openStickerPopup()" class="hidden sm:inline-flex px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition">
             Naljepnica
           </button>
           <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition">
             ▶ TikTok
           </a>
-          <button type="button" onclick="switchTab('kontakt')" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition shadow-xs">
+          <button type="button" onclick="switchTab('kontakt')" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition shadow-xs">
             Pošalji Upit
+          </button>
+          <button
+            type="button"
+            id="mobileMenuToggleBtn"
+            onclick="toggleMobileVerticalMenu()"
+            aria-expanded="false"
+            aria-controls="mobileVerticalMenu"
+            class="md:hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-extrabold transition"
+          >
+            <span id="mobileMenuIcon">☰</span>
+            <span id="mobileMenuText">Meni</span>
           </button>
         </div>
       </div>
 
-      <!-- MOBILNI I DESKTOP TAB MENI -->
-      <nav aria-label="Brza navigacija" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 pt-1 border-t border-slate-100">
-        <button type="button" onclick="switchTab('usluge')" data-nav="usluge" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-extrabold bg-cyan-600 text-white transition">
+      <!-- DESKTOP NAVIGACIJA (SAMO NA ŠIRIM EKRANIMA) -->
+      <nav aria-label="Glavna navigacija" class="hidden md:flex items-center gap-1.5 pb-2.5 pt-1 border-t border-slate-100">
+        <button type="button" onclick="switchTab('usluge')" data-nav="usluge" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-cyan-600 text-white transition">
           01 Model rada
         </button>
-        <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           02 Radovi (14)
         </button>
-        <button type="button" onclick="switchTab('vodic')" data-nav="vodic" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('vodic')" data-nav="vodic" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           03 Brzi Vodič
         </button>
-        <button type="button" onclick="switchTab('demo')" data-nav="demo" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
+        <button type="button" onclick="switchTab('demo')" data-nav="demo" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           04 Radni Nalog Demo
         </button>
-        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('shop')" data-nav="shop" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           05 Shop <span class="text-[10px] font-mono text-cyan-700">USKORO</span>
         </button>
-        <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill shrink-0 px-3 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+        <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           06 Kontakt
         </button>
+      </nav>
+
+      <!-- VERTIKALNI MENI ZA MOBITEL (JEDNA STAVKA ISPOD DRUGE) -->
+      <nav id="mobileVerticalMenu" aria-label="Mobilni vertikalni meni" class="hidden md:hidden flex-col gap-1.5 pb-3 pt-2 border-t border-slate-200">
+        <button type="button" onclick="selectMobileTab('usluge')" data-mnav="usluge" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-extrabold bg-cyan-600 text-white transition">
+          <span>01 • Model rada</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('projekti')" data-mnav="projekti" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span>02 • Radovi (14)</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('vodic')" data-mnav="vodic" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span>03 • Brzi Vodič</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('demo')" data-mnav="demo" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>04 • Radni Nalog Demo</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('shop')" data-mnav="shop" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span>05 • Digital Shop <span class="text-[11px] font-mono text-cyan-700 ml-1">USKORO</span></span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+        <button type="button" onclick="selectMobileTab('kontakt')" data-mnav="kontakt" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
+          <span>06 • Kontakt</span>
+          <span class="text-xs font-mono">→</span>
+        </button>
+
+        <div class="pt-1.5 grid grid-cols-2 gap-2">
+          <button type="button" onclick="closeMobileVerticalMenu(); openStickerPopup();" class="py-2.5 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-extrabold text-center">
+            Naljepnica
+          </button>
+          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 text-xs font-extrabold text-center">
+            ▶ TikTok
+          </a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main class="flex-1 min-w-0">
 
-    <!-- TAB 01: MODEL RADA (ČIST UVOD + INTERAKTIVNI SADRŽAJ ZA ZADRŽAVANJE POSJETILACA) -->
+    <!-- TAB 01: MODEL RADA -->
     <section id="tab-usluge" class="tab-panel active p-4 sm:p-8 lg:p-10 max-w-5xl mx-auto space-y-6">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2.5">
@@ -307,7 +347,7 @@
         </p>
       </div>
 
-      <!-- 4 KLJUČNE STAVKE (ODMAH VIDLJIVE NA MOBITELU 2x2) -->
+      <!-- 4 KLJUČNE STAVKE -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
         <div class="card-box rounded-xl p-3.5">
           <div class="text-sm font-black text-cyan-700 font-mono">Android .APK</div>
@@ -327,26 +367,24 @@
         </div>
       </div>
 
-      <!-- INTERAKTIVNI PREGLED: ISPROBAJ KAKO RADI PRIJE UPITA (ZADRŽAVA POSJETIOCA) -->
+      <!-- INTERAKTIVNI PREGLED ZA ZADRŽAVANJE POSJETILACA -->
       <div class="card-box rounded-2xl p-4 sm:p-6 border-2 border-cyan-200/80 bg-gradient-to-br from-white to-cyan-50/40">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <span class="text-[11px] font-mono font-extrabold uppercase text-cyan-700">Interaktivni pregled • Klikni i testiraj</span>
             <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Pogledaj razliku: Papir / Excel vs. CoreFlow sistem</h2>
           </div>
-          <div class="inline-flex rounded-xl bg-slate-100 p-1 self-start">
-            <button type="button" onclick="switchShowcase('nalog', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition">Radni nalog</button>
-            <button type="button" onclick="switchShowcase('auto', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition">AutoKarton</button>
-            <button type="button" onclick="switchShowcase('zalihe', this)" class="showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition">Zalihe & QR</button>
+          <div class="flex flex-col sm:inline-flex sm:flex-row rounded-xl bg-slate-100 p-1 gap-1 w-full sm:w-auto">
+            <button type="button" onclick="switchShowcase('nalog', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition text-left sm:text-center">Radni nalog</button>
+            <button type="button" onclick="switchShowcase('auto', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center">AutoKarton</button>
+            <button type="button" onclick="switchShowcase('zalihe', this)" class="showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center">Zalihe & QR</button>
           </div>
         </div>
 
-        <div id="showcaseBody" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <!-- Dinamički popunjeno preko JS-a -->
-        </div>
+        <div id="showcaseBody" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
       </div>
 
-      <!-- 3 PRAVILA SARADNJE (OTVORENO, ČITKO NA MOBITELU) -->
+      <!-- 3 PRAVILA SARADNJE -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
         <div class="card-box rounded-2xl p-4 sm:p-5 border-l-4 border-l-sky-500">
           <div class="text-[11px] font-mono font-bold text-sky-700 uppercase">01 • Web & Template</div>
@@ -448,11 +486,11 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-          <button type="button" onclick="filterProjects('all', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white">✓ Svi (14)</button>
-          <button type="button" onclick="filterProjects('web', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Web</button>
-          <button type="button" onclick="filterProjects('industrija', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Pogon & .APK</button>
-          <button type="button" onclick="filterProjects('auto_live', this)" class="proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Auto & Live</button>
+        <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2">
+          <button type="button" onclick="filterProjects('all', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white">✓ Svi (14)</button>
+          <button type="button" onclick="filterProjects('web', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Web</button>
+          <button type="button" onclick="filterProjects('industrija', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Pogon & .APK</button>
+          <button type="button" onclick="filterProjects('auto_live', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Auto & Live</button>
         </div>
       </div>
 
@@ -868,7 +906,56 @@
     }
 
     const VALID_TABS = ["usluge", "vodic", "projekti", "demo", "shop", "kontakt"];
+    const TAB_LABELS = {
+      usluge: "01 • Model rada",
+      projekti: "02 • Radovi (14)",
+      vodic: "03 • Brzi Vodič",
+      demo: "04 • Radni Nalog Demo",
+      shop: "05 • Digital Shop",
+      kontakt: "06 • Kontakt"
+    };
     const STICKER_DISMISSED_KEY = "cfl_sticker_popup_dismissed";
+
+    function openMobileVerticalMenu() {
+      const menu = document.getElementById('mobileVerticalMenu');
+      const btn = document.getElementById('mobileMenuToggleBtn');
+      const icon = document.getElementById('mobileMenuIcon');
+      const txt = document.getElementById('mobileMenuText');
+      if (!menu) return;
+      menu.classList.remove('hidden');
+      menu.classList.add('flex');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      if (icon) icon.textContent = '✕';
+      if (txt) txt.textContent = 'Zatvori';
+    }
+
+    function closeMobileVerticalMenu() {
+      const menu = document.getElementById('mobileVerticalMenu');
+      const btn = document.getElementById('mobileMenuToggleBtn');
+      const icon = document.getElementById('mobileMenuIcon');
+      const txt = document.getElementById('mobileMenuText');
+      if (!menu) return;
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (icon) icon.textContent = '☰';
+      if (txt) txt.textContent = 'Meni';
+    }
+
+    function toggleMobileVerticalMenu() {
+      const menu = document.getElementById('mobileVerticalMenu');
+      if (!menu) return;
+      if (menu.classList.contains('hidden')) {
+        openMobileVerticalMenu();
+      } else {
+        closeMobileVerticalMenu();
+      }
+    }
+
+    function selectMobileTab(tabId) {
+      closeMobileVerticalMenu();
+      switchTab(tabId);
+    }
 
     const SHOWCASE_DATA = {
       nalog: {
@@ -927,10 +1014,10 @@
       if (!body) return;
 
       document.querySelectorAll('.showcase-pill').forEach(p => {
-        p.className = 'showcase-pill px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 transition';
+        p.className = 'showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 transition text-left sm:text-center';
       });
       if (btnEl) {
-        btnEl.className = 'showcase-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition';
+        btnEl.className = 'showcase-pill px-3 py-2 sm:py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white transition text-left sm:text-center';
       }
 
       body.innerHTML = `
@@ -947,7 +1034,7 @@
               ${data.afterItems.map(i => `<li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>${escapeHtml(i)}</span></li>`).join('')}
             </ul>
           </div>
-          <button type="button" onclick="${data.ctaAction}" class="mt-3.5 w-full py-2 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
+          <button type="button" onclick="${data.ctaAction}" class="mt-3.5 w-full py-2.5 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
             ${escapeHtml(data.ctaLabel)}
           </button>
         </div>
@@ -982,15 +1069,30 @@
     }
 
     function setActiveNavPill(activeId) {
+      const badge = document.getElementById('currentSectionBadge');
+      if (badge && TAB_LABELS[activeId]) {
+        badge.textContent = TAB_LABELS[activeId];
+      }
+
       document.querySelectorAll('.fast-nav-pill').forEach(pill => {
         const isCurrent = pill.dataset.nav === activeId;
         if (isCurrent) {
           pill.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200', 'font-bold');
           pill.classList.add('bg-cyan-600', 'text-white', 'font-extrabold', 'shadow-xs');
-          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           pill.classList.remove('bg-cyan-600', 'text-white', 'font-extrabold', 'shadow-xs');
           pill.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200', 'font-bold');
+        }
+      });
+
+      document.querySelectorAll('.mobile-v-item').forEach(item => {
+        const isCurrent = item.dataset.mnav === activeId;
+        if (isCurrent) {
+          item.classList.remove('bg-slate-100', 'text-slate-800', 'hover:bg-slate-200', 'font-bold');
+          item.classList.add('bg-cyan-600', 'text-white', 'font-extrabold');
+        } else {
+          item.classList.remove('bg-cyan-600', 'text-white', 'font-extrabold');
+          item.classList.add('bg-slate-100', 'text-slate-800', 'hover:bg-slate-200', 'font-bold');
         }
       });
     }
@@ -1006,6 +1108,7 @@
       if (target) target.classList.add('active');
 
       setActiveNavPill(tabId);
+      closeMobileVerticalMenu();
       window.scrollTo({ top: 0, behavior: 'instant' });
 
       if (updateHash && window.location.hash !== '#' + tabId) {
@@ -1165,10 +1268,10 @@
 
     function filterProjects(cat, btn) {
       document.querySelectorAll('.proj-filter').forEach(b => {
-        b.className = 'proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400';
+        b.className = 'proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400';
         b.textContent = b.textContent.replace(/^✓\s*/, '');
       });
-      btn.className = 'proj-filter shrink-0 px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white';
+      btn.className = 'proj-filter px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white';
       btn.textContent = '✓ ' + btn.textContent;
 
       document.querySelectorAll('.project-card').forEach(card => {

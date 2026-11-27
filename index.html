@@ -32,6 +32,7 @@
     body {
       background-color: #f4f7fb;
       color: #0f172a;
+      touch-action: pan-y;
     }
 
     .card-box {
@@ -50,7 +51,24 @@
     }
     .tab-panel.active {
       display: block;
+    }
+    .tab-panel.slide-next {
+      animation: slideFromRight 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .tab-panel.slide-prev {
+      animation: slideFromLeft 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .tab-panel.fade-in {
       animation: tabFadeIn 0.16s ease-out;
+    }
+
+    @keyframes slideFromRight {
+      from { opacity: 0.35; transform: translateX(28px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideFromLeft {
+      from { opacity: 0.35; transform: translateX(-28px); }
+      to { opacity: 1; transform: translateX(0); }
     }
     @keyframes tabFadeIn {
       from { opacity: 0; transform: translateY(4px); }
@@ -191,10 +209,10 @@
     }
   </style>
 </head>
-<body class="antialiased selection:bg-cyan-600 selection:text-white min-h-screen flex flex-col">
+<body class="antialiased selection:bg-cyan-600 selection:text-white min-h-screen flex flex-col pb-16 md:pb-0">
 
   <!-- BOČNI POP-UP: BESPLATNA PAMETNA AUTO NALJEPNICA -->
-  <aside id="promoStickerModal" class="hidden fixed bottom-3 left-3 right-3 sm:left-auto sm:right-4 sm:bottom-4 z-50 sm:w-full sm:max-w-sm rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 text-left sticker-side-toast" role="complementary" aria-label="Besplatna Pametna Auto Naljepnica">
+  <aside id="promoStickerModal" class="hidden fixed bottom-16 left-3 right-3 sm:left-auto sm:right-4 sm:bottom-4 z-50 sm:w-full sm:max-w-sm rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl shadow-slate-900/15 p-3.5 sm:p-4 text-left sticker-side-toast" role="complementary" aria-label="Besplatna Pametna Auto Naljepnica">
     <button type="button" onclick="closeStickerPopup(false)" aria-label="Zatvori obavijest" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 flex items-center justify-center text-xs font-bold transition">
       ✕
     </button>
@@ -269,7 +287,7 @@
         </div>
       </div>
 
-      <!-- DESKTOP NAVIGACIJA (SAMO NA ŠIRIM EKRANIMA) -->
+      <!-- DESKTOP NAVIGACIJA -->
       <nav aria-label="Glavna navigacija" class="hidden md:flex items-center gap-1.5 pb-2.5 pt-1 border-t border-slate-100">
         <button type="button" onclick="switchTab('usluge')" data-nav="usluge" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-extrabold bg-cyan-600 text-white transition">
           01 Model rada
@@ -292,7 +310,7 @@
         </button>
       </nav>
 
-      <!-- VERTIKALNI MENI ZA MOBITEL (JEDNA STAVKA ISPOD DRUGE) -->
+      <!-- VERTIKALNI MENI ZA MOBITEL -->
       <nav id="mobileVerticalMenu" aria-label="Mobilni vertikalni meni" class="hidden md:hidden flex-col gap-1.5 pb-3 pt-2 border-t border-slate-200">
         <button type="button" onclick="selectMobileTab('usluge')" data-mnav="usluge" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-extrabold bg-cyan-600 text-white transition">
           <span>01 • Model rada</span>
@@ -331,7 +349,7 @@
     </div>
   </header>
 
-  <main class="flex-1 min-w-0">
+  <main id="swipeContainer" class="flex-1 min-w-0">
 
     <!-- TAB 01: MODEL RADA -->
     <section id="tab-usluge" class="tab-panel active p-4 sm:p-8 lg:p-10 max-w-5xl mx-auto space-y-6">
@@ -412,68 +430,7 @@
       </div>
     </section>
 
-    <!-- TAB 02: BRZI VODIČ -->
-    <section id="tab-vodic" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
-      <div class="mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-          03 • BRZI VODIČ
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Odaberi format</h2>
-        <p class="text-slate-600 text-sm mt-1">Dva klika i pripremamo upit.</p>
-      </div>
-
-      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-6">
-        <div>
-          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">1. Tip rješenja</div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition">
-              <div class="font-bold text-slate-900 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-900">Web / Portfolio</span>
-                <span class="guide-check text-cyan-700 font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-600 mt-1">Sajt na tvojoj domeni</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
-              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-800">Android .APK</span>
-                <span class="guide-check text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Mobilni alat za rad</div>
-            </button>
-
-            <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
-              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
-                <span class="guide-label font-bold text-sm text-slate-800">Gotov Sistem</span>
-                <span class="guide-check text-transparent font-mono">✓</span>
-              </div>
-              <div class="text-xs text-slate-500 mt-1">Template i QR alati</div>
-            </button>
-          </div>
-        </div>
-
-        <div>
-          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">2. Domena i hosting</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-600 bg-cyan-600 text-sm font-extrabold text-white transition">✓ Već imam domenu</button>
-            <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:border-slate-400 transition">Nabavit ću samostalno</button>
-          </div>
-        </div>
-
-        <div class="rounded-xl bg-slate-50 border border-emerald-400/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs font-mono uppercase text-emerald-700 font-bold">Izbor:</span>
-            <h4 id="guideTitle" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Web Sajt / Portfolio (Template)</h4>
-            <p id="guideDesc" class="text-xs sm:text-sm text-slate-600 mt-1">Kompletan kod spreman za tvoju domenu i hosting.</p>
-          </div>
-          <button type="button" onclick="applyGuideToContact()" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
-            Popuni Upit →
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 03: DOSADAŠNJI RADOVI -->
+    <!-- TAB 02: DOSADAŠNJI RADOVI -->
     <section id="tab-projekti" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
@@ -735,7 +692,111 @@
       </div>
     </section>
 
-    <!-- TAB 04: DIGITAL SHOP -->
+    <!-- TAB 03: BRZI VODIČ -->
+    <section id="tab-vodic" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
+          03 • BRZI VODIČ
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Odaberi format</h2>
+        <p class="text-slate-600 text-sm mt-1">Dva klika i pripremamo upit.</p>
+      </div>
+
+      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-6">
+        <div>
+          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">1. Tip rješenja</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" onclick="selectGuideOption(1, 'websajt', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition">
+              <div class="font-bold text-slate-900 text-sm flex items-center justify-between">
+                <span class="guide-label font-bold text-sm text-slate-900">Web / Portfolio</span>
+                <span class="guide-check text-cyan-700 font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-600 mt-1">Sajt na tvojoj domeni</div>
+            </button>
+
+            <button type="button" onclick="selectGuideOption(1, 'apk', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
+              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
+                <span class="guide-label font-bold text-sm text-slate-800">Android .APK</span>
+                <span class="guide-check text-transparent font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-500 mt-1">Mobilni alat za rad</div>
+            </button>
+
+            <button type="button" onclick="selectGuideOption(1, 'template', this)" class="guide-btn-1 p-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-400 transition">
+              <div class="font-bold text-slate-800 text-sm flex items-center justify-between">
+                <span class="guide-label font-bold text-sm text-slate-800">Gotov Sistem</span>
+                <span class="guide-check text-transparent font-mono">✓</span>
+              </div>
+              <div class="text-xs text-slate-500 mt-1">Template i QR alati</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-xs font-mono text-cyan-700 font-bold uppercase mb-3">2. Domena i hosting</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button type="button" onclick="selectGuideOption(2, 'Već imam svoju domenu i hosting', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-cyan-600 bg-cyan-600 text-sm font-extrabold text-white transition">✓ Već imam domenu</button>
+            <button type="button" onclick="selectGuideOption(2, 'Nabavit ću svoju domenu samostalno', this)" class="guide-btn-2 py-3 px-4 rounded-xl border-2 border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 hover:border-slate-400 transition">Nabavit ću samostalno</button>
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-slate-50 border border-emerald-400/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono uppercase text-emerald-700 font-bold">Izbor:</span>
+            <h4 id="guideTitle" class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">Web Sajt / Portfolio (Template)</h4>
+            <p id="guideDesc" class="text-xs sm:text-sm text-slate-600 mt-1">Kompletan kod spreman za tvoju domenu i hosting.</p>
+          </div>
+          <button type="button" onclick="applyGuideToContact()" class="w-full sm:w-auto shrink-0 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
+            Popuni Upit →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 04: RADNI NALOG DEMO -->
+    <section id="tab-demo" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-bold mb-2">
+          04 • LIVE DEMO
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Radni nalog u džepu — interaktivni demo</h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Dodaj novi nalog, promijeni status jednim klikom ili filtriraj naloge — sve radi odmah u pregledniku.
+        </p>
+      </div>
+
+      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-5">
+        <form onsubmit="addDemoWorkOrder(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <input id="woCodeInput" type="text" required placeholder="Šifra naloga (npr. RN-104)" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
+          <input id="woTitleInput" type="text" required placeholder="Opis posla / pozicija" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-cyan-600" />
+          <button type="submit" class="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition">
+            + Dodaj nalog
+          </button>
+        </form>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="setWoFilter('all', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white">Svi</button>
+            <button type="button" onclick="setWoFilter('open', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">U izradi</button>
+            <button type="button" onclick="setWoFilter('done', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">Završeno</button>
+          </div>
+          <button type="button" onclick="resetDemoWorkOrders()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition">
+            ↻ Reset demo
+          </button>
+        </div>
+
+        <div id="woList" class="space-y-2.5"></div>
+
+        <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <span class="text-xs font-mono text-slate-500">Primjer radnog toka: Radni nalog u džepu</span>
+          <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu (demo)')" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
+            Zatraži ovakvo rješenje →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 05: DIGITAL SHOP -->
     <section id="tab-shop" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-3xl mx-auto">
       <div class="shop-soon-blink-box rounded-2xl bg-white border-2 p-6 sm:p-10 text-center mt-2">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 border border-cyan-300 text-cyan-700 font-mono text-xs font-extrabold tracking-wider uppercase mb-4">
@@ -761,7 +822,7 @@
       </div>
     </section>
 
-    <!-- TAB 05: KONTAKT -->
+    <!-- TAB 06: KONTAKT -->
     <section id="tab-kontakt" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
@@ -809,49 +870,6 @@
       </div>
     </section>
 
-    <!-- TAB DEMO: RADNI NALOG U DŽEPU -->
-    <section id="tab-demo" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
-      <div class="mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-bold mb-2">
-          04 • LIVE DEMO
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Radni nalog u džepu — interaktivni demo</h2>
-        <p class="text-slate-600 text-sm mt-1">
-          Dodaj novi nalog, promijeni status jednim klikom ili filtriraj naloge — sve radi odmah u pregledniku.
-        </p>
-      </div>
-
-      <div class="card-box rounded-2xl p-5 sm:p-7 space-y-5">
-        <form onsubmit="addDemoWorkOrder(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <input id="woCodeInput" type="text" required placeholder="Šifra naloga (npr. RN-104)" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
-          <input id="woTitleInput" type="text" required placeholder="Opis posla / pozicija" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-cyan-600" />
-          <button type="submit" class="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm transition">
-            + Dodaj nalog
-          </button>
-        </form>
-
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="setWoFilter('all', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-extrabold bg-slate-900 text-white">Svi</button>
-            <button type="button" onclick="setWoFilter('open', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">U izradi</button>
-            <button type="button" onclick="setWoFilter('done', this)" class="wo-filter px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">Završeno</button>
-          </div>
-          <button type="button" onclick="resetDemoWorkOrders()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition">
-            ↻ Reset demo
-          </button>
-        </div>
-
-        <div id="woList" class="space-y-2.5"></div>
-
-        <div class="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          <span class="text-xs font-mono text-slate-500">Primjer radnog toka: Radni nalog u džepu</span>
-          <button type="button" onclick="askAboutProject('Slično kao Radni nalog u džepu (demo)')" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm transition">
-            Zatraži ovakvo rješenje →
-          </button>
-        </div>
-      </div>
-    </section>
-
     <footer class="mt-10 px-4 sm:px-8 lg:px-10 pb-8 max-w-6xl mx-auto">
       <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
         <div>
@@ -866,6 +884,29 @@
       </div>
     </footer>
   </main>
+
+  <!-- DONJA SWIPE NAVIGACIJSKA TRAKA ZA TELEFON -->
+  <div id="mobileSwipeBar" class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 flex items-center justify-between gap-2 shadow-lg">
+    <button type="button" onclick="stepTab(-1)" aria-label="Prethodna sekcija" class="px-2.5 py-1.5 rounded-lg bg-slate-100 active:bg-slate-200 text-slate-800 text-xs font-extrabold transition">
+      ← Nazad
+    </button>
+
+    <div class="flex flex-col items-center">
+      <div class="flex items-center gap-1.5" id="swipeDots">
+        <button type="button" onclick="switchTab('usluge')" data-dot="usluge" aria-label="01 Model rada" class="swipe-dot w-5 h-2 rounded-full bg-cyan-600 transition-all"></button>
+        <button type="button" onclick="switchTab('projekti')" data-dot="projekti" aria-label="02 Radovi" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('vodic')" data-dot="vodic" aria-label="03 Brzi Vodič" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('demo')" data-dot="demo" aria-label="04 Demo" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('shop')" data-dot="shop" aria-label="05 Shop" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+        <button type="button" onclick="switchTab('kontakt')" data-dot="kontakt" aria-label="06 Kontakt" class="swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all"></button>
+      </div>
+      <span class="text-[10px] font-mono text-slate-400 mt-0.5">Prevuci prstom ← →</span>
+    </div>
+
+    <button type="button" onclick="stepTab(1)" aria-label="Sljedeća sekcija" class="px-2.5 py-1.5 rounded-lg bg-cyan-600 active:bg-cyan-700 text-white text-xs font-extrabold transition">
+      Dalje →
+    </button>
+  </div>
 
   <script>
     (function initCflShardIntro() {
@@ -905,7 +946,7 @@
         .replace(/'/g, '&#39;');
     }
 
-    const VALID_TABS = ["usluge", "vodic", "projekti", "demo", "shop", "kontakt"];
+    const VALID_TABS = ["usluge", "projekti", "vodic", "demo", "shop", "kontakt"];
     const TAB_LABELS = {
       usluge: "01 • Model rada",
       projekti: "02 • Radovi (14)",
@@ -915,6 +956,7 @@
       kontakt: "06 • Kontakt"
     };
     const STICKER_DISMISSED_KEY = "cfl_sticker_popup_dismissed";
+    let currentTabId = "usluge";
 
     function openMobileVerticalMenu() {
       const menu = document.getElementById('mobileVerticalMenu');
@@ -956,6 +998,57 @@
       closeMobileVerticalMenu();
       switchTab(tabId);
     }
+
+    function stepTab(direction) {
+      const currentIdx = VALID_TABS.indexOf(currentTabId);
+      if (currentIdx === -1) return;
+      const nextIdx = (currentIdx + direction + VALID_TABS.length) % VALID_TABS.length;
+      const anim = direction > 0 ? 'next' : 'prev';
+      switchTab(VALID_TABS[nextIdx], true, anim);
+    }
+
+    (function initTouchSwipeNavigation() {
+      let startX = 0;
+      let startY = 0;
+      let tracking = false;
+
+      document.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) {
+          tracking = false;
+          return;
+        }
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select') {
+          tracking = false;
+          return;
+        }
+        const menu = document.getElementById('mobileVerticalMenu');
+        if (menu && !menu.classList.contains('hidden')) {
+          tracking = false;
+          return;
+        }
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        tracking = true;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (!tracking || !e.changedTouches.length) return;
+        tracking = false;
+
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+
+        if (Math.abs(dx) < 55) return;
+        if (Math.abs(dx) < Math.abs(dy) * 1.35) return;
+
+        if (dx < 0) {
+          stepTab(1);
+        } else {
+          stepTab(-1);
+        }
+      }, { passive: true });
+    })();
 
     const SHOWCASE_DATA = {
       nalog: {
@@ -1095,17 +1188,32 @@
           item.classList.add('bg-slate-100', 'text-slate-800', 'hover:bg-slate-200', 'font-bold');
         }
       });
+
+      document.querySelectorAll('.swipe-dot').forEach(dot => {
+        const isCurrent = dot.dataset.dot === activeId;
+        if (isCurrent) {
+          dot.className = 'swipe-dot w-5 h-2 rounded-full bg-cyan-600 transition-all';
+        } else {
+          dot.className = 'swipe-dot w-2 h-2 rounded-full bg-slate-300 transition-all';
+        }
+      });
     }
 
-    function switchTab(tabId, updateHash = true) {
+    function switchTab(tabId, updateHash = true, direction = 'fade') {
       if (!VALID_TABS.includes(tabId)) tabId = 'usluge';
+      currentTabId = tabId;
 
       document.querySelectorAll('.tab-panel').forEach(panel => {
-        panel.classList.remove('active');
+        panel.classList.remove('active', 'slide-next', 'slide-prev', 'fade-in');
       });
 
       const target = document.getElementById('tab-' + tabId);
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+        if (direction === 'next') target.classList.add('slide-next');
+        else if (direction === 'prev') target.classList.add('slide-prev');
+        else target.classList.add('fade-in');
+      }
 
       setActiveNavPill(tabId);
       closeMobileVerticalMenu();

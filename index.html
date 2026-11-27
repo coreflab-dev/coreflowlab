@@ -385,7 +385,36 @@
         </div>
       </div>
 
-      <!-- INTERAKTIVNI PREGLED ZA ZADRŽAVANJE POSJETILACA -->
+      <!-- 1. PRIJEDLOG: KOJI ALAT TEBI TREBA? (BRZI BIRAČ PO OBLASTI) -->
+      <div class="card-box rounded-2xl p-4 sm:p-6">
+        <div class="mb-3">
+          <span class="text-[11px] font-mono font-extrabold uppercase text-cyan-700">Brzi izbor • Klikni svoju oblast</span>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Koji alat tebi treba?</h2>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+          <button type="button" onclick="selectNeedArea('pogon', this)" class="need-btn p-3 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition">
+            <div class="text-xs font-extrabold text-slate-900">Radionica & Pogon</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Nalozi, zastoji, .APK</div>
+          </button>
+          <button type="button" onclick="selectNeedArea('zalihe', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
+            <div class="text-xs font-extrabold text-slate-800">Zalihe & Skladište</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">QR ulaz/izlaz, stanje</div>
+          </button>
+          <button type="button" onclick="selectNeedArea('auto', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
+            <div class="text-xs font-extrabold text-slate-800">Auto & Vozači</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Servisi, podsjetnici</div>
+          </button>
+          <button type="button" onclick="selectNeedArea('web', this)" class="need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition">
+            <div class="text-xs font-extrabold text-slate-800">Web / Portfolio</div>
+            <div class="text-[11px] text-slate-500 mt-0.5">Sajt na tvojoj domeni</div>
+          </button>
+        </div>
+
+        <div id="needAreaBox" class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"></div>
+      </div>
+
+      <!-- INTERAKTIVNI PREGLED: PRIJE vs POSLIJE -->
       <div class="card-box rounded-2xl p-4 sm:p-6 border-2 border-cyan-200/80 bg-gradient-to-br from-white to-cyan-50/40">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
@@ -400,6 +429,42 @@
         </div>
 
         <div id="showcaseBody" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- 2. PRIJEDLOG: MINI QR TEST KARTICA DIREKTNO NA STRANICI -->
+      <div class="card-box rounded-2xl p-4 sm:p-6">
+        <div class="mb-3">
+          <span class="text-[11px] font-mono font-extrabold uppercase text-emerald-700">Isprobaj odmah • Mini QR oznaka</span>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Test kartica za naljepnicu ili radni nalog</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Upiši šifru naloga, naziv dijela ili kratku oznaku i vidi kako izgleda kartica.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+          <div class="space-y-3">
+            <div>
+              <label for="qrPreviewText" class="block text-[11px] font-bold uppercase text-slate-500 mb-1">Tekst / Šifra na naljepnici</label>
+              <input id="qrPreviewText" type="text" maxlength="42" value="RN-204 • NOSAČ S235 4MM" oninput="updateMiniQrCard()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" onclick="setSampleQr('RN-204 • NOSAČ S235 4MM')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Nalog</button>
+              <button type="button" onclick="setSampleQr('BOJA RAL 9005 • LOT 18')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Boja</button>
+              <button type="button" onclick="setSampleQr('AUTO QR • PARKING INFO')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[11px] font-mono font-bold text-slate-700">Primjer: Auto</button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 flex items-center justify-between gap-4">
+            <div class="min-w-0 flex-1">
+              <span class="inline-block px-2 py-0.5 rounded bg-cyan-100 text-cyan-800 font-mono text-[10px] font-extrabold uppercase">COREFLOW QR OZNAKA</span>
+              <div id="qrCardTitle" class="text-sm font-black font-mono text-slate-900 mt-1.5 break-words">RN-204 • NOSAČ S235 4MM</div>
+              <div id="qrCardCode" class="text-[11px] font-mono text-slate-500 mt-1">HASH: #CFL-204-S235</div>
+              <button type="button" onclick="sendQrCardToInquiry()" class="mt-3 px-3.5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
+                Pošalji ovakav QR u upit →
+              </button>
+            </div>
+
+            <div id="qrPatternMatrix" aria-hidden="true" class="shrink-0 w-24 h-24 p-2 rounded-xl bg-white border border-slate-300 grid grid-cols-5 grid-rows-5 gap-1"></div>
+          </div>
+        </div>
       </div>
 
       <!-- 3 PRAVILA SARADNJE -->
@@ -753,7 +818,7 @@
       </div>
     </section>
 
-    <!-- TAB 04: RADNI NALOG DEMO -->
+    <!-- TAB 04: RADNI NALOG DEMO (SA BROJAČEM I KOPIRANJEM SAŽETKA) -->
     <section id="tab-demo" class="tab-panel p-4 sm:p-8 lg:p-10 max-w-4xl mx-auto">
       <div class="mb-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-bold mb-2">
@@ -761,11 +826,25 @@
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Radni nalog u džepu — interaktivni demo</h2>
         <p class="text-slate-600 text-sm mt-1">
-          Dodaj novi nalog, promijeni status jednim klikom ili filtriraj naloge — sve radi odmah u pregledniku.
+          Dodaj novi nalog, mijenjaj status, prati napredak i kopiraj sažetak jednim klikom.
         </p>
       </div>
 
       <div class="card-box rounded-2xl p-5 sm:p-7 space-y-5">
+        <!-- Brojač završenih naloga + dugme za kopiranje sažetka -->
+        <div class="rounded-xl bg-cyan-50/70 border border-cyan-200 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div class="flex items-center gap-3">
+            <span id="woProgressText" class="font-mono text-xs sm:text-sm font-extrabold text-slate-900">Završeno: 1 / 3 naloga</span>
+            <span id="woProgressPct" class="px-2 py-0.5 rounded-full bg-white border border-cyan-200 font-mono text-[11px] font-bold text-cyan-700">33%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="woCopyFeedback" class="text-xs font-bold text-emerald-700 hidden">✓ Kopirano</span>
+            <button type="button" onclick="copyWorkOrdersSummary()" class="px-3.5 py-2 rounded-lg text-xs font-extrabold bg-slate-900 hover:bg-slate-800 text-white transition">
+              📋 Kopiraj sažetak
+            </button>
+          </div>
+        </div>
+
         <form onsubmit="addDemoWorkOrder(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <input id="woCodeInput" type="text" required placeholder="Šifra naloga (npr. RN-104)" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono text-slate-900 focus:outline-none focus:border-cyan-600" />
           <input id="woTitleInput" type="text" required placeholder="Opis posla / pozicija" class="bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-cyan-600" />
@@ -1050,6 +1129,104 @@
       }, { passive: true });
     })();
 
+    const NEED_AREAS = {
+      pogon: {
+        title: "Preporuka za pogon: Radni nalog u džepu / Evidencija zastoja",
+        note: "Isporuka kao Android .APK ili template sistem — praćenje naloga, statusa i zastoja bez papira.",
+        inquiry: "Upit: Radni nalog / Evidencija za pogon (.APK)"
+      },
+      zalihe: {
+        title: "Preporuka za zalihe: Paint Manager / QR evidencija zaliha",
+        note: "Praćenje ulaza i izlaza, minimalne zalihe, QR oznake i izvještaji u PDF/CSV.",
+        inquiry: "Upit: Evidencija zaliha i QR sistem"
+      },
+      auto: {
+        title: "Preporuka za vozila: AutoKarton",
+        note: "Evidencija servisa i održavanja za vozače uz email podsjetnike (15, 7 i 3 dana ranije).",
+        inquiry: "Upit: AutoKarton evidencija vozila"
+      },
+      web: {
+        title: "Preporuka za web: Web sajt / Portfolio template",
+        note: "Gotov web kod koji postavljaš na svoju domenu i hosting, bez mjesečne pretplate.",
+        inquiry: "Upit: Web sajt / Portfolio template"
+      }
+    };
+
+    function selectNeedArea(areaKey, btnEl) {
+      const info = NEED_AREAS[areaKey] || NEED_AREAS.pogon;
+      const box = document.getElementById('needAreaBox');
+      if (!box) return;
+
+      document.querySelectorAll('.need-btn').forEach(b => {
+        b.className = 'need-btn p-3 rounded-xl border-2 border-slate-200 bg-slate-50 text-left hover:border-slate-300 transition';
+        const t = b.querySelector('div:first-child');
+        if (t) t.className = 'text-xs font-extrabold text-slate-800';
+      });
+      if (btnEl) {
+        btnEl.className = 'need-btn p-3 rounded-xl border-2 border-cyan-600 bg-cyan-50 text-left transition';
+        const t = btnEl.querySelector('div:first-child');
+        if (t) t.className = 'text-xs font-extrabold text-slate-900';
+      }
+
+      box.innerHTML = `
+        <div>
+          <div class="text-sm font-extrabold text-slate-900">${escapeHtml(info.title)}</div>
+          <div class="text-xs text-slate-600 mt-1">${escapeHtml(info.note)}</div>
+        </div>
+        <button type="button" onclick="askAboutProject('${escapeHtml(info.inquiry)}')" class="shrink-0 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold transition">
+          Zatraži ovaj alat →
+        </button>
+      `;
+    }
+
+    function computeSimpleHash(text) {
+      let h = 2166136261;
+      for (let i = 0; i < text.length; i++) {
+        h ^= text.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return (h >>> 0).toString(16).toUpperCase().padStart(8, '0');
+    }
+
+    function updateMiniQrCard() {
+      const input = document.getElementById('qrPreviewText');
+      const titleEl = document.getElementById('qrCardTitle');
+      const codeEl = document.getElementById('qrCardCode');
+      const matrixEl = document.getElementById('qrPatternMatrix');
+      if (!input || !titleEl || !codeEl || !matrixEl) return;
+
+      const raw = input.value.trim() || 'COREFLOW OZNAKA';
+      const hex = computeSimpleHash(raw);
+      titleEl.textContent = raw.toUpperCase();
+      codeEl.textContent = `OZNAKA: #${hex.slice(0, 6)}`;
+
+      let cellsHtml = '';
+      for (let i = 0; i < 25; i++) {
+        const bitIndex = i % 32;
+        const codeVal = raw.charCodeAt(i % raw.length) || 65;
+        const filled = (((parseInt(hex, 16) >> bitIndex) + codeVal + i) % 2) === 0;
+        cellsHtml += `<span class="rounded-[2px] ${filled ? 'bg-slate-900' : 'bg-slate-100'}"></span>`;
+      }
+      matrixEl.innerHTML = cellsHtml;
+    }
+
+    function setSampleQr(val) {
+      const input = document.getElementById('qrPreviewText');
+      if (!input) return;
+      input.value = val;
+      updateMiniQrCard();
+    }
+
+    function sendQrCardToInquiry() {
+      const input = document.getElementById('qrPreviewText');
+      const raw = (input ? input.value.trim() : '') || 'COREFLOW OZNAKA';
+      const hex = computeSimpleHash(raw).slice(0, 6);
+      document.getElementById('contactSubject').value = 'Upit: QR naljepnica / oznaka';
+      document.getElementById('contactMessage').value =
+        `Zanima me QR sistem / naljepnica slična test kartici:\nTekst: ${raw}\nOznaka: #${hex}\n\nDetalji: `;
+      switchTab('kontakt');
+    }
+
     const SHOWCASE_DATA = {
       nalog: {
         beforeTitle: "Prije: Papir i izgubljeni nalozi",
@@ -1238,8 +1415,19 @@
     let demoWorkOrders = DEFAULT_WO.map(x => ({ ...x }));
     let currentWoFilter = 'all';
 
+    function updateWorkOrdersProgress() {
+      const total = demoWorkOrders.length;
+      const done = demoWorkOrders.filter(w => w.status === 'done').length;
+      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+      const progEl = document.getElementById('woProgressText');
+      const pctEl = document.getElementById('woProgressPct');
+      if (progEl) progEl.textContent = `Završeno: ${done} / ${total} naloga`;
+      if (pctEl) pctEl.textContent = `${pct}%`;
+    }
+
     function renderDemoWorkOrders() {
       const container = document.getElementById('woList');
+      updateWorkOrdersProgress();
       if (!container) return;
       const filtered = demoWorkOrders.filter(w => currentWoFilter === 'all' || w.status === currentWoFilter);
 
@@ -1271,6 +1459,24 @@
           </div>
         `;
       }).join('');
+    }
+
+    function copyWorkOrdersSummary() {
+      const lines = demoWorkOrders.map(w =>
+        `${w.status === 'done' ? '[ZAVRŠENO]' : '[U IZRADI]'} ${w.id} — ${w.title}`
+      );
+      const summary = `CoreFlow Lab • Pregled naloga (${demoWorkOrders.filter(w => w.status === 'done').length}/${demoWorkOrders.length} završeno):\n` + lines.join('\n');
+
+      const showCopied = () => {
+        const fb = document.getElementById('woCopyFeedback');
+        if (!fb) return;
+        fb.classList.remove('hidden');
+        setTimeout(() => fb.classList.add('hidden'), 1800);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summary).then(showCopied).catch(() => {});
+      }
     }
 
     function addDemoWorkOrder(e) {
@@ -1392,7 +1598,7 @@
     }
 
     function askAboutProject(projName) {
-      document.getElementById('contactSubject').value = 'Upit: ' + projName;
+      document.getElementById('contactSubject').value = projName.startsWith('Upit:') ? projName : ('Upit: ' + projName);
       switchTab('kontakt');
     }
 
@@ -1418,6 +1624,8 @@
 
     const initialHash = window.location.hash.replace('#', '');
     switchTab(VALID_TABS.includes(initialHash) ? initialHash : 'usluge', false);
+    selectNeedArea('pogon');
+    updateMiniQrCard();
     switchShowcase('nalog');
     renderDemoWorkOrders();
     initStickerPopupOnLoad();

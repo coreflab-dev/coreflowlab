@@ -1,3 +1,11 @@
+<!--
+  =====================================================================
+  COREFLOW LAB — Official Web Interface
+  Author / Brand: CoreFlow Lab (https://coreflab-dev.github.io/coreflowlab/)
+  Contact Email: core.f.lab@gmail.com
+  Copyright (c) 2026 CoreFlow Lab. All rights reserved.
+  =====================================================================
+-->
 <!DOCTYPE html>
 <html lang="bs">
 <head>
@@ -63,6 +71,274 @@
     }
     .shop-soon-blink-box {
       animation: colorAuraBlink 3.4s ease-in-out infinite;
+    }
+
+    /* =====================================
+       COREFLOW LAB — INTRO (2.1 SEKUNDE)
+       Opcije: shard | pulse | glitch
+    ===================================== */
+
+    #cflIntro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #080e16;
+      opacity: 1;
+      visibility: visible;
+      animation: introExit 0.25s ease 1.85s forwards;
+    }
+
+    #cflIntro::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      border-radius: 50%;
+      box-shadow:
+        0 0 45px rgba(34, 211, 238, 0.18),
+        inset 0 0 55px rgba(139, 92, 246, 0.15);
+      animation: ringPulse 1.8s ease-out forwards;
+    }
+
+    .cfl-logo-stage {
+      position: relative;
+      width: min(75vw, 360px);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cfl-logo-main {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: logoAppear 0.75s ease-out forwards, logoHideShard 0.05s linear 1.15s forwards;
+    }
+
+    .cfl-shard {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      animation: logoBreak 0.7s ease-in 1.15s forwards;
+    }
+
+    .cfl-shard:nth-of-type(2) {
+      clip-path: polygon(0 0, 33% 0, 33% 33%, 0 33%);
+      --x: -105px;
+      --y: -105px;
+    }
+    .cfl-shard:nth-of-type(3) {
+      clip-path: polygon(33% 0, 66% 0, 66% 33%, 33% 33%);
+      --x: 0px;
+      --y: -135px;
+    }
+    .cfl-shard:nth-of-type(4) {
+      clip-path: polygon(66% 0, 100% 0, 100% 33%, 66% 33%);
+      --x: 115px;
+      --y: -95px;
+    }
+    .cfl-shard:nth-of-type(5) {
+      clip-path: polygon(0 33%, 33% 33%, 33% 66%, 0 66%);
+      --x: -135px;
+      --y: 0px;
+    }
+    .cfl-shard:nth-of-type(6) {
+      clip-path: polygon(33% 33%, 66% 33%, 66% 66%, 33% 66%);
+      --x: 0px;
+      --y: 0px;
+    }
+    .cfl-shard:nth-of-type(7) {
+      clip-path: polygon(66% 33%, 100% 33%, 100% 66%, 66% 66%);
+      --x: 135px;
+      --y: 0px;
+    }
+    .cfl-shard:nth-of-type(8) {
+      clip-path: polygon(0 66%, 33% 66%, 33% 100%, 0 100%);
+      --x: -105px;
+      --y: 105px;
+    }
+    .cfl-shard:nth-of-type(9) {
+      clip-path: polygon(33% 66%, 66% 66%, 66% 100%, 33% 100%);
+      --x: 0px;
+      --y: 135px;
+    }
+    .cfl-shard:nth-of-type(10) {
+      clip-path: polygon(66% 66%, 100% 66%, 100% 100%, 66% 100%);
+      --x: 115px;
+      --y: 105px;
+    }
+
+    /* Opcija B: Neon Pulse + Zoom Burst (2.1s) */
+    #cflIntro.intro-style-pulse .cfl-shard {
+      display: none;
+    }
+    #cflIntro.intro-style-pulse .cfl-logo-main {
+      animation: pulseBurst21 1.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Opcija C: Scanline + Split (2.1s) */
+    #cflIntro.intro-style-glitch .cfl-shard {
+      display: none;
+    }
+    #cflIntro.intro-style-glitch .cfl-logo-main {
+      animation: glitchSplit21 1.85s ease-in-out forwards;
+    }
+
+    .cfl-intro-wordmark {
+      position: absolute;
+      top: calc(50% + min(39vw, 190px));
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+      background: linear-gradient(90deg, #22e6df, #38a8ff, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: textAppear 0.6s ease-out 0.15s both;
+    }
+
+    @keyframes logoAppear {
+      0% {
+        opacity: 0;
+        transform: scale(0.65) rotate(-12deg);
+        filter: blur(8px);
+      }
+      70% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes logoHideShard {
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes logoBreak {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(1);
+      }
+      15% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.7);
+        filter: blur(2px);
+      }
+    }
+
+    @keyframes pulseBurst21 {
+      0% {
+        opacity: 0;
+        transform: scale(0.7);
+        filter: drop-shadow(0 0 0 rgba(34, 211, 238, 0));
+      }
+      35% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 28px rgba(34, 211, 238, 0.65));
+      }
+      70% {
+        opacity: 1;
+        transform: scale(0.98);
+        filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.55));
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.45);
+        filter: blur(6px);
+      }
+    }
+
+    @keyframes glitchSplit21 {
+      0% {
+        opacity: 0;
+        transform: translateX(-24px) skewX(-8deg);
+      }
+      25% {
+        opacity: 1;
+        transform: translateX(12px) skewX(6deg);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(0) skewX(0deg);
+      }
+      75% {
+        opacity: 1;
+        transform: translateX(-14px) skewX(-5deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(28px) scale(1.12);
+      }
+    }
+
+    @keyframes textAppear {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ringPulse {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+    }
+
+    @keyframes introExit {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cfl-logo-stage {
+        width: 82vw;
+      }
+      #cflIntro::before {
+        width: 85vw;
+        height: 85vw;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #cflIntro {
+        animation-duration: 0.01ms;
+      }
     }
   </style>
 </head>
@@ -153,17 +429,19 @@
     <div>
       <!-- LOGO U SIDEBARU -->
       <div class="h-16 px-5 flex items-center justify-between border-b border-slate-800/80">
-        <button type="button" onclick="switchTab('usluge')" class="flex items-center gap-3 text-left">
-          <img 
-            src="https://i.ibb.co/6RKCBX1q/sl.jpg" 
-            alt="CoreFlow Lab Logo" 
-            class="w-9 h-9 rounded-xl object-cover border border-cyan-500/50"
-          />
-          <div>
+        <div class="flex items-center gap-3 text-left">
+          <a href="https://coreflab-dev.github.io/coreflowlab/" target="_blank" rel="noopener noreferrer" title="Otvori CoreFlow Lab stranicu" class="shrink-0 group">
+            <img 
+              src="https://i.ibb.co/6RKCBX1q/sl.jpg" 
+              alt="CoreFlow Lab Logo" 
+              class="w-9 h-9 rounded-xl object-cover border border-cyan-500/50 group-hover:border-cyan-300 transition"
+            />
+          </a>
+          <button type="button" onclick="switchTab('usluge')" class="text-left">
             <span class="font-extrabold tracking-tight text-white text-base block leading-none">CoreFlow <span class="text-cyan-400">Lab</span></span>
             <span class="text-[11px] font-mono text-slate-400 mt-0.5 block">Web & .APK Rješenja</span>
-          </div>
-        </button>
+          </button>
+        </div>
 
         <button type="button" onclick="toggleMobileSidebar(false)" aria-label="Zatvori meni" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
           ✕
@@ -320,6 +598,32 @@
           <p class="text-slate-300 text-sm mt-1.5">
             Domenu i hosting osiguravaš na svoje ime; podaci ostaju kod tebe.
           </p>
+        </div>
+      </div>
+
+      <div class="card-box rounded-2xl p-4 sm:p-5 mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <div class="text-xs font-mono uppercase text-cyan-400 font-bold">Test Intro Animacije • 2.1s</div>
+            <div class="text-xs text-slate-400 mt-0.5">Klikni opciju da pokreneš pregled intro animacije (2.1s) bez gubitka funkcija.</div>
+          </div>
+          <span id="activeIntroOptionBadge" class="px-2.5 py-1 rounded-lg bg-cyan-500/15 border border-cyan-400/40 text-cyan-300 font-mono text-xs font-bold self-start sm:self-auto">
+            Aktivno: 9-Shard (2.1s)
+          </span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <button type="button" onclick="triggerIntroPreview('shard', '9-Shard (2.1s)')" class="py-2.5 px-3.5 rounded-xl bg-slate-900 hover:bg-cyan-500/20 border border-cyan-500/40 text-left transition">
+            <div class="text-xs font-extrabold text-white">1. 9-Shard Razbijanje</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Logo pa 9 fragmenata (2.1s)</div>
+          </button>
+          <button type="button" onclick="triggerIntroPreview('pulse', 'Neon Pulse (2.1s)')" class="py-2.5 px-3.5 rounded-xl bg-slate-900 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-400 text-left transition">
+            <div class="text-xs font-extrabold text-white">2. Neon Pulse + Zoom</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Sjajni puls i širenje (2.1s)</div>
+          </button>
+          <button type="button" onclick="triggerIntroPreview('glitch', 'Split Scan (2.1s)')" class="py-2.5 px-3.5 rounded-xl bg-slate-900 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-400 text-left transition">
+            <div class="text-xs font-extrabold text-white">3. Split / Scanline</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Bočni pomak i izlaz (2.1s)</div>
+          </button>
         </div>
       </div>
 
@@ -847,10 +1151,72 @@
       </div>
     </section>
 
+
+    <footer class="mt-10 px-4 sm:px-8 lg:px-10 pb-8 max-w-6xl mx-auto">
+      <div class="pt-6 border-t border-slate-800/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-400">
+        <div>
+          <span class="font-bold text-slate-200">© 2026 CoreFlow Lab. All rights reserved.</span>
+          <span class="block sm:inline sm:ml-2 font-mono text-[11px] text-slate-500">
+            Official GitHub Index • <a href="https://coreflab-dev.github.io/coreflowlab/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">coreflab-dev.github.io/coreflowlab</a>
+          </span>
+        </div>
+        <div class="font-mono text-[11px] text-slate-400">
+          Kontakt: <a href="mailto:core.f.lab@gmail.com" class="text-cyan-400 hover:underline">core.f.lab@gmail.com</a>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <!-- JAVASCRIPT -->
   <script>
+    let cflIntroTimer = null;
+
+    function mountCflIntro(styleKey = 'shard', label = '9-Shard (2.1s)') {
+      if (cflIntroTimer) {
+        clearTimeout(cflIntroTimer);
+        cflIntroTimer = null;
+      }
+      const existing = document.getElementById("cflIntro");
+      if (existing) existing.remove();
+
+      const badge = document.getElementById("activeIntroOptionBadge");
+      if (badge) badge.textContent = "Aktivno: " + label;
+
+      const wrapper = document.createElement("div");
+      wrapper.id = "cflIntro";
+      wrapper.setAttribute("aria-hidden", "true");
+      if (styleKey === 'pulse') wrapper.className = "intro-style-pulse";
+      if (styleKey === 'glitch') wrapper.className = "intro-style-glitch";
+
+      const logoUrl = "https://i.ibb.co/6RKCBX1q/sl.jpg";
+      const shards = Array.from({ length: 9 }, () =>
+        `<img src="${logoUrl}" alt="" class="cfl-shard rounded-3xl" />`
+      ).join("");
+
+      wrapper.innerHTML = `
+        <div class="cfl-logo-stage">
+          <a href="https://coreflab-dev.github.io/coreflowlab/" target="_blank" rel="noopener noreferrer" class="relative w-full h-full flex items-center justify-center">
+            <img src="${logoUrl}" alt="CoreFlow Lab Logo" class="cfl-logo-main rounded-3xl" />
+            ${shards}
+          </a>
+        </div>
+        <div class="cfl-intro-wordmark">COREFLOW LAB</div>
+      `;
+
+      document.body.prepend(wrapper);
+
+      cflIntroTimer = setTimeout(() => {
+        const intro = document.getElementById("cflIntro");
+        if (intro) intro.remove();
+      }, 2100);
+    }
+
+    function triggerIntroPreview(styleKey, label) {
+      mountCflIntro(styleKey, label);
+    }
+
+    mountCflIntro('shard', '9-Shard (2.1s)');
+
     const VALID_TABS = ["usluge", "vodic", "projekti", "shop", "kontakt", "demo"];
     const STICKER_DISMISSED_KEY = "cfl_sticker_popup_dismissed";
 

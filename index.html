@@ -75,14 +75,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes topBannerDrop {
-      from { opacity: 0; transform: translateY(-100%); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .top-sticker-drop {
-      animation: topBannerDrop 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
     @keyframes colorAuraBlink {
       0%, 100% {
         border-color: rgba(8, 145, 178, 0.7);
@@ -211,38 +203,15 @@
 </head>
 <body class="antialiased selection:bg-cyan-600 selection:text-white min-h-screen flex flex-col pb-16 md:pb-0">
 
-  <!-- BRZI PADAFUČI BANNER ODOZGO: BESPLATNA PAMETNA AUTO NALJEPNICA -->
-  <div id="topStickerBanner" class="hidden fixed top-0 inset-x-0 z-50 bg-emerald-50/98 backdrop-blur-md border-b border-emerald-300 shadow-md top-sticker-drop" role="region" aria-label="Besplatna Pametna Auto Naljepnica">
-    <div class="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2.5">
-      <div class="min-w-0 flex-1 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5">
-        <span class="inline-flex w-fit px-2 py-0.5 rounded-full bg-emerald-600 text-white font-mono text-[10px] font-extrabold uppercase shrink-0">
-          Besplatno
-        </span>
-        <p class="text-xs sm:text-sm font-bold text-slate-900 truncate">
-          Pametna Auto Naljepnica — QR oznaka za staklo, email obavijest kad neko skenira.
-        </p>
-      </div>
-
-      <div class="flex items-center gap-1.5 shrink-0">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" onclick="hideTopStickerBanner()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold transition">
-          Preuzmi besplatno →
-        </a>
-        <button type="button" onclick="hideTopStickerBanner()" aria-label="Zatvori traku" class="px-2 py-1.5 rounded-lg bg-white hover:bg-emerald-100 text-slate-600 hover:text-slate-900 border border-emerald-200 text-xs font-bold transition">
-          ✕
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- STICKY TOP MENI (VERTIKALNI MENI NA MOBITELU) -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
     <div class="max-w-6xl mx-auto px-3 sm:px-6">
       <div class="h-14 sm:h-16 flex items-center justify-between gap-2">
         <div class="flex items-center gap-2.5 min-w-0">
           <a href="https://coreflab-dev.github.io/coreflowlab/" target="_blank" rel="noopener noreferrer" title="Otvori CoreFlow Lab stranicu" class="shrink-0 group">
-            <img 
-              src="https://i.ibb.co/6RKCBX1q/sl.jpg" 
-              alt="CoreFlow Lab Logo" 
+            <img
+              src="https://i.ibb.co/6RKCBX1q/sl.jpg"
+              alt="CoreFlow Lab Logo"
               class="w-9 h-9 rounded-xl object-cover border border-cyan-300 group-hover:border-cyan-600 transition"
             />
           </a>
@@ -253,9 +222,6 @@
         </div>
 
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <button type="button" onclick="showTopStickerBanner()" class="px-2.5 sm:px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition">
-            Auto Naljepnica
-          </button>
           <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-bold transition">
             ▶ TikTok
           </a>
@@ -282,7 +248,7 @@
           01 Model rada
         </button>
         <button type="button" onclick="switchTab('projekti')" data-nav="projekti" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
-          02 Šta smo radili (14)
+          02 Šta smo radili (13)
         </button>
         <button type="button" onclick="switchTab('kontakt')" data-nav="kontakt" class="fast-nav-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
           03 Pošalji upit
@@ -299,7 +265,7 @@
           <span class="text-xs font-mono">→</span>
         </button>
         <button type="button" onclick="selectMobileTab('projekti')" data-mnav="projekti" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
-          <span>02 • Šta smo radili (14)</span>
+          <span>02 • Šta smo radili (13)</span>
           <span class="text-xs font-mono">→</span>
         </button>
         <button type="button" onclick="selectMobileTab('kontakt')" data-mnav="kontakt" class="mobile-v-item w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition">
@@ -311,11 +277,8 @@
           <span class="text-xs font-mono">→</span>
         </button>
 
-        <div class="pt-1.5 grid grid-cols-2 gap-2">
-          <button type="button" onclick="closeMobileVerticalMenu(); showTopStickerBanner();" class="py-2.5 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-extrabold text-center">
-            Besplatna Naljepnica
-          </button>
-          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 text-xs font-extrabold text-center">
+        <div class="pt-1.5">
+          <a href="https://www.tiktok.com/@core.flow.lab?_r=1&_t=ZS-9BclbsUc4gf" target="_blank" rel="noopener noreferrer" class="w-full block py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 text-xs font-extrabold text-center">
             ▶ TikTok
           </a>
         </div>
@@ -364,18 +327,6 @@
           </p>
         </div>
       </div>
-
-      <div class="card-box rounded-2xl p-4 sm:p-5 bg-emerald-50/50 border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <span class="text-[11px] font-mono font-extrabold uppercase text-emerald-700">Besplatno za preuzimanje</span>
-          <div class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
-            Pametna Auto Naljepnica — QR oznaka za staklo uz email obavijest kad neko skenira.
-          </div>
-        </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold text-center transition">
-          Preuzmi besplatno →
-        </a>
-      </div>
     </section>
 
     <!-- STRANICA 02: ŠTA SMO RADILI -->
@@ -383,7 +334,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-mono text-cyan-700 font-bold mb-2">
-            02 • ŠTA SMO RADILI (14)
+            02 • ŠTA SMO RADILI (13)
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Šta smo radili</h2>
           <p class="text-slate-600 text-sm mt-1">
@@ -392,7 +343,7 @@
         </div>
 
         <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2">
-          <button type="button" onclick="filterProjects('all', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white">✓ Svi (14)</button>
+          <button type="button" onclick="filterProjects('all', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-extrabold bg-cyan-600 text-white">✓ Svi (13)</button>
           <button type="button" onclick="filterProjects('web', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Web</button>
           <button type="button" onclick="filterProjects('industrija', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Pogon & .APK</button>
           <button type="button" onclick="filterProjects('auto_live', this)" class="proj-filter px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300 hover:border-slate-400">Auto & Live</button>
@@ -587,23 +538,6 @@
           </div>
         </div>
 
-        <div data-cat="auto_live" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-emerald-500 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-1.5">
-              <span class="text-emerald-700 font-bold">QR OBAVIJESTI • BESPLATNO</span>
-              <span class="text-slate-500">Tvoja Domena</span>
-            </div>
-            <h3 class="text-lg font-bold text-slate-900">Pametna Auto Naljepnica</h3>
-            <p class="text-slate-600 text-sm mt-1.5">
-              QR naljepnica za vozilo uz email obavijest vlasniku — preuzmi besplatno.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between gap-2">
-            <button type="button" onclick="showTopStickerBanner()" class="text-xs font-bold text-emerald-700 bg-slate-100 hover:bg-emerald-100 border border-emerald-300 px-3 py-1.5 rounded-lg transition">Traka gore</button>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRkI927U22kVSezKYxr46-_AgdLO6oUtd7LyunEUdoZRmfjw/viewform" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 rounded-lg transition">Preuzmi →</a>
-          </div>
-        </div>
-
         <div data-cat="industrija" class="project-card card-box rounded-2xl p-5 border-l-4 border-l-teal-400 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between text-xs font-mono mb-1.5">
@@ -782,23 +716,11 @@
     const VALID_TABS = ["usluge", "projekti", "kontakt", "shop"];
     const TAB_LABELS = {
       usluge: "01 • Model rada",
-      projekti: "02 • Šta smo radili (14)",
+      projekti: "02 • Šta smo radili (13)",
       kontakt: "03 • Pošalji upit",
       shop: "04 • Digital Shop"
     };
     let currentTabId = "usluge";
-
-    function showTopStickerBanner() {
-      const banner = document.getElementById('topStickerBanner');
-      if (!banner) return;
-      banner.classList.remove('hidden');
-    }
-
-    function hideTopStickerBanner() {
-      const banner = document.getElementById('topStickerBanner');
-      if (!banner) return;
-      banner.classList.add('hidden');
-    }
 
     function openMobileVerticalMenu() {
       const menu = document.getElementById('mobileVerticalMenu');
@@ -1005,7 +927,6 @@
 
     const initialHash = window.location.hash.replace('#', '');
     switchTab(VALID_TABS.includes(initialHash) ? initialHash : 'usluge', false);
-    setTimeout(() => showTopStickerBanner(), 2200);
   </script>
 </body>
 </html>
